@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public struct Characters
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public enum Position
+        {
+            Left,
+            Right
+        }
+        public int CharID;
+        public string Name;
+        public bool isActive;
+        public Position position;
+        //public Sprite Image;
+        //public bool isFlipped;
     }
 }

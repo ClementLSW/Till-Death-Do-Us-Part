@@ -1,0 +1,9 @@
+lineId	lineText	lineOptions	charId1	charId2	scoreEnd
+0001	This is the first line of dialogue		001:true	002:false	0
+0002	This is the second line.		001:true	002:false	0
+0003	Line Number 3\nWow, we can support new lines!		001:true	002:false	0
+0004	This is a Choice. Option 1 goes to Line 5, Option 2 goes to Line7	Go to Line 5:0005;Go to Line 7:0007	001:false	002:true	0
+0005	You have chosen Option 1		001:true	002:false	0
+0006	Good Choice		001:true	002:false	1
+0007	You have chosen option 2		001:true	002:false	0
+0008	Bad Choice		001:true	002:false	-1
