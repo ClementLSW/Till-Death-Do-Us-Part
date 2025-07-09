@@ -4,14 +4,16 @@ public class CharacterManager : MonoBehaviour
 {
     public struct Characters
     {
-        public int CharID;
-        public string Name;
-        public Sprite Image;
         public enum Position
         {
             Left,
             Right
         }
-        public bool isFlipped;
+        public int CharID;
+        public string Name;
+        public bool isActive;
+        public Position position;
+        //public Sprite Image;
+        //public bool isFlipped;
     }
 }
