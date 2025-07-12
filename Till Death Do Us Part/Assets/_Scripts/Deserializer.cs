@@ -17,12 +17,14 @@ public class Deserializer : MonoBehaviour
         }
         dialogManager.SanityCheck(); // Perform sanity check on the DialogManager
         // Ensure the Deserializer is initialized when the game starts
-        ReadTSV();
+        // ReadTSV();
     }
 
     // This method reads a TSV file and deserializes it into a Dialog object
-    public void ReadTSV()
+    public void ReadTSV(DialogManager dm)
     {
+        dialogManager = dm; // Assign the passed DialogManager instance to the local variable
+
         Debug.Log("Reading TSV file...");
         TextAsset tsvFile = Resources.Load<TextAsset>("Dialogue");
 
@@ -83,13 +85,14 @@ public class Deserializer : MonoBehaviour
             }
             foreach (var character in line.CharactersInvolved)
             {
-                Debug.Log($"Character ID: {character.CharID}, Name: {character.Name}, Active: {character.isActive}");
+                Debug.Log($"Name: {character.Name} {character.Pose} {character.Emotion}, {character.position}, Active: {character.isActive}");
             }
         }
 
         Debug.Log("TSV file read and deserialized successfully.");
     }
 
+    #region Parsers
     private List<DialogManager.DialogOptions> ParseDialogOptions(string optionLine)
     {
         if (optionLine.Length == 0)
@@ -150,19 +153,15 @@ public class Deserializer : MonoBehaviour
                 continue; // Skip invalid characters
             }
 
-            int charID;
-            if (!int.TryParse(characterParts[0].Trim(), out charID))
-            {
-                Debug.LogWarning($"Invalid CharID for character '{characterParts[1]}': {characterParts[0]}");
-                continue; // Skip if the CharID is not an integer
-            }
-
+            string[] characterDetails = characterParts[0].Split('_');
             CharacterManager.Characters dialogCharacter = new CharacterManager.Characters
             {
-                CharID = charID,
-                Name = charID.ToString().Trim(),
+                Name = characterDetails[0].ToString().Trim(),
+                Pose = characterDetails[1].ToString().Trim(),
+                Emotion = characterDetails[2].ToString().Trim(),
                 isActive = characterParts[1].Equals("true"),
                 position = CharacterManager.Characters.Position.Left + loopcount // This is Jank
+
             };
 
             outCharacters.Add(dialogCharacter); // Add the valid character to the list
@@ -171,4 +170,5 @@ public class Deserializer : MonoBehaviour
 
         return outCharacters;
     }
+    #endregion
 }
