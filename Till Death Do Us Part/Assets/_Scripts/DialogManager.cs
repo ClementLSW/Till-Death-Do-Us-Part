@@ -18,6 +18,7 @@ public class DialogManager : MonoBehaviour
         public List<DialogOptions> Options;
         public List<Characters> CharactersInvolved;
         public int ScoreDelta;
+        public AudioData AudioData;
     }
 
     // DialogOptions represents a choice in the dialog
@@ -31,6 +32,13 @@ public class DialogManager : MonoBehaviour
     public struct Dialog
     {
         public List<DialogLine> Lines;
+    }
+
+    public struct AudioData
+    {
+        public string SFX;
+        public string BGM;
+        public string DialogueVO;
     }
 
     // MasterBank is a collection of all dialog lines

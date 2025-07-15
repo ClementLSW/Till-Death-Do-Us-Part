@@ -1,6 +1,6 @@
 lineId	lineText	lineOptions	charId1	charId2	scoreEnd	SFX	BGM	Dialogue
 0001	This is the first line of dialogue		MainCharacter_ArmOut_Mask:true	LI_HandHold_Neutral:false	0	beep_short	null	null
-0002	This is the second line.		MainCharacter_ArmOut_Neutral:true	LI_HandHold_Neutral:false	0	null	MC_moan	beep_long
+0002	This is the second line.		MainCharacter_Neutral_Neutral:true	LI_HandHold_Neutral:false	0	null	MC_Moan	beep_long
 0003	Line Number 3\nWow, we can support new lines!		MainCharacter_ArmOut_Mask:true	LI_HandHold_Neutral:false	0	null	null	null
 0004	This is a Choice. Option 1 goes to Line 5, Option 2 goes to Line7	Go to Line 5:0005;Go to Line 7:0007	MainCharacter_ArmOut_Neutral:false	LI_HandHold_Neutral:true	0	null	null	null
 0005	You have chosen Option 1		MainCharacter_ArmOut_Neutral:true	LI_HandHold_Neutral:false	0	null	null	null

@@ -26,7 +26,7 @@ public class Deserializer : MonoBehaviour
         dialogManager = dm; // Assign the passed DialogManager instance to the local variable
 
         Debug.Log("Reading TSV file...");
-        TextAsset tsvFile = Resources.Load<TextAsset>("Dialogue");
+        TextAsset tsvFile = Resources.Load<TextAsset>("Dialogue V2");
 
         if (tsvFile == null)
         {
@@ -62,7 +62,8 @@ public class Deserializer : MonoBehaviour
                 Text = tokens[1], // Assuming the second token is the text
                 Options = ParseDialogOptions(tokens[2]), // Parse options from the third token
                 CharactersInvolved = ParseCharacters(new ArraySegment<string>(tokens, 3, 2).ToArray()), //TIL
-                ScoreDelta = int.Parse(tokens[5])
+                ScoreDelta = int.Parse(tokens[5]),
+                AudioData = ParseAudioClips(new ArraySegment<String>(tokens, 6, 3).ToArray()) // Parse audio clips from the sixth to eighth token
             };
 
             dialogManager.MasterBank.Lines.Add(dialogLine); // Add the dialog line to the master bank
@@ -169,6 +170,40 @@ public class Deserializer : MonoBehaviour
         }
 
         return outCharacters;
+    }
+
+    private DialogManager.AudioData ParseAudioClips(string[] audio)
+    {
+        DialogManager.AudioData audioData = new DialogManager.AudioData();
+        for (int i = 0; i < 3; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    if (audio[i] == "null" || audio[i] == string.Empty)
+                    {
+                        audioData.SFX = ""; // No audio clip
+                    }
+                    else audioData.SFX = audio[0];
+                    break;
+                case 1:
+                    if (audio[i] == "null" || audio[i] == string.Empty)
+                    {
+                        audioData.BGM = ""; // No audio clip
+                    }
+                    else audioData.BGM = audio[1];
+                    break;
+                case 2:
+                    if (audio[i] == "null" || audio[i] == string.Empty)
+                    {
+                        audioData.DialogueVO = ""; // No audio clip
+                    }
+                    else audioData.DialogueVO = audio[2];
+                    break;
+            }
+        }
+
+        return audioData;
     }
     #endregion
 }
