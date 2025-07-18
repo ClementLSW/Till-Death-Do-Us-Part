@@ -88,7 +88,13 @@ public class DialogManager : MonoBehaviour
     [SerializeField] public Button BtnR;
 
     [Header("Debug - Do not alter")]
-    [SerializeField] private int CurrentDialogID;
+    [SerializeField] public int CurrentDialogID { get; private set; }
+
+    public void SetDialogue(int id)
+    {
+        CurrentDialogID = id;
+        NextDialog();
+    }
 
     public void NextDialog()
     {

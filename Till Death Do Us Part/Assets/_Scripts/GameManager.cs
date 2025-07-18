@@ -2,14 +2,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int Score { get; private set; } = 0;
+
+    public void AddScore(int amount)
     {
-        
+        Score += amount;
+        Debug.Log($"Score updated: {Score}");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetScore()
+    {
+        Score = 0;
+        Debug.Log("Score reset to 0");
+    }
+
+    public void LoadScore(int value)
+    {
+        Score = value;
+    }
+
+    private void Awake()
     {
         
     }
