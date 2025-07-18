@@ -63,7 +63,7 @@ public class AudioManager : MonoBehaviour
         AudioGroup audioGroup = bgm.Find(x => x.groupName == BgmGroupId);
         if (audioGroup == null)
         {
-            Debug.LogError($"Dialogue {BgmGroupId} not found.");
+            Debug.LogError($"BGM {BgmGroupId} not found.");
             return;
         }
         AudioClip selectedAudioClip = audioGroup.GetRandomAudioClip();
