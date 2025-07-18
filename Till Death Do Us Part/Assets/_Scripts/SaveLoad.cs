@@ -22,7 +22,7 @@ public class SaveLoad : MonoBehaviour
     public void SaveGame()
     {
         PlayerPrefs.SetInt("Score", gm.Score);
-        PlayerPrefs.SetInt("CurrentDialogID", FindObjectOfType<DialogManager>().CurrentDialogID);
+        PlayerPrefs.SetInt("CurrentDialogID", dm.CurrentDialogID);
         // Implement save logic here
         Debug.Log("Game saved.");
     }
