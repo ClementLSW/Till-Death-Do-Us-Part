@@ -9,6 +9,7 @@ public class DialogManager : MonoBehaviour
     Deserializer deserializer;
     CharacterManager characterManager;
     AudioManager audioManager;
+    GameManager gameManager;
 
     #region Data Struct and Init
     // DialogLine represents a single line of dialog
@@ -51,6 +52,7 @@ public class DialogManager : MonoBehaviour
         MasterBank.Lines = new List<DialogLine>();
         characterManager = GetComponent<CharacterManager>();
         audioManager = GetComponent<AudioManager>();
+        gameManager = GetComponentInParent<GameManager>();
         deserializer = GetComponent<Deserializer>();
         deserializer.ReadTSV(this);
 
@@ -114,6 +116,7 @@ public class DialogManager : MonoBehaviour
 
         // Display the dialog text
         DialogTextField.text = currentLine.Text;
+        gameManager.AddScore(currentLine.ScoreDelta);
 
         if(currentLine.Options == null)
         {
@@ -127,6 +130,7 @@ public class DialogManager : MonoBehaviour
             Debug.Log($"Option 1: {currentLine.Options[0].OptionText}, Option 2: {currentLine.Options[1].OptionText}");
             DisplayOptions(currentLine.Options);
         }
+
     }
 
     public void DisplayOptions(List<DialogOptions> options)
