@@ -108,9 +108,9 @@ public class DialogManager : MonoBehaviour
         }
 
         // Handle Audio
-        if (currentLine.AudioData.SFX != null && currentLine.AudioData.SFX != string.Empty) audioManager.PlaySFXOneShot(currentLine.AudioData.SFX);
-        if (currentLine.AudioData.BGM != null && currentLine.AudioData.BGM != string.Empty) audioManager.PlayBGM(currentLine.AudioData.BGM);
-        if (currentLine.AudioData.DialogueVO != null && currentLine.AudioData.DialogueVO != string.Empty) audioManager.PlayDialogue(currentLine.AudioData.DialogueVO);
+        if (!string.IsNullOrEmpty(currentLine.AudioData.SFX)) audioManager.PlaySFXOneShot(currentLine.AudioData.SFX);
+        if (!string.IsNullOrEmpty(currentLine.AudioData.BGM)) audioManager.PlayBGM(currentLine.AudioData.BGM);
+        if (!string.IsNullOrEmpty(currentLine.AudioData.DialogueVO)) audioManager.PlayDialogue(currentLine.AudioData.DialogueVO);
 
         // Display the dialog text
         DialogTextField.text = currentLine.Text;
