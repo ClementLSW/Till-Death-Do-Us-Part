@@ -8,7 +8,8 @@ public class DialogManager : MonoBehaviour
 {
     Deserializer deserializer;
     CharacterManager characterManager;
-    
+    AudioManager audioManager;
+
     #region Data Struct and Init
     // DialogLine represents a single line of dialog
     public struct DialogLine
@@ -49,6 +50,7 @@ public class DialogManager : MonoBehaviour
 
         MasterBank.Lines = new List<DialogLine>();
         characterManager = GetComponent<CharacterManager>();
+        audioManager = GetComponent<AudioManager>();
         deserializer = GetComponent<Deserializer>();
         deserializer.ReadTSV(this);
 
@@ -72,8 +74,11 @@ public class DialogManager : MonoBehaviour
     [SerializeField] public TMP_Text DialogTextField;
 
     [Header("Character Sprites")]
+    [SerializeField] public GameObject CharacterPanelL;
     [SerializeField] public Image CharacterLPoseSprite;
     [SerializeField] public Image CharacterLEmotionSprite;
+
+    [SerializeField] public GameObject CharacterPanelR;
     [SerializeField] public Image CharacterRPoseSprite;
     [SerializeField] public Image CharacterREmotionSprite;
 
@@ -95,6 +100,11 @@ public class DialogManager : MonoBehaviour
         {
             characterManager.PopulateCharacter(c);
         }
+
+        // Handle Audio
+        if (currentLine.AudioData.SFX != null && currentLine.AudioData.SFX != string.Empty) audioManager.PlaySFXOneShot(currentLine.AudioData.SFX);
+        if (currentLine.AudioData.BGM != null && currentLine.AudioData.BGM != string.Empty) audioManager.PlayBGM(currentLine.AudioData.BGM);
+        if (currentLine.AudioData.DialogueVO != null && currentLine.AudioData.DialogueVO != string.Empty) audioManager.PlayDialogue(currentLine.AudioData.DialogueVO);
 
         // Display the dialog text
         DialogTextField.text = currentLine.Text;

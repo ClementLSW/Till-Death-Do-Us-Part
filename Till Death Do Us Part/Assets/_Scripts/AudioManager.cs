@@ -32,6 +32,7 @@ public class AudioManager : MonoBehaviour
         if (!sfxAudioSource.isPlaying)
         {
             sfxAudioSource.PlayOneShot(selectedAudioClip);
+            Debug.Log($"Playing SFX: {sfxAudioGroupName} - {selectedAudioClip.name}");
         }
         else
         {
@@ -53,6 +54,7 @@ public class AudioManager : MonoBehaviour
 
         dialogueAudioSource.Stop();
         dialogueAudioSource.PlayOneShot(selectedAudioClip);
+        Debug.Log($"Playing Dialogue: {dialogueId} - {selectedAudioClip.name}");
     }
 
     public void PlayBGM(string BgmGroupId)
@@ -68,6 +70,7 @@ public class AudioManager : MonoBehaviour
 
         bgmAudioSource.Stop();
         bgmAudioSource.PlayOneShot(selectedAudioClip);
+        Debug.Log($"Playing BGM: {BgmGroupId} - {selectedAudioClip.name}");
     }
 
     IEnumerator CreateTemporarySfxAudioSource(AudioClip audioClip)

@@ -10,8 +10,8 @@ public class CharacterManager : MonoBehaviour
         dialogManager = GetComponent<DialogManager>();
     }
 
-    Vector3 activeScaleL = new Vector3(1.2f, 1.2f, 1f);
-    Vector3 inactiveScaleL = new Vector3(1f, 1f, 1f);
+    Vector3 activeScaleL = new Vector3(6f, 6f, 1f);
+    Vector3 inactiveScaleL = new Vector3(5f, 5f, 1f);
 
     Vector3 activeScaleR = new Vector3(-1.2f, 1.2f, 1f);
     Vector3 inactiveScaleR = new Vector3(-1f, 1f, 1f);
@@ -38,6 +38,7 @@ public class CharacterManager : MonoBehaviour
         if (dialogManager == null)
         {
             Debug.LogError("DialogManager is not assigned in CharacterManager.");
+            dialogManager = GetComponent<DialogManager>();
             return;
         }
 
@@ -47,13 +48,18 @@ public class CharacterManager : MonoBehaviour
             if (c.isActive)
             {
                 dialogManager.CharacterNameField.text = c.Name;
-                dialogManager.CharacterLPoseSprite.rectTransform.localScale = activeScaleL ;
-                dialogManager.CharacterLEmotionSprite.rectTransform.localScale = activeScaleL;
+
+                dialogManager.CharacterPanelL.transform.localScale = activeScaleL;
+
+                //dialogManager.CharacterLPoseSprite.rectTransform.localScale = activeScaleL ;
+                //dialogManager.CharacterLEmotionSprite.rectTransform.localScale = activeScaleL;
             }
             else
             {
-                dialogManager.CharacterLPoseSprite.rectTransform.localScale = inactiveScaleL;
-                dialogManager.CharacterLEmotionSprite.rectTransform.localScale = inactiveScaleL;
+                dialogManager.CharacterPanelL.transform.localScale = inactiveScaleL;
+
+                //dialogManager.CharacterLPoseSprite.rectTransform.localScale = inactiveScaleL;
+                //dialogManager.CharacterLEmotionSprite.rectTransform.localScale = inactiveScaleL;
             }
 
             // Assign the left character's pose and emotion sprites
@@ -72,15 +78,19 @@ public class CharacterManager : MonoBehaviour
             {
                 dialogManager.CharacterNameField.text = c.Name;
 
-                dialogManager.CharacterRPoseSprite.rectTransform.localScale = activeScaleL;
-                dialogManager.CharacterREmotionSprite.rectTransform.localScale = activeScaleL;
+                dialogManager.CharacterPanelR.transform.localScale = activeScaleL;
+
+                //dialogManager.CharacterRPoseSprite.rectTransform.localScale = activeScaleL;
+                //dialogManager.CharacterREmotionSprite.rectTransform.localScale = activeScaleL;
                 //dialogManager.CharacterRPoseSprite.rectTransform.localScale = activeScaleR;
                 //dialogManager.CharacterREmotionSprite.rectTransform.localScale = activeScaleR;
             }
             else
             {
-                dialogManager.CharacterRPoseSprite.rectTransform.localScale = inactiveScaleL;
-                dialogManager.CharacterREmotionSprite.rectTransform.localScale = inactiveScaleL;
+                dialogManager.CharacterPanelR.transform.localScale = inactiveScaleL;
+
+                //dialogManager.CharacterRPoseSprite.rectTransform.localScale = inactiveScaleL;
+                //dialogManager.CharacterREmotionSprite.rectTransform.localScale = inactiveScaleL;
                 //dialogManager.CharacterRPoseSprite.rectTransform.localScale = inactiveScaleR;
                 //dialogManager.CharacterREmotionSprite.rectTransform.localScale = inactiveScaleR;
             }
