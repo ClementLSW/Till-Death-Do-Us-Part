@@ -69,7 +69,9 @@ public class AudioManager : MonoBehaviour
         AudioClip selectedAudioClip = audioGroup.GetRandomAudioClip();
 
         bgmAudioSource.Stop();
-        bgmAudioSource.PlayOneShot(selectedAudioClip);
+        bgmAudioSource.clip = selectedAudioClip;
+        bgmAudioSource.loop = true;
+        bgmAudioSource.Play();
         Debug.Log($"Playing BGM: {BgmGroupId} - {selectedAudioClip.name}");
     }
 
