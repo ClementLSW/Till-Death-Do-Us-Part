@@ -8,7 +8,9 @@ public class DialogManager : MonoBehaviour
 {
     Deserializer deserializer;
     CharacterManager characterManager;
-    
+    AudioManager audioManager;
+    GameManager gameManager;
+
     #region Data Struct and Init
     // DialogLine represents a single line of dialog
     public struct DialogLine
@@ -18,6 +20,7 @@ public class DialogManager : MonoBehaviour
         public List<DialogOptions> Options;
         public List<Characters> CharactersInvolved;
         public int ScoreDelta;
+        public AudioData AudioData;
     }
 
     // DialogOptions represents a choice in the dialog
@@ -33,6 +36,13 @@ public class DialogManager : MonoBehaviour
         public List<DialogLine> Lines;
     }
 
+    public struct AudioData
+    {
+        public string SFX;
+        public string BGM;
+        public string DialogueVO;
+    }
+
     // MasterBank is a collection of all dialog lines
     public Dialog MasterBank;
     private void Awake()
@@ -41,6 +51,8 @@ public class DialogManager : MonoBehaviour
 
         MasterBank.Lines = new List<DialogLine>();
         characterManager = GetComponent<CharacterManager>();
+        audioManager = GetComponent<AudioManager>();
+        gameManager = GetComponentInParent<GameManager>();
         deserializer = GetComponent<Deserializer>();
         deserializer.ReadTSV(this);
 
@@ -64,8 +76,11 @@ public class DialogManager : MonoBehaviour
     [SerializeField] public TMP_Text DialogTextField;
 
     [Header("Character Sprites")]
+    [SerializeField] public GameObject CharacterPanelL;
     [SerializeField] public Image CharacterLPoseSprite;
     [SerializeField] public Image CharacterLEmotionSprite;
+
+    [SerializeField] public GameObject CharacterPanelR;
     [SerializeField] public Image CharacterRPoseSprite;
     [SerializeField] public Image CharacterREmotionSprite;
 
@@ -75,7 +90,13 @@ public class DialogManager : MonoBehaviour
     [SerializeField] public Button BtnR;
 
     [Header("Debug - Do not alter")]
-    [SerializeField] private int CurrentDialogID;
+    [SerializeField] public int CurrentDialogID { get; private set; }
+
+    public void SetDialogue(int id)
+    {
+        CurrentDialogID = id;
+        NextDialog();
+    }
 
     public void NextDialog()
     {
@@ -88,8 +109,14 @@ public class DialogManager : MonoBehaviour
             characterManager.PopulateCharacter(c);
         }
 
+        // Handle Audio
+        if (!string.IsNullOrEmpty(currentLine.AudioData.SFX)) audioManager.PlaySFXOneShot(currentLine.AudioData.SFX);
+        if (!string.IsNullOrEmpty(currentLine.AudioData.BGM)) audioManager.PlayBGM(currentLine.AudioData.BGM);
+        if (!string.IsNullOrEmpty(currentLine.AudioData.DialogueVO)) audioManager.PlayDialogue(currentLine.AudioData.DialogueVO);
+
         // Display the dialog text
         DialogTextField.text = currentLine.Text;
+        gameManager.AddScore(currentLine.ScoreDelta);
 
         if(currentLine.Options == null)
         {
@@ -103,6 +130,7 @@ public class DialogManager : MonoBehaviour
             Debug.Log($"Option 1: {currentLine.Options[0].OptionText}, Option 2: {currentLine.Options[1].OptionText}");
             DisplayOptions(currentLine.Options);
         }
+
     }
 
     public void DisplayOptions(List<DialogOptions> options)

@@ -2,15 +2,34 @@ using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private DialogManager dm;
+    private GameManager gm;
+
+    private void Awake()
     {
-        
+        dm = GetComponentInChildren<DialogManager>();
+        gm = GetComponent<GameManager>();
+
+        if (dm == null)
+        {
+            Debug.LogError("DialogManager not found in the scene.");
+        }
+        if (gm == null)
+        {
+            Debug.LogError("GameManager not found in the scene.");
+        }
+    }
+    public void SaveGame()
+    {
+        PlayerPrefs.SetInt("Score", gm.Score);
+        PlayerPrefs.SetInt("CurrentDialogID", dm.CurrentDialogID);
+        // Implement save logic here
+        Debug.Log("Game saved.");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadGame()
     {
-        
+        gm.LoadScore(PlayerPrefs.GetInt("Score", 0));
+        dm.SetDialogue(PlayerPrefs.GetInt("CurrentDialogID", 1));
     }
 }
