@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 82eeb69f7b3ce8340bc524cd6ccd03e1
+guid: 87680cb147ad5df42b7097f275151ef0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9091399967427601171
-    second: Eliza_SickHeadNOFlower_WorriedClosedMouth_0
+      213: 405718752712903017
+    second: Eliza_HealthyBody_HandDown_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eliza_SickHeadNOFlower_WorriedClosedMouth_0
+      name: Eliza_HealthyBody_HandDown_0
       rect:
         serializedVersion: 2
-        x: 59
-        y: 739
-        width: 500
-        height: 271
+        x: 108
+        y: 0
+        width: 433
+        height: 796
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: decda7ed5ebd4d180800000000000000
-      internalID: -9091399967427601171
+      spriteID: 969ca265e0761a500800000000000000
+      internalID: 405718752712903017
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Eliza_SickHeadNOFlower_WorriedClosedMouth_0: -9091399967427601171
+      Eliza_HealthyBody_HandDown_0: 405718752712903017
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

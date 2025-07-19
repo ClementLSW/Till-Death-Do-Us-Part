@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 82eeb69f7b3ce8340bc524cd6ccd03e1
+guid: c7f62187b9417bb4a88fbf238979fb0a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9091399967427601171
-    second: Eliza_SickHeadNOFlower_WorriedClosedMouth_0
+      213: -9188270612064886900
+    second: Eliza_HealthyHeadFlower_AngryClosedMouth_0
+  - first:
+      213: 1252077330216139772
+    second: Eliza_HealthyHeadFlower_AngryClosedMouth_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eliza_SickHeadNOFlower_WorriedClosedMouth_0
+      name: Eliza_HealthyHeadFlower_AngryClosedMouth_0
       rect:
         serializedVersion: 2
-        x: 59
-        y: 739
-        width: 500
-        height: 271
+        x: 64
+        y: 736
+        width: 505
+        height: 272
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: decda7ed5ebd4d180800000000000000
-      internalID: -9091399967427601171
+      spriteID: c8f16b35f84bc7080800000000000000
+      internalID: -9188270612064886900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eliza_HealthyHeadFlower_AngryClosedMouth_1
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 736
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfb3ad2b2b5406110800000000000000
+      internalID: 1252077330216139772
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Eliza_SickHeadNOFlower_WorriedClosedMouth_0: -9091399967427601171
+      Eliza_HealthyHeadFlower_AngryClosedMouth_0: -9188270612064886900
+      Eliza_HealthyHeadFlower_AngryClosedMouth_1: 1252077330216139772
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
