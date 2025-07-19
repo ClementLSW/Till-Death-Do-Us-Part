@@ -64,10 +64,10 @@ public class CharacterManager : MonoBehaviour
 
             // Assign the left character's pose and emotion sprites
             dialogManager.CharacterLPoseSprite.sprite = Resources.Load<Sprite>(
-                $"Sprites/Placeholder/Character Sprites/{c.Name}/Pose/{c.Pose}"
+                $"Sprites/Character Sprites/{c.Name}/Pose/{c.Pose}"
                 );
             dialogManager.CharacterLEmotionSprite.sprite = Resources.Load<Sprite>(
-                $"Sprites/Placeholder/Character Sprites/{c.Name}/Emotion/{c.Emotion}"
+                $"Sprites/Character Sprites/{c.Name}/Emotion/{c.Emotion}"
                 );
         }
         else
@@ -97,10 +97,10 @@ public class CharacterManager : MonoBehaviour
 
             // Assign the right character's pose and emotion sprites
             dialogManager.CharacterRPoseSprite.sprite = Resources.Load<Sprite>(
-                $"Sprites/Placeholder/Character Sprites/{c.Name}/Pose/{c.Pose}"
+                $"Sprites/Character Sprites/{c.Name}/Pose/{c.Pose}"
                 );
             dialogManager.CharacterREmotionSprite.sprite = Resources.Load<Sprite>(
-                $"Sprites/Placeholder/Character Sprites/{c.Name}/Emotion/{c.Emotion}"
+                $"Sprites/Character Sprites/{c.Name}/Emotion/{c.Emotion}"
                 );
 
         }
