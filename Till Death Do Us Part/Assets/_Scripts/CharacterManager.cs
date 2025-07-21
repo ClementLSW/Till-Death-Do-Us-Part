@@ -1,7 +1,5 @@
 using UnityEngine;
 
-//TODO: Change Directory to Sprites/Character Sprites
-
 public class CharacterManager : MonoBehaviour
 {
     DialogManager dialogManager;
@@ -73,7 +71,7 @@ public class CharacterManager : MonoBehaviour
         else
         {
             //TODO: Change back to negative X scale once assets have be readjusted
-            //TODO: Consider scaling parent object instead of inividual sprites
+
             if (c.isActive)
             {
                 dialogManager.CharacterNameField.text = c.Name;

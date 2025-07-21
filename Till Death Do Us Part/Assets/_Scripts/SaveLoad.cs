@@ -32,4 +32,9 @@ public class SaveLoad : MonoBehaviour
         gm.LoadScore(PlayerPrefs.GetInt("Score", 0));
         dm.SetDialogue(PlayerPrefs.GetInt("CurrentDialogID", 1));
     }
+
+    public void ResetGame()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
