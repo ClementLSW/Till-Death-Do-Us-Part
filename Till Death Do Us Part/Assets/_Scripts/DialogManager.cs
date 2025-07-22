@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -21,6 +22,8 @@ public class DialogManager : MonoBehaviour
         public List<Characters> CharactersInvolved;
         public int ScoreDelta;
         public AudioData AudioData;
+        public string BG;
+        public int GOTO;
     }
 
     // DialogOptions represents a choice in the dialog
@@ -57,7 +60,11 @@ public class DialogManager : MonoBehaviour
         deserializer.ReadTSV(this);
 
         CurrentDialogID = 1;
-        NextDialog();
+    }
+
+    private void Start()
+    {
+        NextDialog(); 
     }
 
     public void SanityCheck()
@@ -84,6 +91,9 @@ public class DialogManager : MonoBehaviour
     [SerializeField] public Image CharacterRPoseSprite;
     [SerializeField] public Image CharacterREmotionSprite;
 
+    [Header("Background")]
+    [SerializeField] public Image bg; // Background GameObject to be populated with sprites
+
     [Header("Options Panel")]
     [SerializeField] public GameObject OptionsPanel;
     [SerializeField] public Button BtnL;
@@ -92,6 +102,7 @@ public class DialogManager : MonoBehaviour
     [Header("Typing Settings")]
     [SerializeField] float typingDelay = 0.05f;
     bool skipTyping = false;
+    bool isTyping = false;
 
     [Header("Debug - Do not alter")]
     [SerializeField] public int CurrentDialogID { get; private set; }
@@ -104,8 +115,28 @@ public class DialogManager : MonoBehaviour
 
     public void NextDialog()
     {
+        // If Currently text is being populated, skip animation and return
+        if (isTyping)
+        {
+            SkipTypingAnimation();
+            return; // Prevent proceeding if typing is still in progress
+        }
+
         // Find the current dialog line based on CurrentDialogID
         DialogLine currentLine = MasterBank.Lines.Find(line => line.ID == CurrentDialogID);
+
+        // Populate Background
+        if (!string.IsNullOrEmpty(currentLine.BG))
+        {
+            if (bg != null)
+            {
+                bg.sprite = Resources.Load<Sprite>($"Sprites/BG/{currentLine.BG}");
+            }
+            else
+            {
+                Debug.LogWarning("Background GameObject not found in the scene.");
+            }
+        }
 
         // Populate the character information
         foreach (Characters c in currentLine.CharactersInvolved)
@@ -126,8 +157,9 @@ public class DialogManager : MonoBehaviour
         if(currentLine.Options == null)
         {
             Debug.LogWarning($"No options found for dialog ID {CurrentDialogID}. Proceeding to next dialog line.");
-            // If there are no options, Register next line in the dialog
-            CurrentDialogID++;
+            // If there are no options, Register next line in the dialog based on GOTO value
+            if(currentLine.GOTO > 0)CurrentDialogID = currentLine.GOTO;
+            else Debug.LogWarning($"GOTO value is not set for dialog ID {CurrentDialogID}. No next dialog line will be registered.");
         }
         else
         {
@@ -157,6 +189,8 @@ public class DialogManager : MonoBehaviour
 
     IEnumerator TypeText(string text)
     {
+        isTyping = true; // Mark typing as in progress
+
         DialogTextField.text = "";
         foreach (char c in text)
         {
@@ -164,13 +198,20 @@ public class DialogManager : MonoBehaviour
             {
                 DialogTextField.text = text;
                 skipTyping = false;
+                isTyping = false;
                 yield break;
             }
             DialogTextField.text += c;
             yield return new WaitForSeconds(typingDelay);
         }
+
+        skipTyping = false; // Reset skipTyping after finishing the text
+        isTyping = false; // Mark typing as finished
     }
 
+    /// <summary>
+    /// Skips the typing animation for the current dialog line.
+    /// </summary>
     public void SkipTypingAnimation()
     {
         skipTyping = true;
