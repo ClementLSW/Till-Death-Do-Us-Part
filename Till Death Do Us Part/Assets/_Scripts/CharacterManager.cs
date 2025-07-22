@@ -11,8 +11,8 @@ public class CharacterManager : MonoBehaviour
     Vector3 activeScaleL = new Vector3(6f, 6f, 1f);
     Vector3 inactiveScaleL = new Vector3(5f, 5f, 1f);
 
-    Vector3 activeScaleR = new Vector3(-1.2f, 1.2f, 1f);
-    Vector3 inactiveScaleR = new Vector3(-1f, 1f, 1f);
+    Vector3 activeScaleR = new Vector3(-6f, 6f, 1f);
+    Vector3 inactiveScaleR = new Vector3(-5f, 5f, 1f);
 
     public struct Characters
     {
@@ -48,17 +48,13 @@ public class CharacterManager : MonoBehaviour
                 dialogManager.CharacterNameField.text = c.Name;
 
                 dialogManager.CharacterPanelL.transform.localScale = activeScaleL;
-
-                //dialogManager.CharacterLPoseSprite.rectTransform.localScale = activeScaleL ;
-                //dialogManager.CharacterLEmotionSprite.rectTransform.localScale = activeScaleL;
             }
             else
             {
                 dialogManager.CharacterPanelL.transform.localScale = inactiveScaleL;
-
-                //dialogManager.CharacterLPoseSprite.rectTransform.localScale = inactiveScaleL;
-                //dialogManager.CharacterLEmotionSprite.rectTransform.localScale = inactiveScaleL;
             }
+
+            Debug.Log($"Sprites/Character Sprites/{c.Name}/Pose/{c.Pose}");
 
             // Assign the left character's pose and emotion sprites
             dialogManager.CharacterLPoseSprite.sprite = Resources.Load<Sprite>(
@@ -76,7 +72,7 @@ public class CharacterManager : MonoBehaviour
             {
                 dialogManager.CharacterNameField.text = c.Name;
 
-                dialogManager.CharacterPanelR.transform.localScale = activeScaleL;
+                dialogManager.CharacterPanelR.transform.localScale = activeScaleR;
 
                 //dialogManager.CharacterRPoseSprite.rectTransform.localScale = activeScaleL;
                 //dialogManager.CharacterREmotionSprite.rectTransform.localScale = activeScaleL;
@@ -85,7 +81,7 @@ public class CharacterManager : MonoBehaviour
             }
             else
             {
-                dialogManager.CharacterPanelR.transform.localScale = inactiveScaleL;
+                dialogManager.CharacterPanelR.transform.localScale = inactiveScaleR;
 
                 //dialogManager.CharacterRPoseSprite.rectTransform.localScale = inactiveScaleL;
                 //dialogManager.CharacterREmotionSprite.rectTransform.localScale = inactiveScaleL;

@@ -2225,7 +2225,7 @@ MonoBehaviour:
   CharacterLPoseSprite: {fileID: 618475945}
   CharacterLEmotionSprite: {fileID: 756708753}
   CharacterPanelR: {fileID: 2121404106}
-  CharacterRPoseSprite: {fileID: 1227091}
+  CharacterRPoseSprite: {fileID: 1450960575}
   CharacterREmotionSprite: {fileID: 1227091}
   OptionsPanel: {fileID: 698698286}
   BtnL: {fileID: 2055705918}
@@ -2817,11 +2817,11 @@ RectTransform:
   - {fileID: 1450960574}
   m_Father: {fileID: 761197930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -100, y: 350}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 500, y: 350}
   m_SizeDelta: {x: 125, y: 125}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        SaveLoad saveLoad = GetComponent<SaveLoad>();
+        saveLoad.ResetGame();
     }
 }
