@@ -89,6 +89,10 @@ public class DialogManager : MonoBehaviour
     [SerializeField] public Button BtnL;
     [SerializeField] public Button BtnR;
 
+    [Header("Typing Settings")]
+    [SerializeField] float typingDelay = 0.05f;
+    bool skipTyping = false;
+
     [Header("Debug - Do not alter")]
     [SerializeField] public int CurrentDialogID { get; private set; }
 
@@ -114,8 +118,9 @@ public class DialogManager : MonoBehaviour
         if (!string.IsNullOrEmpty(currentLine.AudioData.BGM)) audioManager.PlayBGM(currentLine.AudioData.BGM);
         if (!string.IsNullOrEmpty(currentLine.AudioData.DialogueVO)) audioManager.PlayDialogue(currentLine.AudioData.DialogueVO);
 
-        // Display the dialog text
-        DialogTextField.text = currentLine.Text;
+        // Display the dialog text with typing effect
+        StopAllCoroutines();
+        StartCoroutine(TypeText(currentLine.Text));
         gameManager.AddScore(currentLine.ScoreDelta);
 
         if(currentLine.Options == null)
@@ -148,6 +153,27 @@ public class DialogManager : MonoBehaviour
 
         BtnL.onClick.AddListener(() => SelectOption(options[0].NextDialogID));
         BtnR.onClick.AddListener(() => SelectOption(options[1].NextDialogID));
+    }
+
+    IEnumerator TypeText(string text)
+    {
+        DialogTextField.text = "";
+        foreach (char c in text)
+        {
+            if (skipTyping)
+            {
+                DialogTextField.text = text;
+                skipTyping = false;
+                yield break;
+            }
+            DialogTextField.text += c;
+            yield return new WaitForSeconds(typingDelay);
+        }
+    }
+
+    public void SkipTypingAnimation()
+    {
+        skipTyping = true;
     }
 
     // #VibeCoded
