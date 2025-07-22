@@ -130,7 +130,15 @@ public class DialogManager : MonoBehaviour
         {
             if (bg != null)
             {
-                bg.sprite = Resources.Load<Sprite>($"Sprites/BG/{currentLine.BG}");
+                Sprite loadedSprite = Resources.Load<Sprite>($"Sprites/BG/{currentLine.BG}");
+                if (loadedSprite != null)
+                {
+                    bg.sprite = loadedSprite;
+                }
+                else
+                {
+                    Debug.LogWarning($"Background sprite '{currentLine.BG}' could not be found in the Resources folder.");
+                }
             }
             else
             {
