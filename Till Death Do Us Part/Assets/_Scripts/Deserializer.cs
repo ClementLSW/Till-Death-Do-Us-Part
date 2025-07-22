@@ -63,7 +63,9 @@ public class Deserializer : MonoBehaviour
                 Options = ParseDialogOptions(tokens[2]), // Parse options from the third token
                 CharactersInvolved = ParseCharacters(new ArraySegment<string>(tokens, 3, 2).ToArray()), //TIL
                 ScoreDelta = int.Parse(tokens[5]),
-                AudioData = ParseAudioClips(new ArraySegment<String>(tokens, 6, 3).ToArray()) // Parse audio clips from the sixth to eighth token
+                AudioData = ParseAudioClips(new ArraySegment<String>(tokens, 6, 3).ToArray()), // Parse audio clips from the sixth to eighth token
+                BG = tokens[9], // Assuming the tenth token is the background
+                GOTO = int.Parse(tokens[10]) // Assuming the eleventh token is the GOTO value
             };
 
             dialogManager.MasterBank.Lines.Add(dialogLine); // Add the dialog line to the master bank
