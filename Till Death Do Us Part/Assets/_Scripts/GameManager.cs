@@ -26,4 +26,13 @@ public class GameManager : MonoBehaviour
         SaveLoad saveLoad = GetComponent<SaveLoad>();
         saveLoad.ResetGame();
     }
+
+    // TODO: Set Endings
+    public void EvaluateEnding()
+    {
+        if (Score > 0) { Debug.Log("Good End"); } else
+        {
+            Debug.Log("BadEnd");
+        }
+    }
 }
