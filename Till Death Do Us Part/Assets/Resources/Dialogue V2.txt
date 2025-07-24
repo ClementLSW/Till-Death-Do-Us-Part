@@ -1,9 +1,9 @@
-lineId	lineText	lineOptions	charId1	charId2	scoreEnd	SFX	BGM	Dialogue	BG	GOTO
-0001	This is the first line of dialogue		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:true	0	beep_short	null	null	house	002
-0002	This is the second line.		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryOpenedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	0	null	MC_moan	beep_long	house	003
-0003	Line Number 3\nWow, we can support new lines!		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	0	null	null	null	house	004
-0004	This is a Choice. Option 1 goes to Line 5, Option 2 goes to Line7	Go to Line 5:0005;Go to Line 7:0007	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:true	0	null	null	null	house	-1
-0005	You have chosen Option 1		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryOpenedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	0	null	null	null	house	006
-0006	Good Choice		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryOpenedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	1	null	null	null	house	9999
-0007	You have chosen option 2		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	0	beep_short	null	null	house	007
-0008	Bad Choice		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	-1	null	null	beep_long	house	9999
+lineId	lineText	lineOptions	charId1	charId2	scoreEnd	SFX	BGM	Dialogue	BG	GOTO	VFX
+0001	This is the first line of dialogue		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:true	0	beep_short	null	null	house	002	flashred
+0002	This is the second line.		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryOpenedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	0	null	MC_moan	beep_long	house	003	null
+0003	Line Number 3\nWow, we can support new lines!		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	0	null	null	null	house	004	null
+0004	This is a Choice. Option 1 goes to Line 5, Option 2 goes to Line7	Go to Line 5:0005;Go to Line 7:0007	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:true	0	null	null	null	house	-1	flashred
+0005	You have chosen Option 1		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryOpenedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	0	null	null	null	house	006	null
+0006	Good Choice		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryOpenedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	1	null	null	null	house	9999	null
+0007	You have chosen option 2		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	0	beep_short	null	null	house	007	flashred
+0008	Bad Choice		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:true	Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryClosedMouth:false	-1	null	null	beep_long	house	9999	null

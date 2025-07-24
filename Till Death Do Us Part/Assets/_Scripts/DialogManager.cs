@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 using static CharacterManager;
@@ -11,6 +12,7 @@ public class DialogManager : MonoBehaviour
     CharacterManager characterManager;
     AudioManager audioManager;
     GameManager gameManager;
+    VFXManager vfxManager;
 
     #region Data Struct and Init
     // DialogLine represents a single line of dialog
@@ -24,6 +26,7 @@ public class DialogManager : MonoBehaviour
         public AudioData AudioData;
         public string BG;
         public int GOTO;
+        public string VFX;
     }
 
     // DialogOptions represents a choice in the dialog
@@ -56,6 +59,7 @@ public class DialogManager : MonoBehaviour
         characterManager = GetComponent<CharacterManager>();
         audioManager = GetComponent<AudioManager>();
         gameManager = GetComponentInParent<GameManager>();
+        vfxManager = transform.parent.GetComponentInChildren<VFXManager>();
         deserializer = GetComponent<Deserializer>();
         deserializer.ReadTSV(this);
 
@@ -115,6 +119,11 @@ public class DialogManager : MonoBehaviour
 
     public void NextDialog()
     {
+        if(CurrentDialogID == 9999)
+        {
+            gameManager.EvaluateEnding();
+        }
+
         // If Currently text is being populated, skip animation and return
         if (isTyping)
         {
@@ -124,6 +133,15 @@ public class DialogManager : MonoBehaviour
 
         // Find the current dialog line based on CurrentDialogID
         DialogLine currentLine = MasterBank.Lines.Find(line => line.ID == CurrentDialogID);
+
+        switch (currentLine.VFX)
+        {
+            case "flashred":
+                vfxManager.TriggerFlashRed();
+                break;
+            default:
+                break;
+        }
 
         // Populate Background
         if (!string.IsNullOrEmpty(currentLine.BG))
