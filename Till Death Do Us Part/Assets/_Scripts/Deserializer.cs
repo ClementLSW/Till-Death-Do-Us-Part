@@ -48,24 +48,22 @@ public class Deserializer : MonoBehaviour
             // Tokenize the line by tab character
             string[] tokens = line_t.Split('\t'); // Split by tab character
 
-
-            int temp_ID;
-            if (!int.TryParse(tokens[0], out temp_ID))
+            if (tokens[0] == "lineID")
             {
-                Debug.LogWarning($"Skipping line due to invalid ID: {line}");
-                continue; // If the first token is not an integer, stop processing
+                Debug.LogWarning($"Skipping header line");
+                continue;
             }
 
             DialogManager.DialogLine dialogLine = new DialogManager.DialogLine
             {
-                ID = temp_ID,
+                ID = tokens[0],
                 Text = tokens[1], // Assuming the second token is the text
                 Options = ParseDialogOptions(tokens[2]), // Parse options from the third token
                 CharactersInvolved = ParseCharacters(new ArraySegment<string>(tokens, 3, 2).ToArray()), //TIL
                 ScoreDelta = int.Parse(tokens[5]),
                 AudioData = ParseAudioClips(new ArraySegment<String>(tokens, 6, 3).ToArray()), // Parse audio clips from the sixth to eighth token
                 BG = tokens[9], // Assuming the tenth token is the background
-                GOTO = int.Parse(tokens[10]), // Assuming the eleventh token is the GOTO value
+                GOTO = tokens[10], // Assuming the eleventh token is the GOTO value
                 VFX = tokens[11]
             };
 
@@ -118,13 +116,7 @@ public class Deserializer : MonoBehaviour
             }
 
             string optionText = optionParts[0].Trim();
-            int nextDialogID;
-
-            if (!int.TryParse(optionParts[1].Trim(), out nextDialogID))
-            {
-                Debug.LogWarning($"Invalid NextDialogID for option '{optionText}': {optionParts[1]}");
-                continue; // Skip if the next dialog ID is not an integer
-            }
+            string nextDialogID = optionParts[1];
 
             DialogManager.DialogOptions dialogOption = new DialogManager.DialogOptions
             {
@@ -150,25 +142,44 @@ public class Deserializer : MonoBehaviour
         int loopcount = 0;
         foreach (string character in characters)
         {
-            string[] characterParts = character.Split(':'); // Assuming format "CharID:isActive"
-            if (characterParts.Length != 2)
+            if (string.IsNullOrWhiteSpace(character))
             {
-                Debug.LogWarning($"Invalid character format: {character}");
-                continue; // Skip invalid characters
+                Debug.LogWarning("Empty character string found, skipping.");
+                CharacterManager.Characters dialogCharacter = new CharacterManager.Characters
+                {
+                    Name = null,
+                    Pose = null,
+                    Emotion = null,
+                    isActive = false,
+                    position = CharacterManager.Characters.Position.Left + loopcount // This is Jank
+
+                };
+                outCharacters.Add(dialogCharacter); // Add the valid character to the list
+                continue; // Skip empty character strings
+            }
+            else
+            {
+                string[] characterParts = character.Split(':'); // Assuming format "CharID:isActive"
+                if (characterParts.Length != 2)
+                {
+                    Debug.LogWarning($"Invalid character format: {character}");
+                    continue; // Skip invalid characters
+                }
+
+                string[] characterDetails = characterParts[0].Split('_');
+                CharacterManager.Characters dialogCharacter = new CharacterManager.Characters
+                {
+                    Name = characterDetails[0].ToString().Trim(),
+                    Pose = characterDetails[1].ToString().Trim(),
+                    Emotion = characterDetails[2].ToString().Trim(),
+                    isActive = characterParts[1].Equals("true"),
+                    position = CharacterManager.Characters.Position.Left + loopcount // This is Jank
+
+                };
+                outCharacters.Add(dialogCharacter); // Add the valid character to the list
             }
 
-            string[] characterDetails = characterParts[0].Split('_');
-            CharacterManager.Characters dialogCharacter = new CharacterManager.Characters
-            {
-                Name = characterDetails[0].ToString().Trim(),
-                Pose = characterDetails[1].ToString().Trim(),
-                Emotion = characterDetails[2].ToString().Trim(),
-                isActive = characterParts[1].Equals("true"),
-                position = CharacterManager.Characters.Position.Left + loopcount // This is Jank
 
-            };
-
-            outCharacters.Add(dialogCharacter); // Add the valid character to the list
             loopcount++; // Increment loop count for position assignment
         }
 

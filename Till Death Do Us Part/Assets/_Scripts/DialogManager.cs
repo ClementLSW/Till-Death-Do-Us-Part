@@ -13,19 +13,19 @@ public class DialogManager : MonoBehaviour
     AudioManager audioManager;
     GameManager gameManager;
     VFXManager vfxManager;
-
+    
     #region Data Struct and Init
     // DialogLine represents a single line of dialog
     public struct DialogLine
     {
-        public int ID;
+        public string ID;
         public string Text;
         public List<DialogOptions> Options;
         public List<Characters> CharactersInvolved;
         public int ScoreDelta;
         public AudioData AudioData;
         public string BG;
-        public int GOTO;
+        public string GOTO;
         public string VFX;
     }
 
@@ -33,7 +33,7 @@ public class DialogManager : MonoBehaviour
     public struct DialogOptions
     {
         public string OptionText;
-        public int NextDialogID;
+        public string NextDialogID;
     }
 
     // Dialog is a collection of dialog lines
@@ -63,7 +63,7 @@ public class DialogManager : MonoBehaviour
         deserializer = GetComponent<Deserializer>();
         deserializer.ReadTSV(this);
 
-        CurrentDialogID = 1;
+        CurrentDialogID = "mon001";
     }
 
     private void Start()
@@ -109,9 +109,9 @@ public class DialogManager : MonoBehaviour
     bool isTyping = false;
 
     [Header("Debug - Do not alter")]
-    [SerializeField] public int CurrentDialogID { get; private set; }
+    [SerializeField] public string CurrentDialogID { get; private set; }
 
-    public void SetDialogue(int id)
+    public void SetDialogue(string id)
     {
         CurrentDialogID = id;
         NextDialog();
@@ -119,7 +119,7 @@ public class DialogManager : MonoBehaviour
 
     public void NextDialog()
     {
-        if(CurrentDialogID == 9999)
+        if(CurrentDialogID == "END")
         {
             gameManager.EvaluateEnding();
         }
@@ -184,7 +184,7 @@ public class DialogManager : MonoBehaviour
         {
             Debug.LogWarning($"No options found for dialog ID {CurrentDialogID}. Proceeding to next dialog line.");
             // If there are no options, Register next line in the dialog based on GOTO value
-            if(currentLine.GOTO > 0)CurrentDialogID = currentLine.GOTO;
+            if(!string.IsNullOrEmpty(currentLine.GOTO))CurrentDialogID = currentLine.GOTO;
             else Debug.LogWarning($"GOTO value is not set for dialog ID {CurrentDialogID}. No next dialog line will be registered.");
         }
         else
@@ -244,7 +244,7 @@ public class DialogManager : MonoBehaviour
     }
 
     // #VibeCoded
-    public void SelectOption(int nextDialogID)
+    public void SelectOption(string nextDialogID)
     {
         CurrentDialogID = nextDialogID;
         OptionsPanel.SetActive(false);
