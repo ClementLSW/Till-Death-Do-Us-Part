@@ -8,11 +8,16 @@ public class CharacterManager : MonoBehaviour
         dialogManager = GetComponent<DialogManager>();
     }
 
-    Vector3 activeScaleL = new Vector3(6f, 6f, 1f);
-    Vector3 inactiveScaleL = new Vector3(5f, 5f, 1f);
+    private void Start()
+    {
+        activeScaleL = dialogManager.CharacterPanelL.transform.localScale;
+        activeScaleR = dialogManager.CharacterPanelR.transform.localScale;
+    }
 
-    Vector3 activeScaleR = new Vector3(-6f, 6f, 1f);
-    Vector3 inactiveScaleR = new Vector3(-5f, 5f, 1f);
+
+    Vector3 activeScaleL;
+
+    Vector3 activeScaleR;
 
     public struct Characters
     {
@@ -47,11 +52,19 @@ public class CharacterManager : MonoBehaviour
             {
                 dialogManager.CharacterNameField.text = c.Name;
 
-                dialogManager.CharacterPanelL.transform.localScale = activeScaleL;
+                //dialogManager.CharacterPanelL.transform.localScale = activeScaleL;
+                var charColor = dialogManager.CharacterLEmotionSprite.color;
+                charColor.a = 1.0f;
+                dialogManager.CharacterLEmotionSprite.color = new(1f, 1f, 1f);
+                dialogManager.CharacterLPoseSprite.color = new(1f, 1f, 1f);
             }
             else
             {
-                dialogManager.CharacterPanelL.transform.localScale = inactiveScaleL;
+                var charColor = dialogManager.CharacterLEmotionSprite.color;
+                charColor.a = 0.9f;
+                dialogManager.CharacterLEmotionSprite.color = new(0.8f, 0.8f, 0.8f);
+                dialogManager.CharacterLPoseSprite.color = new(0.8f, 0.8f, 0.8f);
+                //dialogManager.CharacterPanelL.transform.localScale = inactiveScaleL;
             }
 
             Debug.Log($"Sprites/Character Sprites/{c.Name}/Pose/{c.Pose}");
@@ -72,7 +85,11 @@ public class CharacterManager : MonoBehaviour
             {
                 dialogManager.CharacterNameField.text = c.Name;
 
-                dialogManager.CharacterPanelR.transform.localScale = activeScaleR;
+                //dialogManager.CharacterPanelR.transform.localScale = activeScaleR;
+                var charColor = dialogManager.CharacterLEmotionSprite.color;
+                charColor.a = 1.0f;
+                dialogManager.CharacterREmotionSprite.color = new(1f, 1f, 1f);
+                dialogManager.CharacterRPoseSprite.color = new(1f, 1f, 1f);
 
                 //dialogManager.CharacterRPoseSprite.rectTransform.localScale = activeScaleL;
                 //dialogManager.CharacterREmotionSprite.rectTransform.localScale = activeScaleL;
@@ -81,7 +98,11 @@ public class CharacterManager : MonoBehaviour
             }
             else
             {
-                dialogManager.CharacterPanelR.transform.localScale = inactiveScaleR;
+                //dialogManager.CharacterPanelR.transform.localScale = inactiveScaleR;
+                var charColor = dialogManager.CharacterLEmotionSprite.color;
+                charColor.a = 0.9f;
+                dialogManager.CharacterREmotionSprite.color = new(0.8f, 0.8f, 0.8f);
+                dialogManager.CharacterRPoseSprite.color = new(0.8f, 0.8f, 0.8f);
 
                 //dialogManager.CharacterRPoseSprite.rectTransform.localScale = inactiveScaleL;
                 //dialogManager.CharacterREmotionSprite.rectTransform.localScale = inactiveScaleL;
