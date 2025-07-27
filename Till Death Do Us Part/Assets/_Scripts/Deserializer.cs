@@ -15,9 +15,7 @@ public class Deserializer : MonoBehaviour
             Debug.LogError("DialogManager component not found on this GameObject.");
             return;
         }
-        dialogManager.SanityCheck(); // Perform sanity check on the DialogManager
-        // Ensure the Deserializer is initialized when the game starts
-        // ReadTSV();
+        dialogManager.SanityCheck();
     }
 
     // This method reads a TSV file and deserializes it into a Dialog object
@@ -48,6 +46,12 @@ public class Deserializer : MonoBehaviour
             // Tokenize the line by tab character
             string[] tokens = line_t.Split('\t'); // Split by tab character
 
+            if (tokens.Length < 12)
+            {
+                Debug.LogWarning($"Skipping malformed line: {line_t}");
+                continue;
+            }
+
             if (tokens[0] == "lineID")
             {
                 Debug.LogWarning($"Skipping header line");
@@ -56,6 +60,7 @@ public class Deserializer : MonoBehaviour
 
             DialogManager.DialogLine dialogLine = new DialogManager.DialogLine
             {
+                Day = ParseDayOfWeek(tokens[0]), // Parse the day of the week from the first token
                 ID = tokens[0],
                 Text = tokens[1], // Assuming the second token is the text
                 Options = ParseDialogOptions(tokens[2]), // Parse options from the third token
@@ -68,7 +73,7 @@ public class Deserializer : MonoBehaviour
             };
 
             dialogManager.MasterBank.Lines.Add(dialogLine); // Add the dialog line to the master bank
-            Debug.Log(line);
+            //Debug.Log(line);
         }
 
         foreach (DialogManager.DialogLine line in dialogManager.MasterBank.Lines)
@@ -139,9 +144,11 @@ public class Deserializer : MonoBehaviour
         }
 
         List<CharacterManager.CharacterData> outCharacters = new();
-        int loopcount = 0;
-        foreach (string character in characters)
+
+        for (int i=0; i< characters.Length;i++)
         {
+            string character = characters[i];
+
             if (string.IsNullOrWhiteSpace(character))
             {
                 Debug.LogWarning("Empty character string found, skipping.");
@@ -151,9 +158,9 @@ public class Deserializer : MonoBehaviour
                     Pose = null,
                     Emotion = null,
                     isActive = false,
-                    position = CharacterManager.CharacterData.Position.Left + loopcount // This is Jank
+                    position = i == 0 ? CharacterManager.CharacterData.Position.Left : CharacterManager.CharacterData.Position.Right
 
-                };
+            };
                 outCharacters.Add(dialogCharacter); // Add the valid character to the list
                 continue; // Skip empty character strings
             }
@@ -169,55 +176,67 @@ public class Deserializer : MonoBehaviour
                 string[] characterDetails = characterParts[0].Split('_');
                 CharacterManager.CharacterData dialogCharacter = new CharacterManager.CharacterData
                 {
-                    Name = characterDetails[0].ToString().Trim(),
-                    Pose = characterDetails[1].ToString().Trim(),
-                    Emotion = characterDetails[2].ToString().Trim(),
+                    Name = characterDetails[0].Trim(),
+                    Pose = characterDetails[1].Trim(),
+                    Emotion = characterDetails[2].Trim(),
                     isActive = characterParts[1].Equals("true"),
-                    position = CharacterManager.CharacterData.Position.Left + loopcount // This is Jank
+                    position = i == 0 ? CharacterManager.CharacterData.Position.Left : CharacterManager.CharacterData.Position.Right
 
-                };
+            };
                 outCharacters.Add(dialogCharacter); // Add the valid character to the list
             }
-
-
-            loopcount++; // Increment loop count for position assignment
         }
 
         return outCharacters;
     }
-
+    
     private DialogManager.AudioData ParseAudioClips(string[] audio)
     {
-        DialogManager.AudioData audioData = new DialogManager.AudioData();
+        DialogManager.AudioData audioData = new();
+        string[] safeAudio = new string[3];
+
         for (int i = 0; i < 3; i++)
         {
-            switch (i)
-            {
-                case 0:
-                    if (audio[i] == "null" || audio[i] == string.Empty)
-                    {
-                        audioData.SFX = ""; // No audio clip
-                    }
-                    else audioData.SFX = audio[0];
-                    break;
-                case 1:
-                    if (audio[i] == "null" || audio[i] == string.Empty)
-                    {
-                        audioData.BGM = ""; // No audio clip
-                    }
-                    else audioData.BGM = audio[1];
-                    break;
-                case 2:
-                    if (audio[i] == "null" || audio[i] == string.Empty)
-                    {
-                        audioData.DialogueVO = ""; // No audio clip
-                    }
-                    else audioData.DialogueVO = audio[2];
-                    break;
-            }
+            safeAudio[i] = (i < audio.Length && !string.IsNullOrWhiteSpace(audio[i]) && audio[i] != "null") ? audio[i] : "";
         }
+
+        audioData.SFX = safeAudio[0];
+        audioData.BGM = safeAudio[1];
+        audioData.DialogueVO = safeAudio[2];
 
         return audioData;
     }
+
+    private DayOfWeek.Day ParseDayOfWeek(string id)
+    {
+        if (string.IsNullOrEmpty(id) || id.Length < 3)
+        {
+            Debug.LogWarning($"Invalid dialog ID format: {id}");
+            return DayOfWeek.Day.Monday;
+        }
+
+        string prefix = id.Substring(0, 3);
+
+        if (DayAbbreviationMap.TryGetValue(prefix, out var day))
+        {
+            return day;
+        }
+
+        Debug.LogWarning($"Unrecognized day prefix: {prefix} in ID: {id}");
+        return DayOfWeek.Day.Monday;
+    }
+    #endregion
+
+    #region Utils
+    private static readonly Dictionary<string, DayOfWeek.Day> DayAbbreviationMap = new()
+    {
+        { "Mon", DayOfWeek.Day.Monday },
+        { "Tue", DayOfWeek.Day.Tuesday },
+        { "Wed", DayOfWeek.Day.Wednesday },
+        { "Thu", DayOfWeek.Day.Thursday },
+        { "Fri", DayOfWeek.Day.Friday },
+        { "Sat", DayOfWeek.Day.Saturday },
+        { "Sun", DayOfWeek.Day.Sunday }
+    };
     #endregion
 }

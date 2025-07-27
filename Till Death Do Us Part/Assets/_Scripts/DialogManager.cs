@@ -18,6 +18,7 @@ public class DialogManager : MonoBehaviour
     // DialogLine represents a single line of dialog
     public struct DialogLine
     {
+        public DayOfWeek.Day Day;
         public string ID;
         public string Text;
         public List<DialogOptions> Options;
