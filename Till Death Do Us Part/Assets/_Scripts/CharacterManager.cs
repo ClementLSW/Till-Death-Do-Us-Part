@@ -53,7 +53,6 @@ public class CharacterManager : MonoBehaviour
                     c,
                     dialogManager.CharacterLPoseSprite,
                     dialogManager.CharacterLEmotionSprite,
-                    dialogManager.CharacterPanelL.transform,
                     dialogManager.CharacterNameField,
                     ref nameSet
                 );
@@ -68,7 +67,6 @@ public class CharacterManager : MonoBehaviour
                 c,
                 dialogManager.CharacterRPoseSprite,
                 dialogManager.CharacterREmotionSprite,
-                dialogManager.CharacterPanelR.transform,
                 dialogManager.CharacterNameField,
                 ref nameSet
             );
