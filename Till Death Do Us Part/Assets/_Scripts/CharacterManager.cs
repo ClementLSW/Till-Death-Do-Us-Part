@@ -84,7 +84,9 @@ public class CharacterManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(c.Name))
         {
+            poseSprite.color = new Color(0f, 0f, 0f, 0f); // Make invisible
             poseSprite.sprite = null;
+            emotionSprite.color = new Color(0f, 0f, 0f, 0f); // Make invisible
             emotionSprite.sprite = null;
             return;
         }

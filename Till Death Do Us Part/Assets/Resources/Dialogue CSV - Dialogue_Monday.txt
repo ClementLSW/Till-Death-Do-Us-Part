@@ -1,71 +1,71 @@
-lineId	lineText	lineOptions	charId1	charId2	scoreEnd	SFX	BGM	Dialogue	BG	GOTO
-Mon001	Hello, Despaired One…	Who are you?:Mon002;Where are we?:Mon003	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	-1
-Mon002	Who are you?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon004
-Mon003	Where are we?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon004
-Mon004	You are curious, that's good...		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon005
-Mon005	Allow me three questions, and I shall reveal to you your name.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon006
-Mon006	Firstly, what is ‘Calamity’ to you?	Distress and despair, resulting from loss…:Mon007;An event, a disaster that brings harm.:Mon008	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	-1
-Mon007	Distress and despair, resulting from loss…		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon009
-Mon008	An event, a disaster that brings harm.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon009
-Mon009	Next, what is fate to you?	Predetermined events that cannot be altered.:Mon010;An ending that results from my choices.:Mon011	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	-1
-Mon010	Predetermined events that cannot be altered.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon012
-Mon011	An ending that results from my choices.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon012
-Mon012	Finally, what is sacrifice to you?	An unfair exchange, my pain, used to benefit others.:Mon013;A charity, to bestow joy on another.:Mon014	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	-1
-Mon013	An unfair exchange, my pain, used to benefit others.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon015
-Mon014	A charity, to bestow joy on another.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon015
-Mon015	Hm... Excellent…		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon016
-Mon016	Your answers are excellent.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon017
-Mon017	Now I shall return the favour.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon018
-Mon018	I chose a most beautiful name for you.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon019
-Mon019	It’s…		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true						Black_Screen	Mon020
-Mon020	ELIZA!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Black_Screen	Mon021
-Mon021	Wha-?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Celia_House	Mon022
-Mon022	Where am I?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Celia_House	Mon023
-Mon023	Wake up already! It's way past nine!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Celia_House	Mon024
-Mon024	Patients could arrive any moment!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Celia_House	Mon025
-Mon025	Patients… right. I have to get to work.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Celia_House	Mon026
-Mon026	*I hop out of bed immediately, pulling on my dress as I stumble into the washroom to get ready.*		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Celia_House	Mon027
-Mon027	Took you long enough, sleepyhead!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon028
-Mon028	(<i>This bundle of sunshine is Celia, the local florist and my childhood friend.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon029
-Mon029	It's about time you got up! I've been calling you for a long time!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon030
-Mon030	I’m awake, I'm awake...		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon031
-Mon031	Here, take a look at this.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon032
-Mon032	*Celia shoves the daily newspaper into my hand.*		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon033
-Mon033	This is...?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon034
-Mon034	The nearby town of Graem just went into chaos! People are leaving left and right!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon035
-Mon035	Because of the Blue Plague?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon036
-Mon036	(<i>The Blue Plague, a disease that's been spreading like wildfire all across Paalre.</i>)		Empty_Empty_Empty	Empty_Empty_Empty					Ruined_Magra	Mon037
-Mon037	(<i>It's highly infectious, but fortunately, scientists are already in the process of discovering a cure.</i>)		Empty_Empty_Empty	Empty_Empty_Empty					Ruined_Magra	Mon038
-Mon038	And what does this have to do with me?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon039
-Mon039	You’re one of the most highly regarded doctors in Margra!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon040
-Mon040	Don’t you think you’ll be receiving more patients soon?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon041
-Mon041	As much as I'd like to treat every Tom, Dick, and Harry that comes by...		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon042
-Mon042	I simply lack the supplies and energy to treat even the people of our town.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon043
-Mon043	*Celia clasps my hand, looking at me encouragingly.*		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon044
-Mon044	I understand that you're tired. You’ve had to keep your clinic open longer, especially during this epidemic.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon045
-Mon045	But I know you have a kind heart and can understand that everyone is suffering. Will you at least try to treat any and everyone who comes by?	Sure, I'll... see what I can do.:Mon046;I don't know...:Mon047	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	-1
-Mon046	Sure, I'll... see what I can do.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon048
-Mon047	I don't know...		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon048
-Mon048	All I'm asking is that you try.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon049
-Mon049	Oh? Looks like your first patient of the day has arrived. I'll leave you to it.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon050
-Mon050	*Celia turns to leave, before stopping at the door.*		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon051
-Mon051	Eliza, one more thing…		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon052
-Mon052	What is it?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false					Tent	Mon053
-Mon053	...		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon054
-Mon054	No, it's nothing. Good luck!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true					Tent	Mon055
-Mon055	Good morning, sir. What seems to be ailing you today?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	Mon056
-Mon056	Good morning, doctor. My apologies for cutting your conversation short.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Male Patient:true					Tent	Mon057
-Mon057	I just woke up a little sluggish today. I don’t think it’s anything to worry about, but the Madam insists I get checked.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Male Patient:true					Tent	Mon058
-Mon058	Right, let me take a look…		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	Mon059
-Mon059	*I inspect the old man…*		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	Mon060
-Mon060	(<i>Yup, his heart’s rhythm is fine.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	Mon061
-Mon061	(<i>No doubt he’s simply old, and time has worn his body down.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	Mon062
-Mon062	(<i>Let’s see…</i>)	It's normal for you to experience fatigue at your age.:Mon063;Are you experiencing anything else?:Mon064	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	-1
-Mon063	It's normal for you to experience fatigue at your age.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	Mon065
-Mon064	Are you experiencing any other symptoms?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	Mon066
-Mon065	Is that so? Time catches up with us all, I suppose.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Male Patient:true					Tent	Mon067
-Mon066	Well, I am also sweating a lot, but I did rush over here as soon as I could.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Male Patient:true					Tent	Mon067
-Mon067	I'll prescribe you some medicinal herbs that should lessen your burden.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	Mon068
-Mon068	Thank you, doctor.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Male Patient:true					Tent	Mon069
-Mon069	Alright, one down, plenty more to go.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	Mon070
-Mon070	Next patient!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient:false					Tent	9999
+lineId	lineText	lineOptions	charId1	charId2	scoreEnd	SFX	BGM	Dialogue	BG	GOTO	VFX
+Mon001	Hello, Despaired One…	Who are you?:Mon002;Where are we?:Mon003	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	-1	null
+Mon002	Who are you?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon004	flashred
+Mon003	Where are we?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon004	null
+Mon004	You are curious, that's good...		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon005	null
+Mon005	Allow me three questions, and I shall reveal to you your name.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon006	null
+Mon006	Firstly, what is ‘Calamity’ to you?	Distress and despair, resulting from loss…:Mon007;An event, a disaster that brings harm.:Mon008	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	-1	null
+Mon007	Distress and despair, resulting from loss…		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon009	null
+Mon008	An event, a disaster that brings harm.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon009	null
+Mon009	Next, what is fate to you?	Predetermined events that cannot be altered.:Mon010;An ending that results from my choices.:Mon011	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	-1	null
+Mon010	Predetermined events that cannot be altered.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon012	null
+Mon011	An ending that results from my choices.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon012	null
+Mon012	Finally, what is sacrifice to you?	An unfair exchange, my pain, used to benefit others.:Mon013;A charity, to bestow joy on another.:Mon014	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	-1	null
+Mon013	An unfair exchange, my pain, used to benefit others.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon015	null
+Mon014	A charity, to bestow joy on another.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon015	null
+Mon015	Hm... Excellent…		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon016	null
+Mon016	Your answers are excellent.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon017	null
+Mon017	Now I shall return the favour.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon018	null
+Mon018	I chose a most beautiful name for you.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon019	null
+Mon019	It’s…		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true		0				Black_Screen	Mon020	null
+Mon020	ELIZA!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Black_Screen	Mon021	null
+Mon021	Wha-?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Celia_House	Mon022	null
+Mon022	Where am I?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Celia_House	Mon023	null
+Mon023	Wake up already! It's way past nine!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Celia_House	Mon024	null
+Mon024	Patients could arrive any moment!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Celia_House	Mon025	null
+Mon025	Patients… right. I have to get to work.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Celia_House	Mon026	null
+Mon026	*I hop out of bed immediately, pulling on my dress as I stumble into the washroom to get ready.*		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Celia_House	Mon027	null
+Mon027	Took you long enough, sleepyhead!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon028	null
+Mon028	(<i>This bundle of sunshine is Celia, the local florist and my childhood friend.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon029	null
+Mon029	It's about time you got up! I've been calling you for a long time!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon030	null
+Mon030	I’m awake, I'm awake...		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon031	null
+Mon031	Here, take a look at this.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon032	null
+Mon032	*Celia shoves the daily newspaper into my hand.*		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon033	null
+Mon033	This is...?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon034	null
+Mon034	The nearby town of Graem just went into chaos! People are leaving left and right!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon035	null
+Mon035	Because of the Blue Plague?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon036	null
+Mon036	(<i>The Blue Plague, a disease that's been spreading like wildfire all across Paalre.</i>)		Empty_Empty_Empty	Empty_Empty_Empty	0				Ruined_Magra	Mon037	null
+Mon037	(<i>It's highly infectious, but fortunately, scientists are already in the process of discovering a cure.</i>)		Empty_Empty_Empty	Empty_Empty_Empty	0				Ruined_Magra	Mon038	null
+Mon038	And what does this have to do with me?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon039	null
+Mon039	You’re one of the most highly regarded doctors in Margra!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon040	null
+Mon040	Don’t you think you’ll be receiving more patients soon?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon041	null
+Mon041	As much as I'd like to treat every Tom, Dick, and Harry that comes by...		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon042	null
+Mon042	I simply lack the supplies and energy to treat even the people of our town.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon043	null
+Mon043	*Celia clasps my hand, looking at me encouragingly.*		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon044	null
+Mon044	I understand that you're tired. You’ve had to keep your clinic open longer, especially during this epidemic.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon045	null
+Mon045	But I know you have a kind heart and can understand that everyone is suffering. Will you at least try to treat any and everyone who comes by?	Sure, I'll... see what I can do.:Mon046;I don't know...:Mon047	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	-1	null
+Mon046	Sure, I'll... see what I can do.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon048	null
+Mon047	I don't know...		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon048	null
+Mon048	All I'm asking is that you try.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon049	null
+Mon049	Oh? Looks like your first patient of the day has arrived. I'll leave you to it.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon050	null
+Mon050	*Celia turns to leave, before stopping at the door.*		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon051	null
+Mon051	Eliza, one more thing…		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon052	null
+Mon052	What is it?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:false	0				Tent	Mon053	null
+Mon053	...		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon054	null
+Mon054	No, it's nothing. Good luck!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Celia_HealthyBodyHandHold_HealthyHeadSmileOpenedMouth:true	0				Tent	Mon055	null
+Mon055	Good morning, sir. What seems to be ailing you today?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon056	null
+Mon056	Good morning, doctor. My apologies for cutting your conversation short.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Mon057	null
+Mon057	I just woke up a little sluggish today. I don’t think it’s anything to worry about, but the Madam insists I get checked.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Mon058	null
+Mon058	Right, let me take a look…		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon059	null
+Mon059	*I inspect the old man…*		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon060	null
+Mon060	(<i>Yup, his heart’s rhythm is fine.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon061	null
+Mon061	(<i>No doubt he’s simply old, and time has worn his body down.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon062	null
+Mon062	(<i>Let’s see…</i>)	It's normal for you to experience fatigue at your age.:Mon063;Are you experiencing anything else?:Mon064	Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	-1	flashred
+Mon063	It's normal for you to experience fatigue at your age.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon065	null
+Mon064	Are you experiencing any other symptoms?		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon066	null
+Mon065	Is that so? Time catches up with us all, I suppose.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Mon067	null
+Mon066	Well, I am also sweating a lot, but I did rush over here as soon as I could.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Mon067	null
+Mon067	I'll prescribe you some medicinal herbs that should lessen your burden.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon068	null
+Mon068	Thank you, doctor.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Mon069	null
+Mon069	Alright, one down, plenty more to go.		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon070	null
+Mon070	Next patient!		Eliza_HealthyBodyHandDown_HealthyHeadNoFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	9999	null

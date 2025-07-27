@@ -64,7 +64,7 @@ public class DialogManager : MonoBehaviour
         deserializer = GetComponent<Deserializer>();
         deserializer.ReadTSV(this);
 
-        CurrentDialogID = "mon001";
+        CurrentDialogID = "Mon001";
     }
 
     private void Start()
@@ -171,10 +171,16 @@ public class DialogManager : MonoBehaviour
             }
         }
 
-        // Populate the character information
-        foreach (CharacterData c in currentLine.CharactersInvolved)
+        if (currentLine.CharactersInvolved == null)
         {
-            characterManager.PopulateCharacter(c);
+            Debug.LogWarning($"No characters involved in dialog ID {CurrentDialogID}. Skipping character population.");
+        }
+        {
+            // Populate the character information
+            foreach (CharacterData c in currentLine.CharactersInvolved)
+            {
+                characterManager.PopulateCharacter(c);
+            }
         }
 
         // Handle Audio

@@ -55,7 +55,7 @@ public class Deserializer : MonoBehaviour
                 continue;
             }
 
-            if (tokens[0] == "lineID")
+            if (tokens[0] == "lineId")
             {
                 Debug.LogWarning($"Skipping header line");
                 continue;
