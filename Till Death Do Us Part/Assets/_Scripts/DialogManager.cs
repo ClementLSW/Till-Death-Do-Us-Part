@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Search;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static CharacterManager;
@@ -111,6 +111,7 @@ public class DialogManager : MonoBehaviour
 
     [Header("Debug - Do not alter")]
     [SerializeField] public string CurrentDialogID { get; private set; }
+    public DayOfWeek.Day PreviousDialogDay { get; private set; }
 
     public void SetDialogue(string id)
     {
@@ -134,6 +135,11 @@ public class DialogManager : MonoBehaviour
 
         // Find the current dialog line based on CurrentDialogID
         DialogLine currentLine = MasterBank.Lines.Find(line => line.ID == CurrentDialogID);
+
+        if (currentLine.Day != PreviousDialogDay)
+        {
+            gameManager.CurrentDay = currentLine.Day; // Update the current day in GameManager
+        }
 
         switch (currentLine.VFX)
         {
@@ -185,11 +191,16 @@ public class DialogManager : MonoBehaviour
         {
             Debug.LogWarning($"No options found for dialog ID {CurrentDialogID}. Proceeding to next dialog line.");
             // If there are no options, Register next line in the dialog based on GOTO value
-            if(!string.IsNullOrEmpty(currentLine.GOTO))CurrentDialogID = currentLine.GOTO;
+            if (!string.IsNullOrEmpty(currentLine.GOTO))
+            {
+                PreviousDialogDay = currentLine.Day; // Store the previous dialog Day
+                CurrentDialogID = currentLine.GOTO;
+            }
             else Debug.LogWarning($"GOTO value is not set for dialog ID {CurrentDialogID}. No next dialog line will be registered.");
         }
         else
         {
+            PreviousDialogDay = currentLine.Day; // Store the previous dialog day
             Debug.Log($"Displaying options for dialog ID {CurrentDialogID}.");
             Debug.Log($"Option 1: {currentLine.Options[0].OptionText}, Option 2: {currentLine.Options[1].OptionText}");
             DisplayOptions(currentLine.Options);

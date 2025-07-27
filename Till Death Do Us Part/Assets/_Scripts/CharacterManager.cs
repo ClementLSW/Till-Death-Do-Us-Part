@@ -72,6 +72,11 @@ public class CharacterManager : MonoBehaviour
             );
         }
         #endregion
+
+        if(!nameSet && dialogManager.CharacterNameField != null)
+        {
+            dialogManager.CharacterNameField.text = string.Empty; // Clear name if no character is active
+        }
     }
 
     #region Helper Methods

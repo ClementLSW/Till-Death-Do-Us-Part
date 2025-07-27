@@ -6,6 +6,8 @@ public class Deserializer : MonoBehaviour
 {
     DialogManager dialogManager;
 
+    [SerializeField] TextAsset tsvFile; // Reference to the TSV file in the Resources folder
+
     private void Awake()
     {
         // Ensure that the DialogManager component is attached to the same GameObject
@@ -24,7 +26,7 @@ public class Deserializer : MonoBehaviour
         dialogManager = dm; // Assign the passed DialogManager instance to the local variable
 
         Debug.Log("Reading TSV file...");
-        TextAsset tsvFile = Resources.Load<TextAsset>("Dialogue V2");
+        //TextAsset tsvFile = Resources.Load<TextAsset>("Dialogue V2");
 
         if (tsvFile == null)
         {
@@ -45,6 +47,7 @@ public class Deserializer : MonoBehaviour
 
             // Tokenize the line by tab character
             string[] tokens = line_t.Split('\t'); // Split by tab character
+            Debug.Log($"Processing line: {line_t} with {tokens.Length} tokens");
 
             if (tokens.Length < 12)
             {
