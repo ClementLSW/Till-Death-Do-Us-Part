@@ -130,7 +130,7 @@ public class Deserializer : MonoBehaviour
         return outOptions;
     }
 
-    private List<CharacterManager.Characters> ParseCharacters(string[] characters)
+    private List<CharacterManager.CharacterData> ParseCharacters(string[] characters)
     {
         if (characters.Length == 0 || characters[0].Length == 0)
         {
@@ -138,20 +138,20 @@ public class Deserializer : MonoBehaviour
             return default; // Return default if there are no characters
         }
 
-        List<CharacterManager.Characters> outCharacters = new();
+        List<CharacterManager.CharacterData> outCharacters = new();
         int loopcount = 0;
         foreach (string character in characters)
         {
             if (string.IsNullOrWhiteSpace(character))
             {
                 Debug.LogWarning("Empty character string found, skipping.");
-                CharacterManager.Characters dialogCharacter = new CharacterManager.Characters
+                CharacterManager.CharacterData dialogCharacter = new CharacterManager.CharacterData
                 {
                     Name = null,
                     Pose = null,
                     Emotion = null,
                     isActive = false,
-                    position = CharacterManager.Characters.Position.Left + loopcount // This is Jank
+                    position = CharacterManager.CharacterData.Position.Left + loopcount // This is Jank
 
                 };
                 outCharacters.Add(dialogCharacter); // Add the valid character to the list
@@ -167,13 +167,13 @@ public class Deserializer : MonoBehaviour
                 }
 
                 string[] characterDetails = characterParts[0].Split('_');
-                CharacterManager.Characters dialogCharacter = new CharacterManager.Characters
+                CharacterManager.CharacterData dialogCharacter = new CharacterManager.CharacterData
                 {
                     Name = characterDetails[0].ToString().Trim(),
                     Pose = characterDetails[1].ToString().Trim(),
                     Emotion = characterDetails[2].ToString().Trim(),
                     isActive = characterParts[1].Equals("true"),
-                    position = CharacterManager.Characters.Position.Left + loopcount // This is Jank
+                    position = CharacterManager.CharacterData.Position.Left + loopcount // This is Jank
 
                 };
                 outCharacters.Add(dialogCharacter); // Add the valid character to the list

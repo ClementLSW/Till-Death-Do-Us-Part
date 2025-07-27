@@ -21,7 +21,7 @@ public class DialogManager : MonoBehaviour
         public string ID;
         public string Text;
         public List<DialogOptions> Options;
-        public List<Characters> CharactersInvolved;
+        public List<CharacterData> CharactersInvolved;
         public int ScoreDelta;
         public AudioData AudioData;
         public string BG;
@@ -165,7 +165,7 @@ public class DialogManager : MonoBehaviour
         }
 
         // Populate the character information
-        foreach (Characters c in currentLine.CharactersInvolved)
+        foreach (CharacterData c in currentLine.CharactersInvolved)
         {
             characterManager.PopulateCharacter(c);
         }
