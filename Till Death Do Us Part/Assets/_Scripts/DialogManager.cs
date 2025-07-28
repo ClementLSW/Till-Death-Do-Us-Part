@@ -13,6 +13,10 @@ public class DialogManager : MonoBehaviour
     AudioManager audioManager;
     GameManager gameManager;
     VFXManager vfxManager;
+    BackgroundManager bgManager;
+
+    [SerializeField]
+    DayOfWeek dayManager;
     
     #region Data Struct and Init
     // DialogLine represents a single line of dialog
@@ -61,6 +65,8 @@ public class DialogManager : MonoBehaviour
         audioManager = GetComponent<AudioManager>();
         gameManager = GetComponentInParent<GameManager>();
         vfxManager = transform.parent.GetComponentInChildren<VFXManager>();
+        bgManager = GetComponent<BackgroundManager>();
+
         deserializer = GetComponent<Deserializer>();
         deserializer.ReadTSV(this);
 
@@ -69,7 +75,7 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
-        NextDialog(); 
+        StartCoroutine(ProceedWithDialog()); 
     }
 
     public void SanityCheck()
@@ -83,6 +89,7 @@ public class DialogManager : MonoBehaviour
     }
     #endregion
 
+    #region Other Serialized Fields
     [Header("Text Panel")]
     [SerializeField] public TMP_Text CharacterNameField;
     [SerializeField] public TMP_Text DialogTextField;
@@ -96,9 +103,6 @@ public class DialogManager : MonoBehaviour
     [SerializeField] public Image CharacterRPoseSprite;
     [SerializeField] public Image CharacterREmotionSprite;
 
-    [Header("Background")]
-    [SerializeField] public Image bg; // Background GameObject to be populated with sprites
-
     [Header("Options Panel")]
     [SerializeField] public GameObject OptionsPanel;
     [SerializeField] public Button BtnL;
@@ -106,131 +110,112 @@ public class DialogManager : MonoBehaviour
 
     [Header("Typing Settings")]
     [SerializeField] float typingDelay = 0.05f;
+
+    #endregion
+
     bool skipTyping = false;
     bool isTyping = false;
+    bool isWaitingForOptions = false; // Flag to check if waiting for options
 
     [Header("Debug - Do not alter")]
     [SerializeField] public string CurrentDialogID { get; private set; }
     public DayOfWeek.Day PreviousDialogDay { get; private set; }
 
+    /// <summary>
+    /// Util Function to be called by Save Load
+    /// </summary>
+    /// <param name="id"></param>
     public void SetDialogue(string id)
     {
         CurrentDialogID = id;
-        NextDialog();
+        StartCoroutine(ProceedWithDialog());
     }
 
-    public void NextDialog()
+    public IEnumerator ProceedWithDialog()
     {
         if(CurrentDialogID == "END")
         {
             gameManager.EvaluateEnding();
+            yield break; // Exit if the dialog is at the end
         }
 
-        // If Currently text is being populated, skip animation and return
-        if (isTyping)
+        if(isTyping)
         {
-            SkipTypingAnimation();
-            return; // Prevent proceeding if typing is still in progress
+            SkipTypingAnimation(); // Skip typing if it's currently in progress
+            yield break; // Exit if typing is still in progress
         }
 
-        // Find the current dialog line based on CurrentDialogID
         DialogLine currentLine = MasterBank.Lines.Find(line => line.ID == CurrentDialogID);
 
         if (currentLine.Day != PreviousDialogDay)
         {
             gameManager.CurrentDay = currentLine.Day; // Update the current day in GameManager
-        }
-
-        switch (currentLine.VFX)
-        {
-            case "flashred":
-                vfxManager.TriggerFlashRed();
-                break;
-            default:
-                break;
-        }
-
-        // Populate Background
-        if (!string.IsNullOrEmpty(currentLine.BG))
-        {
-            if (bg != null)
+            yield return StartCoroutine(dayManager.PlayDayTransition(currentLine.Day, () =>
             {
-                Sprite loadedSprite = Resources.Load<Sprite>($"Sprites/BG/{currentLine.BG}");
-                if (loadedSprite != null)
+                foreach (CharacterData c in currentLine.CharactersInvolved)
                 {
-                    bg.sprite = loadedSprite;
+                    characterManager.PopulateCharacter(c);
                 }
-                else
-                {
-                    Debug.LogWarning($"Background sprite '{currentLine.BG}' could not be found in the Resources folder.");
-                }
-            }
-            else
-            {
-                Debug.LogWarning("Background GameObject not found in the scene.");
-            }
+
+                bgManager.PopulateBackGround(currentLine.BG);
+            })); // Wait for the day transition to complete
+
+            PreviousDialogDay = currentLine.Day; // Store the previous dialog Day
+
+            yield return StartCoroutine(PopulateDialog(currentLine));
+        }
+    }
+
+    private IEnumerator PopulateDialog(DialogLine currentLine)
+    {
+        if (isWaitingForOptions)
+        {
+            yield break; // If waiting for options, do not proceed with dialog
         }
 
-        if (currentLine.CharactersInvolved == null)
+        //Step 1: Populate Background
+        bgManager.PopulateBackGround(currentLine.BG);
+
+        // Step 2: Populate Characters
+        if (currentLine.CharactersInvolved == null || currentLine.CharactersInvolved.Count == 0)
         {
             Debug.LogWarning($"No characters involved in dialog ID {CurrentDialogID}. Skipping character population.");
         }
+        else
         {
-            // Populate the character information
             foreach (CharacterData c in currentLine.CharactersInvolved)
             {
                 characterManager.PopulateCharacter(c);
             }
         }
 
-        // Handle Audio
+        // Step 3: Handle Audio
         if (!string.IsNullOrEmpty(currentLine.AudioData.SFX)) audioManager.PlaySFXOneShot(currentLine.AudioData.SFX);
         if (!string.IsNullOrEmpty(currentLine.AudioData.BGM)) audioManager.PlayBGM(currentLine.AudioData.BGM);
         if (!string.IsNullOrEmpty(currentLine.AudioData.DialogueVO)) audioManager.PlayDialogue(currentLine.AudioData.DialogueVO);
 
-        // Display the dialog text with typing effect
-        StopAllCoroutines();
-        StartCoroutine(TypeText(currentLine.Text));
+        // Step 4: Handle score change
         gameManager.AddScore(currentLine.ScoreDelta);
 
-        if(currentLine.Options == null)
+        // Step 5: Display the dialog text with typing effect
+        yield return StartCoroutine(TypeText(currentLine.Text));
+
+        // Step 6: Handle Options
+        if (currentLine.Options == null || currentLine.Options.Count == 0)
         {
-            Debug.LogWarning($"No options found for dialog ID {CurrentDialogID}. Proceeding to next dialog line.");
-            // If there are no options, Register next line in the dialog based on GOTO value
             if (!string.IsNullOrEmpty(currentLine.GOTO))
             {
-                PreviousDialogDay = currentLine.Day; // Store the previous dialog Day
                 CurrentDialogID = currentLine.GOTO;
             }
-            else Debug.LogWarning($"GOTO value is not set for dialog ID {CurrentDialogID}. No next dialog line will be registered.");
         }
         else
         {
             PreviousDialogDay = currentLine.Day; // Store the previous dialog day
-            Debug.Log($"Displaying options for dialog ID {CurrentDialogID}.");
-            Debug.Log($"Option 1: {currentLine.Options[0].OptionText}, Option 2: {currentLine.Options[1].OptionText}");
             DisplayOptions(currentLine.Options);
         }
-
     }
 
-    public void DisplayOptions(List<DialogOptions> options)
-    {
-        OptionsPanel.SetActive(true);
-
-        BtnL.onClick.RemoveAllListeners();
-        BtnR.onClick.RemoveAllListeners();
-
-        Debug.Log(options[0].OptionText);
-        Debug.Log(options[1].OptionText);
-
-        BtnL.GetComponentInChildren<TMP_Text>().text = options[0].OptionText;
-        BtnR.GetComponentInChildren<TMP_Text>().text = options[1].OptionText;
-
-        BtnL.onClick.AddListener(() => SelectOption(options[0].NextDialogID));
-        BtnR.onClick.AddListener(() => SelectOption(options[1].NextDialogID));
-    }
-
+    #region Typing Utils
     IEnumerator TypeText(string text)
     {
         isTyping = true; // Mark typing as in progress
@@ -260,12 +245,132 @@ public class DialogManager : MonoBehaviour
     {
         skipTyping = true;
     }
+    #endregion
+
+    #region Options Utils
+    public void DisplayOptions(List<DialogOptions> options)
+    {
+        OptionsPanel.SetActive(true);
+
+        BtnL.onClick.RemoveAllListeners();
+        BtnR.onClick.RemoveAllListeners();
+
+        Debug.Log(options[0].OptionText);
+        Debug.Log(options[1].OptionText);
+
+        BtnL.GetComponentInChildren<TMP_Text>().text = options[0].OptionText;
+        BtnR.GetComponentInChildren<TMP_Text>().text = options[1].OptionText;
+
+        BtnL.onClick.AddListener(() => SelectOption(options[0].NextDialogID));
+        BtnR.onClick.AddListener(() => SelectOption(options[1].NextDialogID));
+        isWaitingForOptions = true; // Set the flag to indicate waiting for options
+    }
 
     // #VibeCoded
     public void SelectOption(string nextDialogID)
     {
+        isWaitingForOptions = false; // Reset the flag when an option is selected
         CurrentDialogID = nextDialogID;
         OptionsPanel.SetActive(false);
-        NextDialog();
+        StartCoroutine(ProceedWithDialog());
     }
+
+    #endregion
+
+    #region LEGACY CODE
+    //public void NextDialog()
+    //{
+    //    if(CurrentDialogID == "END")
+    //    {
+    //        gameManager.EvaluateEnding();
+    //    }
+
+    //    // If Currently text is being populated, skip animation and return
+    //    if (isTyping)
+    //    {
+    //        SkipTypingAnimation();
+    //        return; // Prevent proceeding if typing is still in progress
+    //    }
+
+    //    // Find the current dialog line based on CurrentDialogID
+    //    DialogLine currentLine = MasterBank.Lines.Find(line => line.ID == CurrentDialogID);
+
+    //    if (currentLine.Day != PreviousDialogDay)
+    //    {
+    //        gameManager.CurrentDay = currentLine.Day; // Update the current day in GameManager
+    //    }
+
+    //    switch (currentLine.VFX)
+    //    {
+    //        case "flashred":
+    //            vfxManager.TriggerFlashRed();
+    //            break;
+    //        default:
+    //            break;
+    //    }
+
+    //    // Populate Background
+    //    if (!string.IsNullOrEmpty(currentLine.BG))
+    //    {
+    //        if (bg != null)
+    //        {
+    //            Sprite loadedSprite = Resources.Load<Sprite>($"Sprites/BG/{currentLine.BG}");
+    //            if (loadedSprite != null)
+    //            {
+    //                bg.sprite = loadedSprite;
+    //            }
+    //            else
+    //            {
+    //                Debug.LogWarning($"Background sprite '{currentLine.BG}' could not be found in the Resources folder.");
+    //            }
+    //        }
+    //        else
+    //        {
+    //            Debug.LogWarning("Background GameObject not found in the scene.");
+    //        }
+    //    }
+
+    //    if (currentLine.CharactersInvolved == null)
+    //    {
+    //        Debug.LogWarning($"No characters involved in dialog ID {CurrentDialogID}. Skipping character population.");
+    //    }
+    //    {
+    //        // Populate the character information
+    //        foreach (CharacterData c in currentLine.CharactersInvolved)
+    //        {
+    //            characterManager.PopulateCharacter(c);
+    //        }
+    //    }
+
+    //    // Handle Audio
+    //    if (!string.IsNullOrEmpty(currentLine.AudioData.SFX)) audioManager.PlaySFXOneShot(currentLine.AudioData.SFX);
+    //    if (!string.IsNullOrEmpty(currentLine.AudioData.BGM)) audioManager.PlayBGM(currentLine.AudioData.BGM);
+    //    if (!string.IsNullOrEmpty(currentLine.AudioData.DialogueVO)) audioManager.PlayDialogue(currentLine.AudioData.DialogueVO);
+
+    //    // Display the dialog text with typing effect
+    //    StopAllCoroutines();
+    //    StartCoroutine(TypeText(currentLine.Text));
+    //    gameManager.AddScore(currentLine.ScoreDelta);
+
+    //    if(currentLine.Options == null)
+    //    {
+    //        Debug.LogWarning($"No options found for dialog ID {CurrentDialogID}. Proceeding to next dialog line.");
+    //        // If there are no options, Register next line in the dialog based on GOTO value
+    //        if (!string.IsNullOrEmpty(currentLine.GOTO))
+    //        {
+    //            PreviousDialogDay = currentLine.Day; // Store the previous dialog Day
+    //            CurrentDialogID = currentLine.GOTO;
+    //        }
+    //        else Debug.LogWarning($"GOTO value is not set for dialog ID {CurrentDialogID}. No next dialog line will be registered.");
+    //    }
+    //    else
+    //    {
+    //        PreviousDialogDay = currentLine.Day; // Store the previous dialog day
+    //        Debug.Log($"Displaying options for dialog ID {CurrentDialogID}.");
+    //        Debug.Log($"Option 1: {currentLine.Options[0].OptionText}, Option 2: {currentLine.Options[1].OptionText}");
+    //        DisplayOptions(currentLine.Options);
+    //    }
+
+    //}
+    #endregion
 }

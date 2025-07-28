@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BackgroundManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] public Image bg;
+    public void PopulateBackGround(string bgName)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!string.IsNullOrEmpty(bgName))
+        {
+            if (bg != null)
+            {
+                Sprite loadedSprite = Resources.Load<Sprite>($"Sprites/BG/{bgName}");
+                if (loadedSprite != null)
+                {
+                    bg.sprite = loadedSprite;
+                }
+            }
+        }
     }
 }

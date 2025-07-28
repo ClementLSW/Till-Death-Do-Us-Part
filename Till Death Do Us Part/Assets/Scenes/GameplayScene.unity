@@ -1559,6 +1559,8 @@ MonoBehaviour:
   friday: {fileID: 574457116}
   saturday: {fileID: 891796706}
   sunday: {fileID: 1757970396}
+  animator: {fileID: 794543885}
+  fadeCanvasGroup: {fileID: 1783823440}
 --- !u!1 &891796704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,6 +2776,7 @@ GameObject:
   - component: {fileID: 1783823437}
   - component: {fileID: 1783823439}
   - component: {fileID: 1783823438}
+  - component: {fileID: 1783823440}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -2788,7 +2791,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783823436}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2813,7 +2816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2838,6 +2841,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783823436}
   m_CullTransparentMesh: 1
+--- !u!225 &1783823440
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783823436}
+  m_Enabled: 1
+  m_Alpha: -0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1796272997
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,6 +3138,7 @@ GameObject:
   - component: {fileID: 2005570928}
   - component: {fileID: 2005570927}
   - component: {fileID: 2005570926}
+  - component: {fileID: 2005570929}
   m_Layer: 0
   m_Name: Dialog Manager
   m_TagString: Untagged
@@ -3142,6 +3158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e20be3f927d4f54d9ddceb63f61c43b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayManager: {fileID: 794543886}
   CharacterNameField: {fileID: 455120813}
   DialogTextField: {fileID: 1455281364}
   CharacterPanelL: {fileID: 945260876}
@@ -3150,7 +3167,6 @@ MonoBehaviour:
   CharacterPanelR: {fileID: 2121404106}
   CharacterRPoseSprite: {fileID: 1450960575}
   CharacterREmotionSprite: {fileID: 1227091}
-  bg: {fileID: 1634850647}
   OptionsPanel: {fileID: 698698286}
   BtnL: {fileID: 2055705918}
   BtnR: {fileID: 1591587253}
@@ -3514,6 +3530,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2005570929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005570920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950b7a60b5c5fc74688688b3493f9d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bg: {fileID: 1634850647}
 --- !u!1 &2055705916
 GameObject:
   m_ObjectHideFlags: 0
