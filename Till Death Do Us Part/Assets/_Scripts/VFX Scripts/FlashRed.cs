@@ -31,5 +31,11 @@ public class FlashRed : MonoBehaviour
 
             yield return null;
         }
+        while (baseColor.a > 0f)
+        {
+            baseColor.a = Mathf.MoveTowards(baseColor.a, 0f, 0.05f);
+            VFX.color = baseColor;
+            yield return null;
+        }
     }
 }

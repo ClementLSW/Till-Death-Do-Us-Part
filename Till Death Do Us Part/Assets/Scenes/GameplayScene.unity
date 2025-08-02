@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c7f62187b9417bb4a88fbf238979fb0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28464167e62a5304e9fffef3ba998138, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Eliza/Celia
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 79796d47905220c4fa55d2f9b5deaea5, type: 2}
   m_sharedMaterial: {fileID: -7222664178833283224, guid: 79796d47905220c4fa55d2f9b5deaea5, type: 2}
@@ -800,7 +800,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -989,7 +989,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 87680cb147ad5df42b7097f275151ef0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41d9874fffc90964488c19c57f7d0d3a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c7f62187b9417bb4a88fbf238979fb0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28464167e62a5304e9fffef3ba998138, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1560,7 +1560,6 @@ MonoBehaviour:
   saturday: {fileID: 891796706}
   sunday: {fileID: 1757970396}
   animator: {fileID: 794543885}
-  fadeCanvasGroup: {fileID: 1783823440}
 --- !u!1 &891796704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1827,6 +1826,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1255715268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1255715269}
+  - component: {fileID: 1255715271}
+  - component: {fileID: 1255715270}
+  m_Layer: 5
+  m_Name: Next Dialog Available
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1255715269
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255715268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1709715278}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -128, y: 105.5}
+  m_SizeDelta: {x: 26, y: 30.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1255715270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255715268}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -3558323717259513272, guid: 138928d05acc2794bbbc2920bc09f688, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1255715271
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255715268}
+  m_CullTransparentMesh: 1
 --- !u!1 &1440825196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,7 +2007,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 87680cb147ad5df42b7097f275151ef0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41d9874fffc90964488c19c57f7d0d3a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2008,8 +2082,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "With the number of people flooding into Margra, I decided to finally start
-    protecting myself. Can\u2019t risk anything."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f40bc5c75381f1345857f6f840ae9903, type: 2}
   m_sharedMaterial: {fileID: 3873863335477609128, guid: f40bc5c75381f1345857f6f840ae9903, type: 2}
@@ -2489,7 +2562,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2256082128860284365, guid: 379585ce140890f408b107c9c2922e35, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af4ac2c9023a30248a6a38333230380e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2614,6 +2687,7 @@ RectTransform:
   m_Children:
   - {fileID: 2064303704}
   - {fileID: 1455281363}
+  - {fileID: 1255715269}
   m_Father: {fileID: 761197930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -3170,7 +3244,10 @@ MonoBehaviour:
   OptionsPanel: {fileID: 698698286}
   BtnL: {fileID: 2055705918}
   BtnR: {fileID: 1591587253}
-  typingDelay: 0.05
+  nextDialogButton: {fileID: 1485247066}
+  nextDialogAvailableIndicator: {fileID: 1255715270}
+  typingDelay: 0.03
+  currentDialogID: 
 --- !u!4 &2005570922
 Transform:
   m_ObjectHideFlags: 0
@@ -3224,17 +3301,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfx:
-  - groupName: beep_short
+  - groupName: Argh
     audioClips:
-    - {fileID: 8300000, guid: d6f73104a56850346a2c7b028748f405, type: 3}
+    - {fileID: 8300000, guid: 2d68d3e85bfbf9845b2c8b504f41d038, type: 3}
+  - groupName: Bell
+    audioClips:
+    - {fileID: 8300000, guid: 2d65221eac950ec439e06d74d9c87246, type: 3}
+  - groupName: Clasp
+    audioClips:
+    - {fileID: 8300000, guid: 8227bd4595e26c2458bec05b02afbd09, type: 3}
+  - groupName: Door
+    audioClips:
+    - {fileID: 8300000, guid: ea6e3435a0d4fb94a9fbf1d9e5d64270, type: 3}
+  - groupName: Door_Creak
+    audioClips:
+    - {fileID: 8300000, guid: c36ec64c6ff512e448a011a007af0f19, type: 3}
+  - groupName: Footsteps_Wood
+    audioClips:
+    - {fileID: 8300000, guid: 6ed2039ef87172d47bd4d4aba276f9f6, type: 3}
+  - groupName: Glass_Bottle
+    audioClips:
+    - {fileID: 8300000, guid: e16635081514a5e4289524bd3e0bbf47, type: 3}
+  - groupName: Heartbeat_fading
+    audioClips:
+    - {fileID: 8300000, guid: f4623e84a3f79b94fb813e9c2dce0f27, type: 3}
+  - groupName: Newspaper
+    audioClips:
+    - {fileID: 8300000, guid: fec38b1a935f99142a77a8bc5ed9ec02, type: 3}
+  - groupName: Outside_Ambience
+    audioClips:
+    - {fileID: 8300000, guid: ba6324f60c6a4ae47a64efb0e5b998ab, type: 3}
+  - groupName: Ow
+    audioClips:
+    - {fileID: 8300000, guid: e416fd88b4cb2b348964813cc9b37574, type: 3}
+  - groupName: Paper
+    audioClips:
+    - {fileID: 8300000, guid: ad3ebdea37665204c91d3ebca7c97665, type: 3}
+  - groupName: Rustle
+    audioClips:
+    - {fileID: 8300000, guid: f3a9ed74c4be9594d8b6f0482d854264, type: 3}
+  - groupName: Rustle2
+    audioClips:
+    - {fileID: 8300000, guid: 99cc5f14045e13b439c8970b27d633e4, type: 3}
+  - groupName: Sigh
+    audioClips:
+    - {fileID: 8300000, guid: a31a00ce4c0edc74482eaa20e4a8b985, type: 3}
+  - groupName: Sneeze
+    audioClips:
+    - {fileID: 8300000, guid: 7d890c35ae90bc741afc116d584028d6, type: 3}
+  - groupName: Writing
+    audioClips:
+    - {fileID: 8300000, guid: af16f02271cfb354498ddb6bff178737, type: 3}
   dialogue:
   - groupName: beep_long
     audioClips:
     - {fileID: 8300000, guid: 7c2954e8c7b16144cb357fae5648edc4, type: 3}
   bgm:
-  - groupName: MC_moan
+  - groupName: BGM_1
     audioClips:
-    - {fileID: 8300000, guid: c3c9624787d11f242a4595fe6ad1f5da, type: 3}
+    - {fileID: 8300000, guid: d7392d6095567e24390a016a106be9a7, type: 3}
+  - groupName: BGM_2
+    audioClips:
+    - {fileID: 8300000, guid: bb1687b0405eeff4ca67d397c5171265, type: 3}
   sfxAudioSource: {fileID: 2005570928}
   dialogueAudioSource: {fileID: 2005570927}
   bgmAudioSource: {fileID: 2005570926}
