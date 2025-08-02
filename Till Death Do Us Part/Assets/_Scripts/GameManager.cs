@@ -33,6 +33,6 @@ public class GameManager : MonoBehaviour
     {
         int tempScore = Score;
         ResetScore();
-        return Score;
+        return tempScore;
     }
 }
