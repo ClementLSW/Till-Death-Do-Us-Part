@@ -1,9 +1,416 @@
-lineId	lineText	lineOptions	charId1	charId2	scoreEnd	SFX	BGM	Dialogue
-0001	This is the first line of dialogue		MainCharacter_ArmOut_Mask:true	LI_HandHold_Neutral:false	0	beep_short	null	null
-0002	This is the second line.		MainCharacter_ArmOut_Neutral:true	LI_HandHold_Neutral:false	0	null	MC_moan	beep_long
-0003	Line Number 3\nWow, we can support new lines!		MainCharacter_ArmOut_Mask:true	LI_HandHold_Neutral:false	0	null	null	null
-0004	This is a Choice. Option 1 goes to Line 5, Option 2 goes to Line7	Go to Line 5:0005;Go to Line 7:0007	MainCharacter_ArmOut_Neutral:false	LI_HandHold_Neutral:true	0	null	null	null
-0005	You have chosen Option 1		MainCharacter_ArmOut_Neutral:true	LI_HandHold_Neutral:false	0	null	null	null
-0006	Good Choice		MainCharacter_ArmOut_Neutral:true	LI_HandHold_Neutral:false	1	null	null	null
-0007	You have chosen option 2		MainCharacter_ArmOut_Mask:true	LI_HandHold_Neutral:false	0	beep_short	null	null
-0008	Bad Choice		MainCharacter_ArmOut_Mask:true	LI_HandHold_Neutral:false	-1	null	null	beep_long
+lineId	lineText	lineOptions	charId1	charId2	scoreEnd	SFX	BGM	Dialogue	BG	GOTO	VFX	
+Mon001	Hello, Despaired One…	Who are you?:Mon002;Where are we?:Mon003			0		BGM_2		Black_Screen	-1	null	Every line needs to have a GOTO. If it's option, set GOTO to -1. If end of dialogue, set to 9999
+Mon002	Who are you?				0				Black_Screen	Mon004	flashred	
+Mon003	Where are we?				0				Black_Screen	Mon004	null	
+Mon004	You are curious, that's good...				0				Black_Screen	Mon005	null	
+Mon005	Allow me three questions, and I shall reveal to you your name.				0				Black_Screen	Mon006	null	
+Mon006	Firstly, what is ‘Calamity’ to you?	Distress and despair, resulting from loss…:Mon007;An event, a disaster that brings harm.:Mon008			0				Black_Screen	-1	null	
+Mon007	Distress and despair, resulting from loss…				0				Black_Screen	Mon009	null	
+Mon008	An event, a disaster that brings harm.				0				Black_Screen	Mon009	null	
+Mon009	Next, what is fate to you?	Predetermined events that cannot be altered.:Mon010;An ending that results from my choices.:Mon011			0				Black_Screen	-1	null	
+Mon010	Predetermined events that cannot be altered.				0				Black_Screen	Mon012	null	
+Mon011	An ending that results from my choices.				0				Black_Screen	Mon012	null	
+Mon012	Finally, what is sacrifice to you?	An unfair exchange, my pain, used to benefit others.:Mon013;A charity, to bestow joy on another.:Mon014			0				Black_Screen	-1	null	
+Mon013	An unfair exchange, my pain, used to benefit others.				0				Black_Screen	Mon015	null	
+Mon014	A charity, to bestow joy on another.				0				Black_Screen	Mon015	null	
+Mon015	Hm... Excellent…				0				Black_Screen	Mon016	null	
+Mon016	Your answers are excellent.				0				Black_Screen	Mon017	null	
+Mon017	Now I shall return the favour.				0				Black_Screen	Mon018	null	
+Mon018	I chose a most beautiful name for you.				0				Black_Screen	Mon019	null	
+Mon019	It’s…				0				Black_Screen	Mon020	null	
+Mon020	ELIZA!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:false		0				Black_Screen	Mon021	changeLoc	
+Mon021	Wha-?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0		BGM_1		Tent	Mon022	null	
+Mon022	Where am I?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Tent	Mon023	null	
+Mon023	Wake up already! It's way past nine!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:false		0				Tent	Mon024	null	
+Mon024	Patients could arrive any moment!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:false		0				Tent	Mon025	null	
+Mon025	Patients… right. I have to get to work.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Tent	Mon026	null	
+Mon026	Took you long enough, sleepyhead!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthOpen:true	0	Rustle2			Tent	Mon027	null	
+Mon027	(<i>This bundle of sunshine is Celia, the local florist and my childhood friend.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthClosed:true	0				Tent	Mon028	null	
+Mon028	It's about time you got up! I've been calling you for a long time!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Tent	Mon029	null	
+Mon029	I’m awake, I'm awake...		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerCalmClosedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthClosed:false	0	Sigh			Tent	Mon030	null	
+Mon030	Here, take a look at this.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthOpen:true	0				Tent	Mon031	null	
+Mon031	*Celia shoves the daily newspaper into my hand.*		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthClosed:false	0	Newspaper			Tent	Mon032	null	
+Mon032	This is...?		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerNeutralOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthClosed:false	0				Tent	Mon033	null	
+Mon033	The nearby town of Graem just went into chaos! People are leaving left and right!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthOpen:true	0				Tent	Mon034	null	
+Mon034	Because of the Blue Plague?		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerNeutralOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthClosed:false	0				Tent	Mon035	null	
+Mon035	(<i>The Blue Plague, a disease that's been spreading like wildfire all across Paalre.</i>)				0				Tent	Mon036	null	
+Mon036	(<i>It's highly infectious, but fortunately, scientists are already in the process of discovering a cure.</i>)				0				Tent	Mon037	null	
+Mon037	And what does this have to do with me?		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerNeutralOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthClosed:false	0				Tent	Mon038	null	
+Mon038	You’re one of the most highly regarded doctors in Margra!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadDisapprovingMouthOpen:true	0				Tent	Mon039	null	
+Mon039	Don’t you think you’ll be receiving more patients soon?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadDisapprovingMouthOpen:true	0				Tent	Mon040	null	
+Mon040	As much as I'd like to treat every Tom, Dick, and Harry that comes by...		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadDisapprovingMouthClosed:false	0				Tent	Mon041	null	
+Mon041	I simply lack the supplies and energy to treat even the people of our town.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadDisapprovingMouthClosed:false	0				Tent	Mon042	null	
+Mon042	*Celia clasps my hand, looking at me encouragingly.*		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerLovestruckClosedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthClosed:false	0	Clasp			Tent	Mon043	null	
+Mon043	I understand that you're tired. You’ve had to keep your clinic open longer, especially during this epidemic.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerLovestruckClosedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthOpen:true	0				Tent	Mon044	null	
+Mon044	But I know you have a kind heart and can understand that everyone is suffering. Will you at least try to treat any and everyone who comes by?	Sure, I'll... see what I can do.:Mon045;I don't know...:Mon046	Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerLovestruckClosedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Tent	-1	null	
+Mon045	Sure, I'll... see what I can do.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerWorriedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthClosed:false	0				Tent	Mon047	null	
+Mon046	I don't know...		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerWorriedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthClosed:false	0				Tent	Mon047	null	
+Mon047	All I'm asking is that you try.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Tent	Mon048	null	
+Mon048	Oh? Looks like your first patient of the day has arrived. I'll leave you to it.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSurprisedHappyMouthOpen:true	0				Tent	Mon049	null	
+Mon049	*Celia turns to leave, before stopping at the door.*		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthClosed:true	0				Tent	Mon050	null	
+Mon050	Eliza, one more thing…		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthOpen:true	0				Tent	Mon051	null	
+Mon051	What is it?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthOpen:false	0				Tent	Mon052	null	
+Mon052	...		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadWorriedMouthClosed:true	0				Tent	Mon053	null	
+Mon053	No, it's nothing. Good luck!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthOpen:true	0				Tent	Mon054	null	
+Mon054	Good morning, sir. What seems to be ailing you today?		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileOpenedMouth:true	Male Patient_MalePatient_empty:false	0	Door			Tent	Mon055	null	
+Mon055	Good morning, doctor. My apologies for cutting your conversation short.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Mon056	null	
+Mon056	I just woke up a little sluggish today. I don’t think it’s anything to worry about, but the Madam insists I get checked.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Mon057	null	
+Mon057	Right, let me take a look…		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon058	null	
+Mon058	*I inspect the old man…*		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon059	null	
+Mon059	(<i>Yup, his heart’s rhythm is fine.</i>)		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon060	null	
+Mon060	(<i>No doubt he’s simply old, and time has worn his body down.</i>)		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon061	null	
+Mon061	(<i>Let’s see…</i>)	It's normal for you to experience fatigue at your age.:Mon062;Are you experiencing anything else?:Mon063	Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	-1	flashred	
+Mon062	It's normal for you to experience fatigue at your age.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon064	null	
+Mon063	Are you experiencing any other symptoms?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileOpenedMouth:true	Male Patient_MalePatient_empty:false	1				Tent	Mon065	null	
+Mon064	Is that so? Time catches up with us all, I suppose.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Mon066	null	
+Mon065	Well, I am also sweating a lot, but I did rush over here as soon as I could.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Mon066	null	
+Mon066	I'll prescribe you some medicinal herbs that should lessen your burden.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon067	null	
+Mon067	Thank you, doctor.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Mon068	null	
+Mon068	Alright, one down, plenty more to go.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon069	null	
+Mon069	Next patient!		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Mon070	changeLoc	
+Mon070	(<i>The patients today were such a pain…</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingClosedMouth:true		0				Black_Screen	Mon071	null	
+Mon071	(<i>Best not think about it. It’ll only make me lose my temper.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerCalmClosedMouth:true		0				Black_Screen	Mon072	null	
+Mon072	*Sigh* Just thinking about it is giving me a headache.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true		0	Sigh			Black_Screen	Mon073	null	
+Mon073	(<i>I should just sleep…</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:true		0				Black_Screen	Tue001	changeLoc	
+Tue001	A brand new day…		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Celia_House	Tue002	null	
+Tue002	Ugh… Damn, the headache is still there.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryOpenedMouth:true		0	Door			Celia_House	Tue003	null	
+Tue003	(<i>Goodness, have I ever experienced a headache this painful?</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingClosedMouth:true		0				Celia_House	Tue004	null	
+Tue004	(<i>No more whining, I have to get ready.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:true		0				Celia_House	Tue005	changeLoc	
+Tue005	Helllllooooo!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceSmileMouthOpen:true	0	Sigh			Tent	Tue006	null	
+Tue006	Gosh, how are you so energetic every single day?		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerNeutralOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceSmileMouthClosed:false	0				Tent	Tue007	null	
+Tue007	Heh heh! You should try greeting the day with this type of energy.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:false	Celia_HealthyBodyHandsTogether_HealthyFaceHappyMouthOpen:true	0				Tent	Tue008	null	
+Tue008	*Sigh…* There’s no way anyone else wakes up like you.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerCalmOpenedMouth:true	Celia_HealthyBodyHandsTogether_HealthyFaceHappyMouthClosed:false	0				Tent	Tue009	null	
+Tue009	Ugh…		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerAngryClosedMouth:true	Celia_HealthyBodyHandsTogether_HealthyFaceHappyMouthClosed:false	0				Tent	Tue010	null	
+Tue010	(<i>Curses, this pain is unrelenting.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerAngryClosedMouth:true	Celia_HealthyBodyHandsTogether_HealthyFaceHappyMouthClosed:false	0				Tent	Tue011	null	
+Tue011	Hey, are you alright?		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerAngryClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceSurprisedMouthOpen:true	0				Tent	Tue012	null	
+Tue012	Wha- Yeah, I’m fine. It’s nothing.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceSurprisedMouthClosed:false	0				Tent	Tue013	null	
+Tue013	No, you’re not. I know you Liz, this isn’t just “nothing”. What’s wrong?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceDisapprovingMouthOpen:true	0				Tent	Tue014	null	
+Tue014	(<i>...The one time you had to be perceptive and you chose now?</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceDisapprovingMouthClosed:false	0				Tent	Tue015	null	
+Tue015	I promise you, I’m completely alright. Don’t make a fuss.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceDisapprovingMouthClosed:false	0				Tent	Tue016	null	
+Tue016	*As I proceed to turn away, Celia grabs my face.*		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:true	Celia_HealthyBodyHandUp_HealthyFaceDisapprovingMouthClosed:false	0				Tent	Tue017	null	
+Tue017	Goodness! You’re heating up!		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerLovestruckClosedMouth:false	Celia_HealthyBodyHandUp_HealthyFaceSurprisedMouthOpen:true	0				Tent	Tue018	null	
+Tue018	*I push her hands away before she could inspect me further.*		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerLovestruckClosedMouth:true	Celia_HealthyBodyHandUp_HealthyFaceSurprisedMouthOpen:false	0				Tent	Tue019	null	
+Tue019	You’re imagining it. I’m simply dressed more than usual.		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerLovestruckOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceDisapprovingMouthClosed:false	0				Tent	Tue020	null	
+Tue020	Your outfit is the same as yesterday's!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerLovestruckClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceDisapprovingMouthOpen:true	0				Tent	Tue021	null	
+Tue021	…		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerWorriedClosedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceDisapprovingMouthClosed:false	0				Tent	Tue022	null	
+Tue022	Look, you can stay stubborn, but can you at least promise me something?		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceWorriedMouthOpen:true	0				Tent	Tue023	null	
+Tue023	*Sigh* It depends on what you’re asking.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceWorriedMouthClosed:false	0				Tent	Tue024	null	
+Tue024	You’re tending to patients, so I know things can’t be easy for you.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceWorriedMouthOpen:true	0				Tent	Tue025	null	
+Tue025	…		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceWorriedMouthClosed:false	0				Tent	Tue026	null	
+Tue026	and I’m no doctor, so I can’t diagnose you, but please promise me you’re taking care of yourself.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_HealthyBodyHandsTogether_HealthyFaceWorriedMouthOpen:true	0				Tent	Tue027	null	
+Tue027	Please? Things are getting worse and worse outside of Margra.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_HealthyBodyHandsTogether_HealthyFaceWorriedMouthOpen:true	0				Tent	Tue028	null	
+Tue028	I don’t want things to get worse here too, okay?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_HealthyBodyHandsTogether_HealthyFaceWorriedMouthOpen:true	0	Ow			Tent	Tue029	null	
+Tue029	(<i>This is so hard.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerDefeatedClosedMouth:true	Celia_HealthyBodyHandsTogether_HealthyFaceWorriedMouthClosed:false	0				Tent	Tue030	null	
+Tue030	*I raise my hand up to Celia’s face and… flick her on the forehead.*		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceWorriedMouthClosed:false	0				Tent	Tue031	null	
+Tue031	Ow! What was that for?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceSurprisedMouthOpen:true	0				Tent	Tue032	null	
+Tue032	That’s a cute little speech, but I can see the bags forming under your eyes.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceSurprisedMouthClosed:false	0				Tent	Tue033	null	
+Tue033	You’re right on one thing- I’m a doctor, so I know my wellbeing better than anyone else, unlike you.		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceSurprisedHappyMouthClosed:false	0				Tent	Tue034	null	
+Tue034	But- just for your sake, I promise you that I’m fine and will proceed to remain this way in the future.		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceSurprisedHappyMouthClosed:false	0				Tent	Tue035	null	
+Tue035	*Celia gazes into my eyes, and I can see that she wants to retaliate but holds her tongue.*		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_HealthyBodyHandsTogether_HealthyFaceDisapprovingMouthOpen:true	0				Tent	Tue036	null	
+Tue036	You… you mean a lot to me. You’re my best friend, Liz.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_HealthyBodyHandsTogether_HealthyFaceWorriedMouthOpen:true	0				Tent	Tue037	null	
+Tue037	Take care, alright?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_HealthyBodyHandsTogether_HealthyFaceWorriedMouthOpen:true	0				Tent	Tue038	null	
+Tue038	*Celia stands her ground, waiting for my reply.*		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_HealthyBodyHandsTogether_HealthyFaceWorriedMouthClosed:true	0				Tent	Tue039	null	
+Tue039	… I will.		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandsTogether_HealthyFaceWorriedMouthClosed:false	0				Tent	Tue040	null	
+Tue040	*Satisfied with my answer, she gives me a hug before turning around to leave.*		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceHappyMouthClosed:false	0	Sneeze			Tent	Tue041	null	
+Tue041	(<i>And the work begins.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:true		0				Tent	Tue042	null	
+Tue042	Welcome, Madam, how may I help you today?		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileOpenedMouth:true	Female Patient_FemalePatient_empty:false	0				Tent	Tue043	null	
+Tue043	Achoo! It’s been horrible, I’ve been sneezing non-stop, and to make matters worse, I have the worst fever ever!		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:false	Female Patient_FemalePatient_empty:true	0				Tent	Tue044	null	
+Tue044	(<i>So much for an easy day…</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:true	Female Patient_FemalePatient_empty:false	0				Tent	Tue045	null	
+Tue045	No worries, ma’am, I’m certain it’s nothing. Now…	Tell me more about your fever.:Tue046;Tell me more about your cold.:Tue047	Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true	Female Patient_FemalePatient_empty:false	0				Tent	-1	null	
+Tue046	Tell me more about your fever.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerCalmOpenedMouth:true	Female Patient_FemalePatient_empty:false	1				Tent	Tue048	null	
+Tue047	Tell me more about your cold.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerCalmOpenedMouth:true	Female Patient_FemalePatient_empty:false	0				Tent	Tue049	null	
+Tue048	It’s just the worst! I feel like my head's on fire!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:false	Female Patient_FemalePatient_empty:true	0				Tent	Tue050	null	
+Tue049	It’s terrible! Ever since I left my home, I’ve been sneezing left and right.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:false	Female Patient_FemalePatient_empty:true	0				Tent	Tue050	null	
+Tue050	How peculiar…		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingOpenedMouth:true	Female Patient_FemalePatient_empty:false	0				Tent	Tue051	null	
+Tue051	Could this illness be?		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingOpenedMouth:true	Female Patient_FemalePatient_empty:false	0				Tent	Tue052	null	
+Tue052	What? You’re not implying I’ve caught the Blue Plague, are you!?!		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingClosedMouth:false	Female Patient_FemalePatient_empty:true	0				Tent	Tue053	null	
+Tue053	Well.. It’s a possibility. At this point, researchers have only deduced one trait of the Blue Plague. It causes multiple symptoms of a severe degree.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerThinkingOpenedMouth:true	Female Patient_FemalePatient_empty:false	0				Tent	Tue054	null	
+Tue054	To the point where patients afflicted with it are unable to move.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerThinkingOpenedMouth:true	Female Patient_FemalePatient_empty:false	0	Bell			Tent	Tue055	null	
+Tue055	Well, I’m moving just fine! So I must not have caught it! Just give me something for this damn fever!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerThinkingClosedMouth:false	Female Patient_FemalePatient_empty:true	0				Tent	Tue056	null	
+Tue056	Of course, ma’am- here this should help you recover.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileOpenedMouth:true	Female Patient_FemalePatient_empty:false	0				Tent	Tue057	null	
+Tue057	*My diagnosis was interrupted by the loud chimes of the bell tower.*		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Female Patient_FemalePatient_empty:false	0				Tent	Tue058	null	
+Tue058	What in the blazes is that?!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralClosedMouth:false	Female Patient_FemalePatient_empty:true	0				Tent	Tue059	null	
+Tue059	The city bells? But why would ther-		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingOpenedMouth:true	Female Patient_FemalePatient_empty:false	0				Tent	Tue060	null	
+Tue060	Oh no…		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedOpenedMouth:true	Female Patient_FemalePatient_empty:false	0				Tent	Tue061	changeLoc	
+Tue061	As the city gates burst open, numerous refugees from the city of Graem poured in.				0				Crowded_Gate	Tue062	null	
+Tue062	Shoving and pushing, they made their way into Margra.				0				Crowded_Gate	Tue063	null	
+Tue063	Whether they carry the Blue Plague matters not.				0				Crowded_Gate	Tue064	null	
+Tue064	For a doctor takes an oath to humanity, no matter the time, no matter the challenge.				0				Crowded_Gate	Tue065	null	
+Tue065	This is their promise.				0				Crowded_Gate	Tue066	changeLoc	
+Tue066	Gosh, what a day it’s been…		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerCalmOpenedMouth:true		0		BGM_2		Black_Screen	Tue067	null	
+Tue067	The number of patients… way too many….		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true		0				Black_Screen	Tue068	null	
+Tue068	I have to rest now befo-		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Black_Screen	Tue069	null	
+Tue069	I have to rest now befo-		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Black_Screen	Tue070	FLASHES RED	
+Tue070	Argh! My head!		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerAngryOpenedMouth:true		0				Black_Screen	Tue071	null	
+Tue071	(<i>Wait a moment.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerThinkingClosedMouth:true		0				Black_Screen	Tue072	null	
+Tue072	It can’t be.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerThinkingOpenedMouth:true		0				Black_Screen	Tue073	null	
+Tue073	(<i>I place my hand upon my forehead.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingClosedMouth:true		0				Black_Screen	Tue074	null	
+Tue074	(<i>I’ve treated more than enough patients to know what this is.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingClosedMouth:true		0				Black_Screen	Tue075	null	
+Tue075	That’s not possible… I… have a fever?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryOpenedMouth:true		0				Black_Screen	Tue076	null	
+Tue076	(<i>Is it the Blue Plague? No, that’s impossible. I wore a mask the entire time and was sure to clean up properly.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryClosedMouth:true		0				Black_Screen	Tue077	null	
+Tue077			Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryClosedMouth:true		0				Black_Screen	Tue078	FLASHES RED	
+Tue078	Argh!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryClosedMouth:true		0				Black_Screen	Tue079	null	
+Tue079	Stay calm and think, there’s still a chance this is just a regular fever.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true		0				Black_Screen	Tue080	null	
+Tue080	(<i>But my head is pulsing like crazy! Have I ever experienced a fever this severe?</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryClosedMouth:true		0				Black_Screen	Tue081	null	
+Tue081	(<i>There’s no way it’s the Blue Plague. I’m certain that with enough rest, I’ll be fine.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerThinkingClosedMouth:true		0				Black_Screen	Tue082	null	
+Tue082	Yeah… I’ll be fine.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:true		0				Black_Screen	Wed001	changeLoc	
+Wed001	(<i>This damn fever, how could it have gotten worse so quickly?</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryClosedMouth:true		0		BGM_1		Celia_House	Wed002	null	
+Wed002	(<i>Every muscle aches… and my throat feels like I swallowed splinters.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerAngryClosedMouth:true		0				Celia_House	Wed003	null	
+Wed003	(<i>But it’s fine… just one more day. I’ve got work to do.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerCalmClosedMouth:true		0				Celia_House	Wed004	null	
+Wed004	(<i>Just… don’t collapse. Not today.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerCalmClosedMouth:true		0				Celia_House	Wed005	changeLoc	
+Wed005	…You look like you’re about to rob the place.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskSmile:false	0	Rustle			Tent	Wed006	null	
+Wed006	Haha! You like it?		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_SicklyBodyHandsTogether_SicklyFaceMaskHappy:true	0				Tent	Wed007	null	
+Wed007	I didn’t say that.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileOpenedMouth:true	Celia_SicklyBodyHandsTogether_SicklyFaceMaskHappy:false	0				Tent	Wed008	null	
+Wed008	With the number of people flooding into Margra, I decided to finally start protecting myself. Can’t risk anything.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskWorried:true	0				Tent	Wed009	null	
+Wed009	(<i>Smart… she’s always been cautious. Still… Celia looks so different in a mask.</i>)		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskWorried:false	0				Tent	Wed010	null	
+Wed010	Honestly, it’s getting scary. Just yesterday, I heard the East Gate had to shut down early. Refugees are swarming in from the river towns.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskWorried:true	0				Tent	Wed011	null	
+Wed011	Everyone’s scared, and I think we both know things might get worse.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskWorried:true	0	Rustle			Tent	Wed012	null	
+Wed012	That’s why we keep doing what we do.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskWorried:false	0				Tent	Wed013	null	
+Wed013	And that’s exactly why you should be in bed, not dragging yourself around half-conscious.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskDisapproving:true	0				Tent	Wed014	null	
+Wed014	(<i>I should’ve seen that one coming.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerCalmOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskDisapproving:false	0	Door			Tent	Wed015	null	
+Wed015	Don’t think I can’t tell. Your eyes are glassy, and your voice sounds like you swallowed smoke. You’re even worse than before!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:false	Celia_SicklyBodyHandUp_SicklyFaceMaskDisapproving:true	0				Tent	Wed016	null	
+Wed016	I’m fine.		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerCalmOpenedMouth:true	Celia_SicklyBodyHandUp_SicklyFaceMaskDisapproving:false	0				Tent	Wed017	null	
+Wed017	You’re lying.		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskDisapproving:true	0	Cough			Tent	Wed018	null	
+Wed018	I’m still functioning. There’s a difference.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerCalmOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskDisapproving:false	0				Tent	Wed019	null	
+Wed019	*Celia crosses her arms but drops the subject. Her frustration subsides, replaced by her usual demeanor.*		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskDisapproving:false	0	Cough			Tent	Wed020	null	
+Wed020	…Alright, I’ll drop it. Just…don’t push yourself too far, okay Liz?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskWorried:true	0				Tent	Wed021	null	
+Wed021	Take this.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmClosedMouth:false	Celia_SicklyBodyHandUp_SicklyFaceMaskSmile:true	0				Tent	Wed022	null	
+Wed022	Isn’t this…?		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerThinkingOpenedMouth:true	Celia_SicklyBodyHandUp_SicklyFaceMaskSmile:false	0				Tent	Wed023	null	
+Wed023	That’s right! It’s a Celia flower, just like the one you liked when we were younger.	It's beautiful, thank you.:Wed024;I’ll keep it safe.:Wed025	Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerThinkingClosedMouth:false	Celia_SicklyBodyHandsTogether_SicklyFaceMaskHappy:true	0				Tent	-1	null	
+Wed024	It's beautiful, thank you.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileOpenedMouth:true	Celia_SicklyBodyHandsTogether_SicklyFaceMaskHappy:false	0				Tent	Wed026	null	
+Wed025	I’ll keep it safe.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileOpenedMouth:true	Celia_SicklyBodyHandsTogether_SicklyFaceMaskHappy:false	0				Tent	Wed026	null	
+Wed026	Here, allow me.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_SicklyBodyHandUp_SicklyFaceMaskSmile:true	0				Tent	Wed027	null	
+Wed027	*She places the flower on my hat.*		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Celia_SicklyBodyHandUp_SicklyFaceMaskSmile:false	0				Tent	Wed028	null	
+Wed028	There! It’s perfect.		Eliza_HealthyBodyHandDown_HealthyHeadFlowerSmileClosedMouth:false	Celia_SicklyBodyHandUp_SicklyFaceMaskHappy:true	0				Tent	Wed029	null	
+Wed029	Now, I have a store to tend to. Have a great day, Liz!		Eliza_HealthyBodyHandDown_HealthyHeadFlowerSmileClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Tent	Wed030	null	
+Wed030	And there she goes.		Eliza_HealthyBodyHandDown_HealthyHeadFlowerSmileOpenedMouth:true		0	Cough			Tent	Wed031	null	
+Wed031	(<i>And here comes the next one.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadFlowerCalmClosedMouth:true		0				Tent	Wed032	null	
+Wed032	Good day, sir. What seems to be the matter?		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerSmileOpenedMouth:true		0				Tent	Wed033	null	
+Wed033	*Cough, cough.* Good day? Doesn’t feel very good to me. *Cough!* Been hacking up my lungs since last night.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerSmileClosedMouth:false	Male Patient_MalePatient_empty:true	0	Cough			Tent	Wed034	null	
+Wed034	(<i>Even his voice is straining… I need to be careful.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0	Cough			Tent	Wed035	null	
+Wed035	*Cough, cough.* Chest is tight… Everything aches. Can barely breathe in the cold.		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Wed036	null	
+Wed036	(<i>That cough is deep. Wet. But his eyes are clear. No signs of the Blue Plague, yet.</i>)	Understood. I’ll need to check your temperature and listen to your breathing. This might just be a bad chest infection.:Wed037;How long have you had the cough? Are the people around you coughing a lot too?:Wed038	Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	-1	null	
+Wed037	Understood. I’ll need to check your temperature and listen to your breathing. This might just be a bad chest infection.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerNeutralOpenedMouth:true	Male Patient_MalePatient_empty:false	1				Tent	Wed039	null	
+Wed038	How long have you had the cough? Are the people around you coughing a lot too?		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerNeutralOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Wed040	null	
+Wed039	You sure it ain’t the Plague? My neighbour caught it. Now he’s stuck in bed, can’t even move his legs!		Eliza_HealthyBodyHandDown_HealthyHeadFlowerNeutralClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Wed041	null	
+Wed040	I’ve had it since the start of the year, it’s hard to go out into the field and harvest my crops nowadays so I rely on my boys. Luckily none of them are sick.		Eliza_HealthyBodyHandDown_HealthyHeadFlowerNeutralClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Wed042	null	
+Wed041	If you had the Plague, you wouldn’t have made it this far. You’d be curled up on the floor by now.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerCalmOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Wed043	null	
+Wed042	Okay, if it’s just a common cough then it wouldn’t spread fast, most likely you’ll be alright.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerNeutralOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Wed043	null	
+Wed043	…Guess that’s comforting. *Cough!*		Eliza_HealthyBodyHandDown_HealthyHeadFlowerNeutralClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Wed044	null	
+Wed044	Just hold still. I’ll prepare something to ease the coughing.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerCalmOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Wed045	null	
+Wed045	*Eliza administers treatment, offers water*		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerCalmClosedMouth:false	Male Patient_MalePatient_empty:false	0				Tent	Wed046	null	
+Wed046	*Cough* T-Thanks, doc.		Eliza_HealthyBodyHandDown_HealthyHeadFlowerNeutralClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Wed047	changeLoc	
+Wed047	(<i>…Wait. His coughing. It stopped?</i>)		Eliza_HealthyBodyHandDown_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Black_Screen	Wed048	null	
+Wed048	(<i>No cough. Not even one. He’s walking just fine.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Black_Screen	Wed049	null	
+Wed049	(<i>Strange… but maybe I’m overthinking it.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Black_Screen	Wed050	changeLoc	
+Wed050	(<i>Let’s just get through the day.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerCalmClosedMouth:true	Male Patient_MalePatient_empty:false	0				Black_Screen	Wed051	null	
+Wed051	(<i>The mailman just brought in letters from the academy in Graem. Research is ongoing for a cure to the Blue Plague but doctors there have been overwhelmed with patients.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadFlowerNeutralClosedMouth:true		0				Celia_House	Wed052	null	
+Wed052	(<i>They suspect that some plants or herbs may have curative properties but haven’t been able to narrow down which.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true		0				Celia_House	Wed053	null	
+Wed053	(<i>This recipe seems promising… perhaps I might be able to synthesise a cure myself.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadFlowerSmileClosedMouth:true		0				Celia_House	Wed054	null	
+Wed054	(<i>Agh.. My head’s burning again… I don’t know how long I can keep this up.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerAngryClosedMouth:true		0				Celia_House	Wed055	null	
+Wed055	*I pick up a flask, and gather some ingredients, but a sharp pain in my temple causes me to drop one of the glass bottles. It shatters across the floor.*		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerAngryClosedMouth:true		0				Celia_House	Wed056	null	
+Wed056	(<i>Damn it! I’m a doctor! How could I be the one feeling ill!</i>)		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryOpenedMouth:true		0				Celia_House	Wed057	null	
+Wed057	(<i>I didn’t go through all this effort just to be beaten by a plague!</i>)		Eliza_HealthyBodyHandDown_HealthyHeadFlowerAngryOpenedMouth:true		0				Celia_House	Wed058	null	
+Wed058	(<i>No… I promised her. So I’ll keep standing, even if it kills me.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadFlowerCalmOpenedMouth:true		0				Celia_House	Thu001	changeLoc	
+Thu001	(<i>My head feels full of steam… but I actually feel a bit better today.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerAngryClosedMouth:true		0		BGM_2		Black_Screen	Thu002	null	
+Thu002	(<i>Yesterday’s patient, he walked off without a single cough. Like it was never real.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true		0	Door			Black_Screen	Thu003	null	
+Thu003	(<i>A coincidence, maybe. But still… it hasn’t left my mind.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerCalmClosedMouth:true		0				Black_Screen	Thu004	null	
+Thu004	(<i>No time to dwell on it. There’s work to do.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadFlowerNeutralClosedMouth:true		0				Black_Screen	Thu005	changeLoc	
+Thu005	Celia?		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0		BGM_1		Tent	Thu006	null	
+Thu006	H-Hey. Morning.		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskNeutral:true	0				Tent	Thu007	null	
+Thu007	…You don’t look well		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Tent	Thu008	null	
+Thu008	I’m fine. Just… didn’t get much sleep. The store’s a mess with all the newcomers.		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskNeutral:true	0				Tent	Thu009	null	
+Thu009	You're pale. And your voice… It's strained.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskNeutral:false	0				Tent	Thu010	null	
+Thu010	Eliza… don’t start		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerWorriedOpenedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskWorried:true	0				Tent	Thu011	null	
+Thu011	I’m not starting anything. You look terrible.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerAngryOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Tent	Thu012	null	
+Thu012	And I’m saying I’m fine! I- I’ve just been overworked lately. No need to make a scene.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerAngryClosedMouth:false	Celia_SicklyBodyHandUp_SicklyFaceMaskHappy:true	0				Tent	Thu013	null	
+Thu013	(<i>I brushed it off yesterday…but now she truly looks ill.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerWorriedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Tent	Thu014	null	
+Thu014	Just tell me if it gets worse. Please.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Tent	Thu015	null	
+Thu015	You’ll be the first to know. Promise. I just came to check in. I’ll head back soon		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Tent	Thu016	null	
+Thu016	Be careful out there.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskNeutral:false	0				Tent	Thu017	null	
+Thu017	Always.		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandsTogether_SicklyFaceMaskNeutral:true	0				Tent	Thu018	null	
+Thu018	Welcome. What brings you in today?		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerWorriedOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu019	null	
+Thu019	*Sniff.* My throat’s killing me. Hurts to even swallow.		Eliza_HealthyBodyHandDown_HealthyHeadFlowerWorriedClosedMouth:false	Male Patient_MalePatient_empty:false	0				Tent	Thu020	null	
+Thu020	And I… I just feel off. Not just sick. The whole house feels wrong		Eliza_HealthyBodyHandDown_HealthyHeadFlowerWorriedClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Thu021	null	
+Thu021	What do you mean?		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerWorriedOpenedMouth:true	Male Patient_MalePatient_empty:false	0	Glass_Bottle			Tent	Thu022	null	
+Thu022	I don’t know… It’s like the walls are pressing in. Everyone’s dragging their feet. My brother won’t leave his bed. Even our dogs stopped barking		Eliza_HealthyBodyHandDown_HealthyHeadFlowerWorriedClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Thu023	null	
+Thu023	I’ve barely moved in two days. I almost didn’t come.		Eliza_HealthyBodyHandDown_HealthyHeadFlowerWorriedClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Thu024	null	
+Thu024	(<i>Lethargy… a clouded mood, almost contagious. It’s more than physical.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu025	null	
+Thu025	But… since I got here, I feel a little different.	Change in your environment can lead to people getting better but nothing beats rest and drinking lots of water.:Thu026;Different how?:Thu027	Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	-1	null	
+Thu026	Change in your environment can lead to people getting better but nothing beats rest and drinking lots of water.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerThinkingOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu028	null	
+Thu027	Different how?		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerThinkingOpenedMouth:true	Male Patient_MalePatient_empty:false	1				Tent	Thu029	null	
+Thu028	If you say so doctor…		Eliza_HealthyBodyHandDown_HealthyHeadFlowerThinkingClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Thu030	null	
+Thu029	Lighter. Warmer? Just walking in made something shift.		Eliza_HealthyBodyHandDown_HealthyHeadFlowerThinkingClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Thu030	null	
+Thu030	Do you feel like your bones and muscles ache when you do your normal activities?		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerThinkingOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu031	null	
+Thu031	(<i>Again…</i>)		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu032	null	
+Thu032	Yes, I can feel my bones creaking from how heavy they are. I can feel my muscles struggle to lift up my simple plow. I may be old but I’m still hale and strong, it’s just been hard these past couple of weeks		Eliza_HealthyBodyHandDown_HealthyHeadFlowerNeutralClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Thu033	null	
+Thu033	And talking to you now, I mean, my throat still stings, but I feel more awake. More alive.		Eliza_HealthyBodyHandDown_HealthyHeadFlowerNeutralClosedMouth:false	Male Patient_MalePatient_empty:true	0	Door			Tent	Thu034	null	
+Thu034	(<i>He sounds better already.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu035	null	
+Thu035	(<i>It’s happening again. Same as yesterday.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu036	null	
+Thu036	Let me prepare something to help with the soreness. You’ll want to rest either way		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerNeutralOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu037	null	
+Thu037	Thank you. Really. This helps way more than I expected.		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerNeutralClosedMouth:false	Male Patient_MalePatient_empty:true	0	Rustle2			Tent	Thu038	null	
+Thu038	(<i>No more sneezing. No coughing.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu039	null	
+Thu039	(<i>He sounded miserable a minute ago… and now it’s like it was never there.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu040	null	
+Thu040	(<i>How many times is this going to happen before I stop calling it a coincidence?</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Thu041	changeLoc	
+Thu041	The patter of rain grows steadier, almost rhythmic.				0	Sigh	BGM_2		Celia_House	Thu042	null	
+Thu042	(<i>Two patients. Two recoveries that make no sense.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true		0				Celia_House	Thu043	null	
+Thu043	(<i>Even my own symptoms have subsided slightly… but Celia’s looking worse by the hour.</i>)		Eliza_HealthyBodyHandUpPalm_HealthyHeadFlowerThinkingClosedMouth:true		0				Celia_House	Thu044	null	
+Thu044	(<i>Something’s happening, and I’m starting to wonder if I’m not just treating the sick…</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true		0				Celia_House	Thu045	null	
+Thu045	(<i>…but drawing something out of them.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerThinkingClosedMouth:true		0				Celia_House	Thu046	null	
+Thu046	(<i>Don’t be ridiculous, Liz. There must be something that we’ve been exposed to that is alleviating our symptoms.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerAngryClosedMouth:true		0				Celia_House	Thu047	null	
+Thu047	(<i>But… what is it…</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadFlowerAngryClosedMouth:true		0				Celia_House	Fri001	changeLoc	
+Fri001	(<i>There can be no denying it any more, I have the Plague.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerWorriedClosedMouth:true		0		BGM_1		Tent	Fri002	null	
+Fri002	(<i> How did I catch it?... The patients…? Celia…?</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerDefeatedClosedMouth:true		0	Glass_Bottle			Tent	Fri003	null	
+Fri003	(<i>Where is Celia?</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerSurprisedOpenedMouth:true		0				Tent	Fri004	null	
+Fri004	(<i> She usually comes in at the start of my shift, did I miss her?</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerWorriedClosedMouth:true		0				Tent	Fri005	null	
+Fri005	(<i>I don’t like this… She should have been here already.</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedClosedMouth:true		0				Tent	Fri006	null	
+Fri006	Should i stay at the clinic or go to eliza?	Stay at the clinic:Fri007;Go to Eliza:Fri015	Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedClosedMouth:true		0				Tent	-1	null	
+Fri007	Good evening, doctor! How are you today?		Eliza_SicklyBodyHandDown_SickHeadFlowerCalmClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Fri008	null	
+Fri008	I am well enough, how are you feeling? Do you feel any different since Monday?		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerNeutralOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Fri009	null	
+Fri009	(<i>He’s walking about and complaining...</i)>		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerNeutralClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Fri010	null	
+Fri010	I still feel tired, but I am feeling better. I think those herbs helped me recover.		Eliza_SicklyBodyHandDown_SickHeadFlowerNeutralClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Fri011	null	
+Fri011	Good. I’m glad that you feel much better. Let me give you more herbs to help you over the weekend, let me know if there are any changes okay?		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerSmileOpenedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Fri012	null	
+Fri012	(<i>I don’t think this old man has the Blue Plague…</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerThinkingClosedMouth:true	Male Patient_MalePatient_empty:false	0				Tent	Fri013	null	
+Fri013	Thank you again, doctor!		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerThinkingClosedMouth:false	Male Patient_MalePatient_empty:true	0				Tent	Fri014	null	
+Fri014	(<i>I feel miserable just walking back home.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerDefeatedClosedMouth:false		0				Tent	Fri015	changeLoc	
+Fri015	How are you doing, Celia? Feeling better?		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	1				Celia_House	Fri016	null	
+Fri016	I’m feeling much better now that you’re here, Liz.		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskNeutral:true	0				Celia_House	9999	null	
+Fri017	(<i>No matter how sick she gets, she’s always trying to lift up the mood.</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerSmileClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Fri018	null	
+Fri018	You’re still in bed! You always come by the clinic in the morning. What happened?		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerSurprisedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Fri019	null	
+Fri019	I was feeling too unsteady to walk. I feel so exhausted all the time, and I feel like my head is spinning every time I stand up. But, I’m actually feeling a bit better after seeing you.		Eliza_SicklyBodyHandDown_SickHeadFlowerNeutralClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Celia_House	Fri020	null	
+Fri020	(<i>She feels better with me just being here? This feels familiar somehow…..</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerSurprisedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Fri021	null	
+Fri021	You don’t need to get up and be hospitable, you’re sick.		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Fri022	null	
+Fri022	Like I said, I’m feeling better. I don’t even feel dizzy when I stand up anymore.		Eliza_SicklyBodyHandDown_SickHeadFlowerNeutralClosedMouth:false	Celia_SicklyBodyHandsTogether_SicklyFaceMaskHappy:true	0				Celia_House	Fri023	null	
+Fri023	How are you feeling? Do you need me to get anything from the market today or tend to your shop?		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandsTogether_SicklyFaceMaskHappy:false	0				Celia_House	Fri024	null	
+Fri024	No, it’s fine… I made sure that the shop would be fine without me. I don’t have any errands to run today, so let’s just spend some time together. Could you do that for me, Liz?		Eliza_SicklyBodyHandDown_SickHeadFlowerNeutralClosedMouth:false	Celia_SicklyBodyHandsTogether_SicklyFaceMaskNeutral:true	0				Celia_House	Fri025	null	
+Fri025	That would be my pleasure.		Eliza_SicklyBodyHandDown_SickHeadFlowerSmileOpenedMouth:true	Celia_SicklyBodyHandsTogether_SicklyFaceMaskNeutral:false	0				Celia_House	Fri026	null	
+Fri026	Eliza and Celia spent the whole day talking and resting together. Celia mentions that the flowers are starting to bloom because of the start of spring, how people are getting more desperate, and how things seem to be changing for the worse nowadays. Eliza’s eyes never leave Celia’s form as she talks about the future, inwardly agonizing about the cruelty of fate taking someone so bright and cheery from this world.				0				Celia_House	Fri027	null	
+Fri027	They talked about dreams, about hope, about what could be… and until the night fell, Eliza’s hand never left Celia’s as they both sailed down the river of sleep				0				Celia_House	Fri028	null	
+Fri028	(<i>It feels like a weight has landed upon my shoulders.</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedClosedMouth:true		0		BGM_2		Celia_House	Fri029	null	
+Fri029	(<i>It feels like I’m drowning in a tornado of uncertainty and chaos.</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedClosedMouth:true		0				Celia_House	Fri030	null	
+Fri030	(<i>Everything feels like it’s spinning, and my head is killing me… But I know there is work to be done.</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedClosedMouth:true		0				Celia_House	Fri031	null	
+Fri031	(<i>I must do something- at least then my life would be worth something.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerAngryClosedMouth:true		0				Celia_House	Sat001	changeLoc	
+Sat001	It's Saturday, Eliza feels the end is coming closer. She feels like she has to make a choice today, to make it all worth it.		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedClosedMouth:true		0		BGM_1		Black_Screen	Sat002	null	
+Sat002	(<i>I have to try to find a cure… I want to see Celia one last time… I need to make a choice.</i>)	Stay at the clinic:Sat003;Go to Eliza:Sat011	Eliza_SicklyBodyHandDown_SickHeadFlowerAngryClosedMouth:true		0				Black_Screen	-1	null	
+Sat003	(<i>Work begins in the morning, trying out different herbs and mixtures.</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerAngryClosedMouth:true		1				Black_Screen	Sat004	changeLoc	
+Sat004	(<i>I can feel it….. I’m so close to the cure….. I just need one last thing.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerAngryOpenedMouth:true		0				Tent	Sat005	null	
+Sat005	(<i>I can’t think of anything…… I have no choice, this is how far I can take it….. I hope this works as a cure</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedOpenedMouth:true		0				Tent	Sat006	null	
+Sat006	(<i>Wait… The patients and Celia all felt better after they talked to me. No… It can’t be me. The flower?</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerSurprisedClosedMouth:true		0				Tent	Sat007	null	
+Sat007	*I raise my hand up to my hat, touching the Celia flower that rested on it*		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerSurprisedClosedMouth:true		0				Tent	Sat009	null	
+Sat008	(<i>Just this little thing? Is it a psychological effect, or is it medical… I don’t have the time to test it.</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerSurprisedOpenedMouth:true		0				Tent	Sat010	null	
+Sat009	*Eliza adds the blue flower to the cure.*		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerThinkingClosedMouth:true		0				Tent	Sat011	null	
+Sat010	(<i>I can’t think of anything…… I have no choice, this is how far I can take it….. I hope this works as a cure</i>)		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerThinkingOpenedMouth:true		0				Tent	9999	null	
+Sat011	Celia...		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sat012	null	
+Sat012	Hi, Liz…		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskNeutral:true	0				Celia_House	Sat013	null	
+Sat013	Feeling better?		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskNeutral:false	0				Celia_House	Sat014	null	
+Sat014	Yes, with you here by my side…		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Celia_House	Sat015	null	
+Sat015	I’ll be here all day, Celia. Let me know if you need anything.		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerDefeatedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sat016	null	
+Sat016	Mmkay...		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:true	0				Celia_House	Sat017	null	
+Sat017	*I pull up a chair to sit next to Celia’s bed, caressing her hand gently.*		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerWorriedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sat018	null	
+Sat018	I’m sorry, I wasn’t able to find a cure… I don’t know what to do anymore!		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sat019	null	
+Sat019	Hey… It's okay. I'm glad you could be here with me… That’s all that matters.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Celia_House	Sat020	null	
+Sat020	*Through the day Eliza sees Celia wasting away…. Her joyous and cheery nature falls to despondence and desperation.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:false	0				Celia_House	Sat021	null	
+Sat021	Eliza…. I don’t want to die…. I want to live… I want to bring you more and more flowers….. Please don’t let me leave… I don’t want to leave…….Please……….Please………. Plea………		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:false	Celia_SicklyBodyHandsTogether_SicklyFaceMaskTears:true	0				Celia_House	Sat022	null	
+Sat022	*Eliza watches Celia close her eyes falling asleep, pleading weakly for a life she would never have……*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:false	Celia_SicklyBodyHandsTogether_SicklyFaceMaskSorrow:false	0				Celia_House	Sat023	null	
+Sat023	(<i>I've done all I can.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:true		0		BGM_2		Celia_House	Sat024	null	
+Sat024	(<i>I have to accept my choices whether they be good or bad in the end.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadNOFlowerAngryClosedMouth:true		0				Celia_House	Sun001	changeLoc	
+Sun001	Time, unbothered by hope or hesitation, carries all things forward.				0		BGM_1		Black_Screen	Sun002	null	
+Sun002	The days have unravelled, one by one, like threads pulled loose from a fading tapestry.				0				Black_Screen	Sun003	null	
+Sun003	Along the way, choices were made, quiet ones, desperate ones, ones that may never be fully understood.				0				Black_Screen	Sun004	null	
+Sun004	And now, the final day arrives. Not as a reckoning, but as a turning of the page.				0				Black_Screen	Sun005	null	
+Sun005	The beginning of the end. What comes next waits just beyond the silence.				0				Black_Screen	Sun006	null	
+Sun006	Light filters through thin curtains. The world is quiet, but too still.				0				Black_Screen	Sun007	changeLoc	
+Sun007	(<i>My body’s numb.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedClosedMouth:true		0				Celia_House	Sun008	null	
+Sun008	(<i>I can barely tell if I’m breathing anymore.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadNOFlowerWorriedOpenedMouth:true		0				Celia_House	Sun009	null	
+Sun009	(<i>My fingers won’t close, my throat burns, and I can’t feel my legs.</i>)		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerDefeatedClosedMouth:true		0				Celia_House	Sun010	null	
+Sun010	(<i>This is it… the final day. My last chance to make any of this mean something.</i>)				0				Celia_House	END	changeLoc	
+Sun011	The counter is cluttered with half-finished vials, torn notes, and drying herbs. The flower Celia once gave sits wilted by the window.				0				Tent	Sun012	null	
+Sun012	(<i>I didn’t go to her… I kept telling myself there would be time.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:true		0				Tent	Sun013	null	
+Sun013	(<i>And now I don’t even know if she’s still breathing.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:true		0				Tent	Sun014	null	
+Sun014	(<i>I thought I could make something here. Something to save everyone.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedClosedMouth:true		0				Tent	Sun015	null	
+Sun015	(<i>I thought maybe… I could even save her.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedClosedMouth:true		0				Tent	Sun016	null	
+Sun016	Eliza moves slowly, shakily reaching for her notes.		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerWorriedClosedMouth:false		0				Tent	Sun017	null	
+Sun017	(<i>I’ve tried everything. Every root, every ratio, every formulation.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadNOFlowerWorriedClosedMouth:true		0				Tent	Sun018	null	
+Sun018	(<i>But something’s still missing. I can feel it.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadNOFlowerAngryClosedMouth:true		0				Tent	Sun019	null	
+Sun019	(<i>I never found the last piece.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadNOFlowerAngryClosedMouth:true		0				Tent	Sun020	null	
+Sun020	She slumps into the chair, eyes half-lidded. The formula in the vial glows faintly, unfinished.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerCalmClosedMouth:false		0				Tent	Sun021	null	
+Sun021	(<i>No time left.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedClosedMouth:true		0				Tent	Sun022	null	
+Sun022	(<i>Maybe this is where it ends. Maybe it’s enough that I tried.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:true		0	Heartbeat			Tent	Sun023	null	
+Sun023	Eliza raises the vial to her lips and drinks. Her hand trembles. Her vision swims.		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerDefeatedOpenedMouth:true		0	Outside_Ambience			Tent	Sun024	null	
+Sun024	(<i>Celia… I’m sorry.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:true		0				Tent	Sun025	null	
+Sun025	A soft heartbeat, steady at first… then weaker… then silence.				0				Tent	Sun026	changeLoc	
+Sun026	Sunlight is clearer. The sky outside is calm.				0	Rustle2			Celia_House	Sun027	null	
+Sun027	(<i>…I’m awake?</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingClosedMouth:true		0				Celia_House	Sun028	null	
+Sun028	(<i>Alive?</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingOpenedMouth:true		0				Celia_House	Sun029	null	
+Sun029	She lifts herself from the cot. Her breath comes easily. The weight in her chest is gone.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerAngryClosedMouth:true		0				Celia_House	Sun030	null	
+Sun030	(<i>It worked… not yesterday. Not when I needed it to… but it worked.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerSmileClosedMouth:true		0				Celia_House	Sun031	null	
+Sun031	(<i>I’m still here.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerSmileOpenedMouth:true		0				Celia_House	Sun032	null	
+Sun032	She slowly approaches the window. A soft breeze pushes against the curtains.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedClosedMouth:true		0				Celia_House	Sun033	null	
+Sun033	(<i>But she’s not.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerWorriedOpenedMouth:true		0				Celia_House	Sun034	null	
+Sun034	Celia's bed is empty. Her voice echoes faintly from memory.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerDefeatedClosedMouth:true		0				Celia_House	Sun035	null	
+Sun035	“Let’s just spend time together… is that fine, Eliza?”		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerDefeatedClosedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthOpen:false	0				Celia_House	Sun036	null	
+Sun036	Eliza picks up the faded blue flower and presses it gently between the pages of her notebook.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerDefeatedClosedMouth:true		0	Paper			Celia_House	Sun037	null	
+Sun037	(<i>You gave me everything you could. Your time. Your trust. Even your warmth.</i>)		Eliza_HealthyBodyHandUpDown_HealthyHeadNOFlowerDefeatedOpenedMouth:true		0	Writing			Celia_House	Sun038	null	
+Sun038	(<i>My hands may have made this cure… but it was born from you.</i>)		Eliza_HealthyBodyHandUpDown_HealthyHeadNOFlowerDefeatedOpenedMouth:true		0				Celia_House	Sun039	null	
+Sun039	She opens a fresh page in her journal and writes.		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerDefeatedClosedMouth:true		0				Celia_House	Sun040	changeLoc	
+Sun040	“Celia.”		Eliza_HealthyBodyHandUpDown_HealthyHeadNOFlowerDefeatedOpenedMouth:true		0				Black_Screen	Sun041	null	
+Sun041	That’s what they’ll call it. The one that came too late for you… But just in time for me.		Eliza_HealthyBodyHandUpDown_HealthyHeadNOFlowerDefeatedOpenedMouth:true		0				Black_Screen	Sun093	changeLoc	
+Sun042	Hey, Celia.		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sun043	null	
+Sun043	*Cough, Cough* Hey Liz, what’s wrong?		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskNeutral:false	0	Cough			Celia_House	Sun044	null	
+Sun044	You…I…Couldn’t do it.		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskNeutral:false	0				Celia_House	Sun045	null	
+Sun045	There’s no way I can make a cure. So many other researchers have tried, and I just can’t-		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskNeutral:false	0				Celia_House	Sun046	null	
+Sun046	*She grabs my arm, patting the bed*		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedOpenedMouth:false	Celia_SicklyBodyHandUp_SicklyFaceMaskHappy:true	0	Rustle			Celia_House	Sun047	null	
+Sun047	Sit down		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedClosedMouth:false	Celia_SicklyBodyHandUp_SicklyFaceMaskHappy:true	0				Celia_House	Sun048	null	
+Sun048	I…		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandUp_SicklyFaceMaskHappy:false	0				Celia_House	Sun049	null	
+Sun049	(<i>Her strength is almost gone, I can’t even feel her tugging my sleeve.</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedClosedMouth:true	Celia_SicklyBodyHandUp_SicklyFaceMaskHappy:false	0				Celia_House	Sun050	null	
+Sun050	Alright…		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandUp_SicklyFaceMaskHappy:false	0				Celia_House	Sun051	null	
+Sun051	*Following her instructions, I sat next to her.*		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedClosedMouth:true	Celia_SicklyBodyHandUp_SicklyFaceMaskHappy:false	0				Celia_House	Sun052	null	
+Sun052	You’ve worked hard.		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Celia_House	Sun053	null	
+Sun053	Yes.		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:false	0				Celia_House	Sun054	null	
+Sun054	You’ve always worked hard.		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Celia_House	Sun055	null	
+Sun055	…Maybe…		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:false	0	Rustle2			Celia_House	Sun056	null	
+Sun056	You should rest.		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:true	0				Celia_House	Sun057	null	
+Sun057	I can’t…		Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sun058	null	
+Sun058	*She proceeds to pull me down, allowing her head to rest upon mine.*		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerDefeatedOpenedMouth:true	Celia_SicklyBodyHandUp_SicklyFaceMaskNeutral:true	0				Celia_House	Sun059	null	
+Sun059	Thank you for trying so hard.		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerSurprisedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Celia_House	Sun060	null	
+Sun060	(<i>I didn’t try hard enough… I didn’t-</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerWorriedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:false	0				Celia_House	Sun061	null	
+Sun061	Go on and sleep. Nothing will hurt you anymore.		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Celia_House	Sun062	null	
+Sun062	(<i>So sleepy…, so… tired, can’t..keep my… eyes..open….</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerDefeatedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:false	0				Celia_House	Sun063	null	
+Sun063	*Feeling nothing but warmth, I drifted off to sleep*		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:false	0				Celia_House	Sun064	null	
+Sun064	Cece…?		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:false	0				Celia_House	Sun065	null	
+Sun065	*Giggle* I haven’t heard that nickname in a while…		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Celia_House	Sun066	changeLoc	
+Sun066	I’m feeling pretty tired myself. I think I’ll take a nap too.		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskWorried:true	0				Tent	Sun067	null	
+Sun067	Don’t worry, I promise I’ll still be here when you awake.		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskHappy:true	0				Tent	Sun068	null	
+Sun068	I’ll see you soon…		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:true	0				Tent	Sun069	changeLoc	
+Sun069					0				Black_Screen	Sun093	changeLoc	
+Sun070	After frantic trial and error with the blue flower, a vial of liquid glowing blue sits on a stand.				0				Tent	Sun071	null	
+Sun071	Various ingredients, papers, formulas and even tools litter the table.				0	Glass_Bottle			Tent	Sun072	null	
+Sun072	Torn paper and failed vials spread on the floor. The results speak for themselves.				0				Tent	Sun073	null	
+Sun073	(<i>This is it. This is the final opportunity that I have. I need to get to Celia now.</i>)		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerSmileClosedMouth:true		0				Tent	Sun074	changeLoc	
+Sun074	(<i>Celia looks so weak, I must be fast</i>)		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerAngryClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sun075	null	
+Sun075	Celia don’t get up. Here drink this, please.		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sun076	null	
+Sun076	*I lift her weak head and start to feed her the vial derived from the flower she gave me.*		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerWorriedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sun077	null	
+Sun077	*I wait a few minutes but nothing changes.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sun078	null	
+Sun078	*I close my eyes. Tears fall down my face.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyFaceMaskEyesClosed:false	0				Celia_House	Sun079	null	
+Sun079	*Suddenly, I feel a hand wiping away the tears that I shed, and I open my eyes to the sight of Celia smiling up at me like there wasn’t a care in the world.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedClosedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceSmileMouthClosed:true	0				Celia_House	Sun080	null	
+Sun080	“Hi”		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceSmileMouthOpen:true	0				Celia_House	Sun081	null	
+Sun081	“Hi”		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceHappyMouthClosed:false	0				Celia_House	Sun082	null	
+Sun082	“I haven’t seen you cry this much since when we were children.”		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceSmileMouthOpen:true	0				Celia_House	Sun083	null	
+Sun083	“I thought I lost you. I thought I lost my whole world.”		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceSmileMouthClosed:false	0				Celia_House	Sun084	null	
+Sun084	“Oh? I’m your world am I?”		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceSmileMouthOpen:true	0				Celia_House	Sun085	null	
+Sun085	“I guess it’s fitting if you’re mine in turn then”		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceHappyMouthOpen:true	0				Celia_House	Sun086	null	
+Sun086	(<i>I have never seen her smile so bright and mischievous</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileClosedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceHappyMouthOpen:false	0				Celia_House	Sun087	null	
+Sun087	“It works! The cure works!”		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceHappyMouthClosed:false	0	Rustle			Celia_House	Sun088	null	
+Sun088	“All because of your gift to me Celia. All because of your gift….. Thank you Celia.”		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceHappyMouthClosed:false	0				Celia_House	Sun089	null	
+Sun089	“Thank you for all you’ve been, all you are, and all you are going to be.”		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceHappyMouthClosed:false	0				Celia_House	Sun090	null	
+Sun090	*Celia grabs my face and pulls me to her, to her lips.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceSmileMouthClosed:true	0				Celia_House	Sun091	null	
+Sun091	“Was that a proposal Eliza? If it was then I accept”		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyFaceSmileMouthOpen:true	0				Celia_House	Sun092	changeLoc	
+Sun092	*I can’t help but blush and my mind drifts to whatever future we have. I know that no matter what happens, we will forever have each other.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyFaceHappyMouthClosed:false	0				White_Screen	Sun093	null	
+Sun093	Time does not pause for the weary, nor does it wait for certainty				0				White_Screen	Sun094	null	
+Sun094	The days have passed like breath on glass.				0				White_Screen	Sun095	null	
+Sun095	Fleeting, fragile, and real.				0				White_Screen	Sun096	null	
+Sun096	Choices were made in silence, actions taken in faith, in fear, in love.				0				White_Screen	Sun097	null	
+Sun097	And now, as the final light seeps in, the story finds its close.				0				White_Screen	Sun098	null	
+Sun098	Not all answers are given.				0				White_Screen	Sun099	null	
+Sun099	Not all endings are clean.				0				White_Screen	Sun100	null	
+Sun100	But every thread, no matter how tangled, must find its knot.				0				White_Screen	9999	null	

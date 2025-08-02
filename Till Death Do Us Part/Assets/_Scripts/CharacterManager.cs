@@ -107,5 +107,31 @@ public class CharacterManager : MonoBehaviour
             emotionSprite.color = new Color(0.8f, 0.8f, 0.8f, 0.9f);
         }
     }
+
+    public void ClearCharacters()
+    {
+        if (dialogManager == null)
+        {
+            Debug.LogError("DialogManager is not assigned in CharacterManager.");
+            dialogManager = GetComponent<DialogManager>();
+        }
+
+        // Clear all character visuals
+        dialogManager.CharacterLPoseSprite.sprite = null;
+        dialogManager.CharacterLEmotionSprite.sprite = null;
+        dialogManager.CharacterRPoseSprite.sprite = null;
+        dialogManager.CharacterREmotionSprite.sprite = null;
+
+        dialogManager.CharacterLPoseSprite.color = new Color(0f, 0f, 0f, 0f); // Make invisible
+        dialogManager.CharacterLEmotionSprite.color = new Color(0f, 0f, 0f, 0f); // Make invisible
+        dialogManager.CharacterRPoseSprite.color = new Color(0f, 0f, 0f, 0f); // Make invisible
+        dialogManager.CharacterREmotionSprite.color = new Color(0f, 0f, 0f, 0f); // Make invisible
+
+        // Clear character names
+        if (dialogManager.CharacterNameField != null)
+        {
+            dialogManager.CharacterNameField.text = string.Empty;
+        }
+    }
     #endregion
 }

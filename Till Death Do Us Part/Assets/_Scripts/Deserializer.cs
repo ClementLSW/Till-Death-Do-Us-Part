@@ -93,9 +93,13 @@ public class Deserializer : MonoBehaviour
                     Debug.Log($"Option: {option.OptionText}, NextDialogID: {option.NextDialogID}");
                 }
             }
-            foreach (var character in line.CharactersInvolved)
+
+            if(line.CharactersInvolved != null)
             {
-                Debug.Log($"Name: {character.Name} {character.Pose} {character.Emotion}, {character.position}, Active: {character.isActive}");
+                foreach (var character in line.CharactersInvolved)
+                {
+                    Debug.Log($"Name: {character.Name} {character.Pose} {character.Emotion}, {character.position}, Active: {character.isActive}");
+                }
             }
         }
 

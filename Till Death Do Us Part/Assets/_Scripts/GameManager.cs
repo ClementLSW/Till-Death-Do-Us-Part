@@ -29,11 +29,10 @@ public class GameManager : MonoBehaviour
     }
 
     // TODO: Set Endings
-    public void EvaluateEnding()
+    public int EvaluateEnding()
     {
-        if (Score > 0) { Debug.Log("Good End"); } else
-        {
-            Debug.Log("BadEnd");
-        }
+        int tempScore = Score;
+        ResetScore();
+        return tempScore;
     }
 }
