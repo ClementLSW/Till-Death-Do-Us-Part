@@ -22,7 +22,7 @@ public class SaveLoad : MonoBehaviour
     public void SaveGame()
     {
         PlayerPrefs.SetInt("Score", gm.Score);
-        PlayerPrefs.SetInt("CurrentDialogID", dm.CurrentDialogID);
+        PlayerPrefs.SetString("CurrentDialogID", dm.CurrentDialogID);
         // Implement save logic here
         Debug.Log("Game saved.");
     }
@@ -30,7 +30,7 @@ public class SaveLoad : MonoBehaviour
     public void LoadGame()
     {
         gm.LoadScore(PlayerPrefs.GetInt("Score", 0));
-        dm.SetDialogue(PlayerPrefs.GetInt("CurrentDialogID", 1));
+        dm.SetDialogue(PlayerPrefs.GetString("CurrentDialogID", "mon001"));
     }
 
     public void ResetGame()

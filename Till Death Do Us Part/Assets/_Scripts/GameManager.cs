@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int Score { get; private set; } = 0;
+    public DayOfWeek.Day CurrentDay { get; set; } = DayOfWeek.Day.Monday;
 
     public void AddScore(int amount)
     {

@@ -6,6 +6,8 @@ public class Deserializer : MonoBehaviour
 {
     DialogManager dialogManager;
 
+    [SerializeField] TextAsset tsvFile; // Reference to the TSV file in the Resources folder
+
     private void Awake()
     {
         // Ensure that the DialogManager component is attached to the same GameObject
@@ -15,9 +17,7 @@ public class Deserializer : MonoBehaviour
             Debug.LogError("DialogManager component not found on this GameObject.");
             return;
         }
-        dialogManager.SanityCheck(); // Perform sanity check on the DialogManager
-        // Ensure the Deserializer is initialized when the game starts
-        // ReadTSV();
+        dialogManager.SanityCheck();
     }
 
     // This method reads a TSV file and deserializes it into a Dialog object
@@ -26,7 +26,7 @@ public class Deserializer : MonoBehaviour
         dialogManager = dm; // Assign the passed DialogManager instance to the local variable
 
         Debug.Log("Reading TSV file...");
-        TextAsset tsvFile = Resources.Load<TextAsset>("Dialogue V2");
+        //TextAsset tsvFile = Resources.Load<TextAsset>("Dialogue V2");
 
         if (tsvFile == null)
         {
@@ -47,30 +47,36 @@ public class Deserializer : MonoBehaviour
 
             // Tokenize the line by tab character
             string[] tokens = line_t.Split('\t'); // Split by tab character
+            Debug.Log($"Processing line: {line_t} with {tokens.Length} tokens");
 
-
-            int temp_ID;
-            if (!int.TryParse(tokens[0], out temp_ID))
+            if (tokens.Length < 12)
             {
-                Debug.LogWarning($"Skipping line due to invalid ID: {line}");
-                continue; // If the first token is not an integer, stop processing
+                Debug.LogWarning($"Skipping malformed line: {line_t}");
+                continue;
+            }
+
+            if (tokens[0] == "lineId")
+            {
+                Debug.LogWarning($"Skipping header line");
+                continue;
             }
 
             DialogManager.DialogLine dialogLine = new DialogManager.DialogLine
             {
-                ID = temp_ID,
+                Day = ParseDayOfWeek(tokens[0]), // Parse the day of the week from the first token
+                ID = tokens[0],
                 Text = tokens[1], // Assuming the second token is the text
                 Options = ParseDialogOptions(tokens[2]), // Parse options from the third token
                 CharactersInvolved = ParseCharacters(new ArraySegment<string>(tokens, 3, 2).ToArray()), //TIL
                 ScoreDelta = int.Parse(tokens[5]),
                 AudioData = ParseAudioClips(new ArraySegment<String>(tokens, 6, 3).ToArray()), // Parse audio clips from the sixth to eighth token
                 BG = tokens[9], // Assuming the tenth token is the background
-                GOTO = int.Parse(tokens[10]), // Assuming the eleventh token is the GOTO value
+                GOTO = tokens[10], // Assuming the eleventh token is the GOTO value
                 VFX = tokens[11]
             };
 
             dialogManager.MasterBank.Lines.Add(dialogLine); // Add the dialog line to the master bank
-            Debug.Log(line);
+            //Debug.Log(line);
         }
 
         foreach (DialogManager.DialogLine line in dialogManager.MasterBank.Lines)
@@ -118,13 +124,7 @@ public class Deserializer : MonoBehaviour
             }
 
             string optionText = optionParts[0].Trim();
-            int nextDialogID;
-
-            if (!int.TryParse(optionParts[1].Trim(), out nextDialogID))
-            {
-                Debug.LogWarning($"Invalid NextDialogID for option '{optionText}': {optionParts[1]}");
-                continue; // Skip if the next dialog ID is not an integer
-            }
+            string nextDialogID = optionParts[1];
 
             DialogManager.DialogOptions dialogOption = new DialogManager.DialogOptions
             {
@@ -138,7 +138,7 @@ public class Deserializer : MonoBehaviour
         return outOptions;
     }
 
-    private List<CharacterManager.Characters> ParseCharacters(string[] characters)
+    private List<CharacterManager.CharacterData> ParseCharacters(string[] characters)
     {
         if (characters.Length == 0 || characters[0].Length == 0)
         {
@@ -146,67 +146,100 @@ public class Deserializer : MonoBehaviour
             return default; // Return default if there are no characters
         }
 
-        List<CharacterManager.Characters> outCharacters = new();
-        int loopcount = 0;
-        foreach (string character in characters)
-        {
-            string[] characterParts = character.Split(':'); // Assuming format "CharID:isActive"
-            if (characterParts.Length != 2)
-            {
-                Debug.LogWarning($"Invalid character format: {character}");
-                continue; // Skip invalid characters
-            }
+        List<CharacterManager.CharacterData> outCharacters = new();
 
-            string[] characterDetails = characterParts[0].Split('_');
-            CharacterManager.Characters dialogCharacter = new CharacterManager.Characters
+        for (int i=0; i< characters.Length;i++)
+        {
+            string character = characters[i];
+
+            if (string.IsNullOrWhiteSpace(character))
             {
-                Name = characterDetails[0].ToString().Trim(),
-                Pose = characterDetails[1].ToString().Trim(),
-                Emotion = characterDetails[2].ToString().Trim(),
-                isActive = characterParts[1].Equals("true"),
-                position = CharacterManager.Characters.Position.Left + loopcount // This is Jank
+                Debug.LogWarning("Empty character string found, skipping.");
+                CharacterManager.CharacterData dialogCharacter = new CharacterManager.CharacterData
+                {
+                    Name = null,
+                    Pose = null,
+                    Emotion = null,
+                    isActive = false,
+                    position = i == 0 ? CharacterManager.CharacterData.Position.Left : CharacterManager.CharacterData.Position.Right
 
             };
+                outCharacters.Add(dialogCharacter); // Add the valid character to the list
+                continue; // Skip empty character strings
+            }
+            else
+            {
+                string[] characterParts = character.Split(':'); // Assuming format "CharID:isActive"
+                if (characterParts.Length != 2)
+                {
+                    Debug.LogWarning($"Invalid character format: {character}");
+                    continue; // Skip invalid characters
+                }
 
-            outCharacters.Add(dialogCharacter); // Add the valid character to the list
-            loopcount++; // Increment loop count for position assignment
+                string[] characterDetails = characterParts[0].Split('_');
+                CharacterManager.CharacterData dialogCharacter = new CharacterManager.CharacterData
+                {
+                    Name = characterDetails[0].Trim(),
+                    Pose = characterDetails[1].Trim(),
+                    Emotion = characterDetails[2].Trim(),
+                    isActive = characterParts[1].Equals("true"),
+                    position = i == 0 ? CharacterManager.CharacterData.Position.Left : CharacterManager.CharacterData.Position.Right
+
+            };
+                outCharacters.Add(dialogCharacter); // Add the valid character to the list
+            }
         }
 
         return outCharacters;
     }
-
+    
     private DialogManager.AudioData ParseAudioClips(string[] audio)
     {
-        DialogManager.AudioData audioData = new DialogManager.AudioData();
+        DialogManager.AudioData audioData = new();
+        string[] safeAudio = new string[3];
+
         for (int i = 0; i < 3; i++)
         {
-            switch (i)
-            {
-                case 0:
-                    if (audio[i] == "null" || audio[i] == string.Empty)
-                    {
-                        audioData.SFX = ""; // No audio clip
-                    }
-                    else audioData.SFX = audio[0];
-                    break;
-                case 1:
-                    if (audio[i] == "null" || audio[i] == string.Empty)
-                    {
-                        audioData.BGM = ""; // No audio clip
-                    }
-                    else audioData.BGM = audio[1];
-                    break;
-                case 2:
-                    if (audio[i] == "null" || audio[i] == string.Empty)
-                    {
-                        audioData.DialogueVO = ""; // No audio clip
-                    }
-                    else audioData.DialogueVO = audio[2];
-                    break;
-            }
+            safeAudio[i] = (i < audio.Length && !string.IsNullOrWhiteSpace(audio[i]) && audio[i] != "null") ? audio[i] : "";
         }
+
+        audioData.SFX = safeAudio[0];
+        audioData.BGM = safeAudio[1];
+        audioData.DialogueVO = safeAudio[2];
 
         return audioData;
     }
+
+    private DayOfWeek.Day ParseDayOfWeek(string id)
+    {
+        if (string.IsNullOrEmpty(id) || id.Length < 3)
+        {
+            Debug.LogWarning($"Invalid dialog ID format: {id}");
+            return DayOfWeek.Day.Monday;
+        }
+
+        string prefix = id.Substring(0, 3);
+
+        if (DayAbbreviationMap.TryGetValue(prefix, out var day))
+        {
+            return day;
+        }
+
+        Debug.LogWarning($"Unrecognized day prefix: {prefix} in ID: {id}");
+        return DayOfWeek.Day.Monday;
+    }
+    #endregion
+
+    #region Utils
+    private static readonly Dictionary<string, DayOfWeek.Day> DayAbbreviationMap = new()
+    {
+        { "Mon", DayOfWeek.Day.Monday },
+        { "Tue", DayOfWeek.Day.Tuesday },
+        { "Wed", DayOfWeek.Day.Wednesday },
+        { "Thu", DayOfWeek.Day.Thursday },
+        { "Fri", DayOfWeek.Day.Friday },
+        { "Sat", DayOfWeek.Day.Saturday },
+        { "Sun", DayOfWeek.Day.Sunday }
+    };
     #endregion
 }
