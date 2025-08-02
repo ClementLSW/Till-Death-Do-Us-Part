@@ -118,8 +118,16 @@ public class DialogManager : MonoBehaviour
     bool isWaitingForOptions = false; // Flag to check if waiting for options
 
     [Header("Debug - Do not alter")]
-    [SerializeField] public string CurrentDialogID { get; private set; }
+    [SerializeField] private string currentDialogID;
+    public string CurrentDialogID {
+        get => currentDialogID;
+        private set => currentDialogID = value;
+    }
     public DayOfWeek.Day PreviousDialogDay { get; private set; }
+
+    private const string END_BAD = "Sun042";
+    private const string END_OKAY = "Sun011";
+    private const string END_GOOD = "Sun070";
 
     /// <summary>
     /// Util Function to be called by Save Load
@@ -131,16 +139,17 @@ public class DialogManager : MonoBehaviour
         StartCoroutine(ProceedWithDialog());
     }
 
+    public void NextDialog()
+    {
+        Debug.Log($"NextDialog called with CurrentDialogID: {CurrentDialogID}");
+        StartCoroutine(ProceedWithDialog());
+    }
+
     public IEnumerator ProceedWithDialog()
     {
-        if(CurrentDialogID == "END")
-        {
-            gameManager.EvaluateEnding();
-            yield break; // Exit if the dialog is at the end
-        }
-
         if(isTyping)
         {
+            Debug.Log("Skipping typing animation as it is currently in progress.");
             SkipTypingAnimation(); // Skip typing if it's currently in progress
             yield break; // Exit if typing is still in progress
         }
@@ -152,18 +161,20 @@ public class DialogManager : MonoBehaviour
             gameManager.CurrentDay = currentLine.Day; // Update the current day in GameManager
             yield return StartCoroutine(dayManager.PlayDayTransition(currentLine.Day, () =>
             {
-                foreach (CharacterData c in currentLine.CharactersInvolved)
+                if(currentLine.CharactersInvolved != null)
                 {
-                    characterManager.PopulateCharacter(c);
+                    foreach (CharacterData c in currentLine.CharactersInvolved)
+                    {
+                        characterManager.PopulateCharacter(c);
+                    }
                 }
 
                 bgManager.PopulateBackGround(currentLine.BG);
             })); // Wait for the day transition to complete
-
-            PreviousDialogDay = currentLine.Day; // Store the previous dialog Day
-
-            yield return StartCoroutine(PopulateDialog(currentLine));
         }
+
+        PreviousDialogDay = currentLine.Day; // Store the previous dialog Day
+        yield return StartCoroutine(PopulateDialog(currentLine));
     }
 
     private IEnumerator PopulateDialog(DialogLine currentLine)
@@ -180,6 +191,7 @@ public class DialogManager : MonoBehaviour
         if (currentLine.CharactersInvolved == null || currentLine.CharactersInvolved.Count == 0)
         {
             Debug.LogWarning($"No characters involved in dialog ID {CurrentDialogID}. Skipping character population.");
+            characterManager.ClearCharacters(); // Clear characters if none are involved
         }
         else
         {
@@ -203,7 +215,24 @@ public class DialogManager : MonoBehaviour
         // Step 6: Handle Options
         if (currentLine.Options == null || currentLine.Options.Count == 0)
         {
-            if (!string.IsNullOrEmpty(currentLine.GOTO))
+            if (string.Equals(currentLine.GOTO, "END"))
+            {
+                int score = gameManager.EvaluateEnding();
+
+                if (score < 3)
+                {
+                    CurrentDialogID = END_BAD; // Set to bad ending dialog
+                }
+                else if (score < 5)
+                {
+                    CurrentDialogID = END_OKAY; // Set to okay ending dialog
+                }
+                else
+                {
+                    CurrentDialogID = END_GOOD; // Set to good ending dialog
+                }
+            }
+            else if (!string.IsNullOrEmpty(currentLine.GOTO))
             {
                 CurrentDialogID = currentLine.GOTO;
             }
@@ -269,10 +298,11 @@ public class DialogManager : MonoBehaviour
     // #VibeCoded
     public void SelectOption(string nextDialogID)
     {
+        Debug.Log($"Selected option leading to dialog ID: {nextDialogID}");
         isWaitingForOptions = false; // Reset the flag when an option is selected
         CurrentDialogID = nextDialogID;
         OptionsPanel.SetActive(false);
-        StartCoroutine(ProceedWithDialog());
+        NextDialog(); // Proceed to the next dialog line
     }
 
     #endregion
