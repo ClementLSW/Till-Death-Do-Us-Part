@@ -323,7 +323,7 @@ Sun006	Light filters through thin curtains. The world is quiet, but too still.		
 Sun007	(<i>My body’s numb.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedClosedMouth:true		0				Celia_House	Sun008	null	
 Sun008	(<i>I can barely tell if I’m breathing anymore.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadNOFlowerWorriedOpenedMouth:true		0				Celia_House	Sun009	null	
 Sun009	(<i>My fingers won’t close, my throat burns, and I can’t feel my legs.</i>)		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerDefeatedClosedMouth:true		0				Celia_House	Sun010	null	
-Sun010	(<i>This is it… the final day. My last chance to make any of this mean something.</i>)				0				Celia_House	Sun011	changeLoc	
+Sun010	(<i>This is it… the final day. My last chance to make any of this mean something.</i>)				0				Celia_House	END	changeLoc	
 Sun011	The counter is cluttered with half-finished vials, torn notes, and drying herbs. The flower Celia once gave sits wilted by the window.				0				Tent	Sun012	null	
 Sun012	(<i>I didn’t go to her… I kept telling myself there would be time.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:true		0				Tent	Sun013	null	
 Sun013	(<i>And now I don’t even know if she’s still breathing.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:true		0				Tent	Sun014	null	
