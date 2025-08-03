@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +20,7 @@ public class DayOfWeek : MonoBehaviour
 
     [Header("Transition Elements")]
     [SerializeField] Animator animator;
-    [SerializeField] CanvasGroup fadeCanvasGroup;
+    //[SerializeField] CanvasGroup fadeCanvasGroup;
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -60,7 +59,7 @@ public class DayOfWeek : MonoBehaviour
     public IEnumerator PlayDayTransition(Day day, Action onMidTransition = null)
     {
         // Step 1: Fade to Black
-        yield return StartCoroutine(FadeToBlack(1));
+        //yield return StartCoroutine(FadeToBlack(1));
 
         // Step 2: Enable Relevant day image
         HideAllDayImages();
@@ -81,7 +80,7 @@ public class DayOfWeek : MonoBehaviour
         yield return new WaitForSeconds(1.5f); // wait time before fading back in
 
         // Step 6: Fade back in
-        yield return StartCoroutine(FadeToBlack(0));
+        //yield return StartCoroutine(FadeToBlack(0));
 
     }
 
@@ -90,7 +89,7 @@ public class DayOfWeek : MonoBehaviour
     /// </summary>
     /// <param name="targetAlpha">0 to fade out, 1 to fade in</param>
     /// <returns></returns>
-    public IEnumerator FadeToBlack(float targetAlpha)
+    /*public IEnumerator FadeToBlack(float targetAlpha)
     {
         if (fadeCanvasGroup == null)
         {
@@ -109,7 +108,7 @@ public class DayOfWeek : MonoBehaviour
         }
 
         fadeCanvasGroup.alpha = targetAlpha; // Ensure we set the final alpha
-    }
+    }*/
 
     //public IEnumerator DisplayDayOfWeek(Day dayToDisplay)
     //{

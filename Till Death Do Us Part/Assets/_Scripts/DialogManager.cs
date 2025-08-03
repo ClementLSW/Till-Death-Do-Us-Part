@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static CharacterManager;
@@ -17,7 +16,7 @@ public class DialogManager : MonoBehaviour
 
     [SerializeField]
     DayOfWeek dayManager;
-    
+
     #region Data Struct and Init
     // DialogLine represents a single line of dialog
     public struct DialogLine
@@ -75,7 +74,7 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(ProceedWithDialog()); 
+        StartCoroutine(ProceedWithDialog());
     }
 
     public void SanityCheck()
@@ -108,6 +107,10 @@ public class DialogManager : MonoBehaviour
     [SerializeField] public Button BtnL;
     [SerializeField] public Button BtnR;
 
+    [Header("Next Dialog Button")]
+    [SerializeField] public Button nextDialogButton;
+    [SerializeField] public Image nextDialogAvailableIndicator;
+
     [Header("Typing Settings")]
     [SerializeField] float typingDelay = 0.05f;
 
@@ -116,10 +119,12 @@ public class DialogManager : MonoBehaviour
     bool skipTyping = false;
     bool isTyping = false;
     bool isWaitingForOptions = false; // Flag to check if waiting for options
+    bool hasCrossfadeQueued = false;
 
     [Header("Debug - Do not alter")]
     [SerializeField] private string currentDialogID;
-    public string CurrentDialogID {
+    public string CurrentDialogID
+    {
         get => currentDialogID;
         private set => currentDialogID = value;
     }
@@ -147,7 +152,7 @@ public class DialogManager : MonoBehaviour
 
     public IEnumerator ProceedWithDialog()
     {
-        if(isTyping)
+        if (isTyping)
         {
             Debug.Log("Skipping typing animation as it is currently in progress.");
             SkipTypingAnimation(); // Skip typing if it's currently in progress
@@ -158,10 +163,11 @@ public class DialogManager : MonoBehaviour
 
         if (currentLine.Day != PreviousDialogDay)
         {
+            nextDialogButton.interactable = false;
             gameManager.CurrentDay = currentLine.Day; // Update the current day in GameManager
             yield return StartCoroutine(dayManager.PlayDayTransition(currentLine.Day, () =>
             {
-                if(currentLine.CharactersInvolved != null)
+                if (currentLine.CharactersInvolved != null)
                 {
                     foreach (CharacterData c in currentLine.CharactersInvolved)
                     {
@@ -169,11 +175,40 @@ public class DialogManager : MonoBehaviour
                     }
                 }
 
-                bgManager.PopulateBackGround(currentLine.BG);
             })); // Wait for the day transition to complete
+            nextDialogButton.interactable = true;
         }
 
         PreviousDialogDay = currentLine.Day; // Store the previous dialog Day
+
+
+        switch (currentLine.VFX)
+        {
+            case "flashred":
+                bgManager.PopulateBackGround(currentLine.BG);
+                vfxManager.TriggerFlashRed();
+                break;
+            case "changeLoc":
+                hasCrossfadeQueued = true;
+                bgManager.PopulateBackGround(currentLine.BG);
+                break;
+            default:
+                if (hasCrossfadeQueued)
+                {
+                    nextDialogButton.interactable = false;
+                    yield return bgManager.FadeBackground(0f);
+                    bgManager.PopulateBackGround(currentLine.BG);
+                    yield return bgManager.FadeBackground(1f);
+                    nextDialogButton.interactable = true;
+                    hasCrossfadeQueued = false;
+                }
+                else
+                {
+                    bgManager.PopulateBackGround(currentLine.BG);
+                }
+                break;
+        }
+
         yield return StartCoroutine(PopulateDialog(currentLine));
     }
 
@@ -192,6 +227,7 @@ public class DialogManager : MonoBehaviour
         {
             Debug.LogWarning($"No characters involved in dialog ID {CurrentDialogID}. Skipping character population.");
             characterManager.ClearCharacters(); // Clear characters if none are involved
+            characterManager.SetUnknownName();
         }
         else
         {
@@ -199,6 +235,7 @@ public class DialogManager : MonoBehaviour
             {
                 characterManager.PopulateCharacter(c);
             }
+            characterManager.ResetNameState();
         }
 
         // Step 3: Handle Audio
@@ -247,6 +284,7 @@ public class DialogManager : MonoBehaviour
     #region Typing Utils
     IEnumerator TypeText(string text)
     {
+        nextDialogAvailableIndicator.enabled = false;
         isTyping = true; // Mark typing as in progress
 
         DialogTextField.text = "";
@@ -257,6 +295,7 @@ public class DialogManager : MonoBehaviour
                 DialogTextField.text = text;
                 skipTyping = false;
                 isTyping = false;
+                nextDialogAvailableIndicator.enabled = true;
                 yield break;
             }
             DialogTextField.text += c;
@@ -265,6 +304,7 @@ public class DialogManager : MonoBehaviour
 
         skipTyping = false; // Reset skipTyping after finishing the text
         isTyping = false; // Mark typing as finished
+        nextDialogAvailableIndicator.enabled = true;
     }
 
     /// <summary>

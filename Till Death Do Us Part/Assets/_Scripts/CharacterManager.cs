@@ -11,6 +11,13 @@ public class CharacterManager : MonoBehaviour
 {
     DialogManager dialogManager;
 
+    bool nameSet = false;
+
+    public void ResetNameState()
+    {
+        nameSet = false;
+    }
+
     private void Awake()
     {
         dialogManager = GetComponent<DialogManager>();
@@ -43,8 +50,6 @@ public class CharacterManager : MonoBehaviour
             return;
         }
 
-        bool nameSet = false;
-
         #region LEFT SIDE CHARACTER
         if (c.position == CharacterData.Position.Left)
         {
@@ -57,6 +62,7 @@ public class CharacterManager : MonoBehaviour
                     ref nameSet
                 );
             }
+            Debug.Log("Set Left Name");
         }
         #endregion
 
@@ -70,12 +76,14 @@ public class CharacterManager : MonoBehaviour
                 dialogManager.CharacterNameField,
                 ref nameSet
             );
+            Debug.Log("Set Right Name");
         }
         #endregion
 
         if(!nameSet && dialogManager.CharacterNameField != null)
         {
-            dialogManager.CharacterNameField.text = string.Empty; // Clear name if no character is active
+            Debug.LogWarning("No Name Set!");
+            dialogManager.CharacterNameField.text = string.Empty; // Set name to ??? if no character is active
         }
     }
 
@@ -103,8 +111,16 @@ public class CharacterManager : MonoBehaviour
         }
         else
         {
-            poseSprite.color = new Color(0.8f, 0.8f, 0.8f, 0.9f);
-            emotionSprite.color = new Color(0.8f, 0.8f, 0.8f, 0.9f);
+            poseSprite.color = new Color(0.8f, 0.8f, 0.8f, 1.0f);
+            emotionSprite.color = new Color(0.8f, 0.8f, 0.8f, 1.0f);
+        }
+    }
+
+    public void SetUnknownName()
+    {
+        if (dialogManager.CharacterNameField != null)
+        {
+            dialogManager.CharacterNameField.text = "???";
         }
     }
 
