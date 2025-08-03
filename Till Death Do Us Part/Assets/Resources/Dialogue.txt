@@ -59,7 +59,7 @@ Mon057	Right, let me take a look…		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFl
 Mon058	*I inspect the old man…*		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	Mon059	null
 Mon059	(<i>Yup, his heart’s rhythm is fine.</i>)		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	Mon060	null
 Mon060	(<i>No doubt he’s simply old, and time has worn his body down.</i>)		Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	Mon061	null
-Mon061	(<i>Let’s see…</i>)	It's normal for you to experience fatigue at your age.:Mon062;Are you experiencing any other symptoms?:Mon063	Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	-1	flashred
+Mon061	(<i>Let’s see…</i>)	It's normal for you to experience fatigue at your age.:Mon062;Are you experiencing any other symptoms?:Mon063	Eliza_HealthyBodyHandUpPalm_HealthyHeadNOFlowerSmileClosedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	-1	null
 Mon062	It's normal for you to experience fatigue at your age.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileOpenedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	Mon064	null
 Mon063	Are you experiencing any other symptoms?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileOpenedMouth:true	Male Patient_HandDown_Neutral:false	1				Tent	Mon065	null
 Mon064	Is that so? Time catches up with us all, I suppose.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerSmileClosedMouth:false	Male Patient_HandDown_Down:true	0				Tent	Mon066	null
@@ -267,7 +267,7 @@ Fri005	(<i>I don’t like this… She should have been here already.</i>)		Eliza
 Fri006	Should i stay at the clinic, or go to Celia?	Stay at the clinic:Fri007;Go to Celia:Fri015	Eliza_SicklyBodyHandDown_SickHeadFlowerDefeatedClosedMouth:true		0				Tent	-1	null
 Fri007	Good evening, doctor! How are you today?		Eliza_SicklyBodyHandDown_SickHeadFlowerCalmClosedMouth:false	Male Patient_HandUp_Neutral:true	0	Door			Tent	Fri008	null
 Fri008	I am well enough, how are you feeling? Do you feel any different since Monday?		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerNeutralOpenedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	Fri009	null
-Fri009	(<i>He’s walking about and complaining...</i)>		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerNeutralClosedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	Fri010	null
+Fri009	(<i>He’s walking about and complaining...</i>)		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerNeutralClosedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	Fri010	null
 Fri010	I still feel tired, but I am feeling better. I think those herbs helped me recover.		Eliza_SicklyBodyHandDown_SickHeadFlowerNeutralClosedMouth:false	Male Patient_HandDown_Neutral:true	0				Tent	Fri011	null
 Fri011	Good. I’m glad that you feel much better. Let me give you more herbs to help you over the weekend, let me know if there are any changes okay?		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerSmileOpenedMouth:true	Male Patient_HandDown_Neutral:false	0	Rustle2			Tent	Fri012	null
 Fri012	(<i>I don’t think this old man has the Blue Plague…</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerThinkingClosedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	Fri013	null
@@ -378,10 +378,10 @@ Sun061	Go on and sleep. Nothing will hurt you anymore.		Eliza_SicklyBodyHandUpTh
 Sun062	(<i>So sleepy…, so… tired, can’t..keep my… eyes..open….</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerDefeatedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyHeadMaskHappy:false	0				Celia_House	Sun063	null
 Sun063	*Feeling nothing but warmth, I drifted off to sleep.*		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:true	Celia_SicklyBodyHandDown_SicklyHeadMaskHappy:false	0				Celia_House	Sun064	null
 Sun064	Cece…?		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyHeadMaskHappy:false	0				Celia_House	Sun065	null
-Sun065	Heh... I haven’t heard that nickname in a while…		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyHeadMaskHappy:true	0				Celia_House	Sun066	changeLoc
-Sun066	I’m feeling pretty tired myself. I think I’ll take a nap too.		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyHeadMaskWorried:true	0				Tent	Sun067	null
-Sun067	Don’t worry, I promise I’ll still be here when you awake.		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyHeadMaskHappy:true	0				Tent	Sun068	null
-Sun068	I’ll see you soon…		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyHeadMaskEyesClosed:true	0				Tent	Sun069	changeLoc
+Sun065	Heh... I haven’t heard that nickname in a while…		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyHeadMaskHappy:true	0				Celia_House	Sun066	null
+Sun066	I’m feeling pretty tired myself. I think I’ll take a nap too.		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyHeadMaskWorried:true	0				Celia_House	Sun067	null
+Sun067	Don’t worry, I promise I’ll still be here when you awake.		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyHeadMaskHappy:true	0				Celia_House	Sun068	null
+Sun068	I’ll see you soon…		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerCalmClosedMouth:false	Celia_SicklyBodyHandDown_SicklyHeadMaskEyesClosed:true	0				Celia_House	Sun069	changeLoc
 Sun069					0				Black_Screen	Sun093	changeLoc
 Sun070	After frantic trial and error with the blue flower, a vial of glowing blue liquid sits on a stand.				0	Glass_Bottle	BGM_OutOfTheCold		Tent	Sun071	null
 Sun071	Various ingredients, papers, formulas and tools litter the table.				0				Tent	Sun072	null
@@ -413,4 +413,5 @@ Sun096	Choices were made in silence, actions taken in faith, in fear, in love.		
 Sun097	And now, as the final light seeps in, the story finds its close.				0				White_Screen	Sun098	null
 Sun098	Not all answers are given.				0				White_Screen	Sun099	null
 Sun099	Not all endings are clean.				0				White_Screen	Sun100	null
-Sun100	But every thread, no matter how tangled, must find its knot.				0				White_Screen	END	null
+Sun100	But every thread, no matter how tangled, must find its knot.				0				White_Screen	Sun101	null
+Sun101	<b>Thank you for playing Till Death Do Us Part! We hope you have enjoyed your time with us. There are multiple endings so do try to get them all!</b>				0				White_Screen	RETURN	null
