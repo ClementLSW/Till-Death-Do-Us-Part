@@ -140,7 +140,7 @@ Tue065	This is their promise.				0				Crowded_Gate	Tue066	changeLoc
 Tue066	Gosh, what a day it’s been…		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerCalmOpenedMouth:true		0	Sigh	BGM_2		Black_Screen	Tue067	null
 Tue067	The number of patients… way too many….		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true		0				Black_Screen	Tue068	null
 Tue068	I have to rest now befo-		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Black_Screen	Tue069	null
-Tue069	I have to rest now befo-		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Black_Screen	Tue070	FLASHES RED
+Tue069			Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Black_Screen	Tue070	FLASHES RED
 Tue070	Argh! My head!		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerAngryOpenedMouth:true		0	Argh			Black_Screen	Tue071	null
 Tue071	(<i>Wait a moment.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerThinkingClosedMouth:true		0				Black_Screen	Tue072	null
 Tue072	It can’t be.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerThinkingOpenedMouth:true		0				Black_Screen	Tue073	null
@@ -392,10 +392,10 @@ Sun075	Celia, don’t get up. Here- drink this, please.		Eliza_SicklyBodyHandUpP
 Sun076	*I lift her weak head and start to feed her the serum derived from the flower she gave me.*		Eliza_SicklyBodyHandUpPalm_SickHeadNOFlowerWorriedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyHeadMaskEyesClosed:false	0	Glass_Bottle			Celia_House	Sun077	null
 Sun077	*I wait a few minutes, but nothing changes.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerWorriedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyHeadMaskEyesClosed:false	0				Celia_House	Sun078	null
 Sun078	*I squeezed my eyes shut as tears rolled down my face.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:true	Celia_SicklyBodyHandDown_SicklyHeadMaskEyesClosed:false	0				Celia_House	Sun079	null
-Sun079	*Suddenly, I feel a hand wipe away my tears. Opening my eyes, I was greeted with the sight of Celia smiling up at me like there wasn’t a care in the world.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedClosedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthClosed:true	0				Celia_House	Sun080	null
-Sun080	Hey Liz, what's wrong?		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Celia_House	Sun081	null
-Sun081	Celia!		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthClosed:false	0				Celia_House	Sun082	null
-Sun082	I haven’t seen you cry this much since you dropped your pie on the floor when we were children.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Celia_House	Sun083	null
+Sun079	*Suddenly, I feel a hand wipe away my tears. Opening my eyes, I was greeted with the sight of Celia smiling up at me like there wasn’t a care in the world.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSurprisedClosedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthClosed:true	0				Celia_House	Sun080	null
+Sun080	Hey Liz, what's wrong?		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSurprisedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Celia_House	Sun081	null
+Sun081	Celia!		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSurprisedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthClosed:false	0				Celia_House	Sun082	null
+Sun082	I haven’t seen you cry this much since you dropped your pie on the floor when we were children.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSurprisedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Celia_House	Sun083	null
 Sun083	I thought I lost you! I thought I lost- my whole world.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthClosed:false	0				Celia_House	Sun084	null
 Sun084	Oh? I’m your world, am I?		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Celia_House	Sun085	null
 Sun085	Dear madam, I am so humbly honoured.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerDefeatedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthOpen:true	0				Celia_House	Sun086	null
@@ -403,8 +403,8 @@ Sun086	(<i>As though she hadn't just been on the brink of death, Celia let out a
 Sun087	It works, Celia! The cure works!		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthClosed:false	0	Rustle			Celia_House	Sun088	null
 Sun088	All because of your gift to me Celia. All because of your gift….. Thank you Celia.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthClosed:false	0				Celia_House	Sun089	null
 Sun089	Thank you for all you’ve been, all you are, and all you are going to be.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthClosed:false	0				Celia_House	Sun090	null
-Sun090	*Celia grabs my face and pulls me to her, to her lips.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthClosed:true	0	Clasp			Celia_House	Sun091	null
-Sun091	Was that a proposal, Liz? If so, then I accept.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSuprisedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Celia_House	Sun092	changeLoc
+Sun090	*Celia grabs my face and pulls me to her, to her lips.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSurprisedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthClosed:true	0	Clasp			Celia_House	Sun091	null
+Sun091	Was that a proposal, Liz? If so, then I accept.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSurprisedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Celia_House	Sun092	changeLoc
 Sun092	(<i>I couldn't help but blush, and my weary mind daydreams about what the future had in store for us. How could I have known that the key to the cure had been beside me, all my life. And now I know, no matter what happens, we have each other.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthClosed:false	0				White_Screen	Sun093	null
 Sun093	Time does not pause for the weary, nor does it wait for certainty.				0				White_Screen	Sun094	null
 Sun094	The days have passed like breath on glass.				0				White_Screen	Sun095	null
