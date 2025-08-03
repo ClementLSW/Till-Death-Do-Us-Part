@@ -7,9 +7,12 @@ public class BackgroundManager : MonoBehaviour
     [SerializeField] public Image bg;
     public void PopulateBackGround(string bgName)
     {
-        if (!string.IsNullOrEmpty(bgName))
+        if (string.IsNullOrEmpty(bgName))
         {
             Debug.LogWarning("Background not specified!");
+        }
+        else
+        {
             if (bg != null)
             {
                 Sprite loadedSprite = Resources.Load<Sprite>($"Sprites/Backgrounds/{bgName}");

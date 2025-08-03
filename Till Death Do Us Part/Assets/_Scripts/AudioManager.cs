@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -18,6 +19,18 @@ public class AudioManager : MonoBehaviour
 
     [Header("Prefabs")]
     [SerializeField] GameObject sfxAudioSourcePrefab;
+
+    [Header("Mixer")]
+    public AudioMixer audioMixer;
+    public string sfxMixerGroupName = "SFX";
+    public string bgmMixerGroupName = "BGM";
+
+    private void Awake()
+    {
+        // Set Audio Mixer Groups
+        sfxAudioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups(sfxMixerGroupName).FirstOrDefault();
+        bgmAudioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups(bgmMixerGroupName).FirstOrDefault();
+    }
 
     public void PlaySFXOneShot(string sfxAudioGroupName)
     {
@@ -80,6 +93,7 @@ public class AudioManager : MonoBehaviour
         GameObject temporarySfxAudioSourceObject = Instantiate(sfxAudioSourcePrefab, sfxAudioSource.transform);
         AudioSource temporarySfxAudioSource = temporarySfxAudioSourceObject.GetComponent<AudioSource>();
 
+        temporarySfxAudioSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups(sfxMixerGroupName).FirstOrDefault();
         temporarySfxAudioSource.PlayOneShot(audioClip);
         while (temporarySfxAudioSource.isPlaying)
         {
