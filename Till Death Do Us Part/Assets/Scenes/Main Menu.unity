@@ -2414,7 +2414,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 432528901}
         m_TargetAssemblyTypeName: SaveLoad, Assembly-CSharp
-        m_MethodName: LoadGame
+        m_MethodName: StartNewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

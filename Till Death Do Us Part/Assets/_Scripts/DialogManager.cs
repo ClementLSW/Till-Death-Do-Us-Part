@@ -78,7 +78,7 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(ProceedWithDialog());
+        //StartCoroutine(ProceedWithDialog());
     }
 
     public void SanityCheck()

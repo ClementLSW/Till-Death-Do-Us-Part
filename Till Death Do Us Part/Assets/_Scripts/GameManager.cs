@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         LoadScore(PlayerPrefs.GetInt("Score", 0));
-        GetComponentInChildren<DialogManager>().SetDialogue(PlayerPrefs.GetString("CurrentDialogID", "mon001"));
         if (System.Enum.TryParse(PlayerPrefs.GetString("CurrentDay", "Monday"), out DayOfWeek.Day day))
         {
             CurrentDay = day;
@@ -52,6 +51,15 @@ public class GameManager : MonoBehaviour
         else
         {
             CurrentDay = DayOfWeek.Day.Monday; // Default to Monday if parsing fails
+        }
+        var dm = GetComponentInChildren<DialogManager>();
+        if (dm != null)
+        {
+            dm.SetDialogue(PlayerPrefs.GetString("CurrentDialogID", "Mon001"));
+        }
+        else
+        {
+            Debug.LogWarning("DM is null! This is fine if you are on the menu screen.");
         }
     }
 
