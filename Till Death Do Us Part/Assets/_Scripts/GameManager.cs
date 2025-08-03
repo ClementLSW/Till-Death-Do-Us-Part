@@ -102,12 +102,15 @@ public class GameManager : MonoBehaviour
             if (pauseMenu != null) pauseMenu.SetActive(true);
             Time.timeScale = 0f; // Pause the game
             Debug.Log("Game Paused");
+            pauseMenu.GetComponent<PauseSFX>().PlayOneShotPauseSFX();
         }
         else if (CurrentGameState == GameState.Paused)
         {
             CurrentGameState = GameState.Playing;
+            if (pauseMenu != null) pauseMenu.SetActive(false);
             Time.timeScale = 1f; // Resume the game
             Debug.Log("Game Resumed");
+            pauseMenu.GetComponent<PauseSFX>().PlayOneShotPauseSFX();
         }
     }
 
