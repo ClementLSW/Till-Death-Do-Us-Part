@@ -414,5 +414,4 @@ Sun097	And now, as the final light seeps in, the story finds its close.				0				
 Sun098	Not all answers are given.				0				White_Screen	Sun099	null
 Sun099	Not all endings are clean.				0				White_Screen	Sun100	null
 Sun100	But every thread, no matter how tangled, must find its knot.				0				White_Screen	Sun101	null
-Sun101	<b>Thank you for playing Till Death Do Us Part! We hope you have enjoyed your time with us. There are multiple endings so do try to get them all!</b>				0				White_Screen	Sun102	null
-Sun 102					0				White_Screen	RETURN	null
+Sun101	<b>Thank you for playing Till Death Do Us Part! We hope you have enjoyed your time with us. There are multiple endings so do try to get them all!</b>				0				White_Screen	RETURN	null

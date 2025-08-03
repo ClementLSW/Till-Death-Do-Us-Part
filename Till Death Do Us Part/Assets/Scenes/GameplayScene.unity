@@ -8304,7 +8304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VERBOSE: 1
-  tsvFile: {fileID: 4900000, guid: 9af6d91db47c8d74da6291ca80783da8, type: 3}
+  tsvFile: {fileID: 4900000, guid: d9e6d2c940f38a8459007625263968c8, type: 3}
 --- !u!114 &2005570924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8378,13 +8378,13 @@ MonoBehaviour:
   - groupName: Female_Sneeze
     audioClips:
     - {fileID: 8300000, guid: 7d890c35ae90bc741afc116d584028d6, type: 3}
-  - groupName: Female Cough
+  - groupName: Female_Cough
     audioClips:
     - {fileID: 8300000, guid: 619652a9a84a09644a02a16437c6cf35, type: 3}
-  - groupName: Male Sneeze
+  - groupName: Male_Sneeze
     audioClips:
     - {fileID: 8300000, guid: 689ce5c77ae99ab4883ef641b7524d00, type: 3}
-  - groupName: Male Cough
+  - groupName: Male_Cough
     audioClips:
     - {fileID: 8300000, guid: 90ceab89c6c2df8469b18ccf14d48c33, type: 3}
   - groupName: Writing
@@ -8401,6 +8401,15 @@ MonoBehaviour:
   - groupName: BGM_2
     audioClips:
     - {fileID: 8300000, guid: bb1687b0405eeff4ca67d397c5171265, type: 3}
+  - groupName: BGM_Fragmentation
+    audioClips:
+    - {fileID: 8300000, guid: 0b42d4915ee638c458a56053f28b35d5, type: 3}
+  - groupName: BGM_OutOfTheCold
+    audioClips:
+    - {fileID: 8300000, guid: 8156f624aaf11714480cc20a315db585, type: 3}
+  - groupName: BGM_TheGatheringStorm
+    audioClips:
+    - {fileID: 8300000, guid: 27a514d34a6e80b42b683512b1881e2b, type: 3}
   sfxAudioSource: {fileID: 2005570928}
   dialogueAudioSource: {fileID: 2005570927}
   bgmAudioSource: {fileID: 2005570926}
