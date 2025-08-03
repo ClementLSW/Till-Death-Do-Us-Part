@@ -23,7 +23,7 @@ public class SaveLoad : MonoBehaviour
     {
         PlayerPrefs.SetInt("Score", gm.Score);
         PlayerPrefs.SetString("CurrentDialogID", dm.CurrentDialogID);
-        // Implement save logic here
+        PlayerPrefs.SetString("CurrentDay", gm.CurrentDay.ToString());
         Debug.Log("Game saved.");
     }
 
@@ -31,6 +31,14 @@ public class SaveLoad : MonoBehaviour
     {
         gm.LoadScore(PlayerPrefs.GetInt("Score", 0));
         dm.SetDialogue(PlayerPrefs.GetString("CurrentDialogID", "mon001"));
+        if (System.Enum.TryParse(PlayerPrefs.GetString("CurrentDay", "Monday"), out DayOfWeek.Day day))
+        {
+            gm.CurrentDay = day;
+        }
+        else
+        {
+            gm.CurrentDay = DayOfWeek.Day.Monday; // Default to Monday if parsing fails
+        }
     }
 
     public void ResetGame()

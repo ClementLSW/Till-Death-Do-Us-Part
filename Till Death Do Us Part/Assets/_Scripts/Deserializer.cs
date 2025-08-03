@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Deserializer : MonoBehaviour
 {
+    [SerializeField] bool VERBOSE = true;
     DialogManager dialogManager;
 
     [SerializeField] TextAsset tsvFile; // Reference to the TSV file in the Resources folder
@@ -30,7 +31,7 @@ public class Deserializer : MonoBehaviour
 
         if (tsvFile == null)
         {
-            Debug.LogError("TSV file not found in Resources/Dialogue");
+            if (VERBOSE) Debug.LogError("TSV file not found in Resources/Dialogue");
             return;
         }
 
@@ -47,17 +48,17 @@ public class Deserializer : MonoBehaviour
 
             // Tokenize the line by tab character
             string[] tokens = line_t.Split('\t'); // Split by tab character
-            Debug.Log($"Processing line: {line_t} with {tokens.Length} tokens");
+            if (VERBOSE) Debug.Log($"Processing line: {line_t} with {tokens.Length} tokens");
 
             if (tokens.Length < 12)
             {
-                Debug.LogWarning($"Skipping malformed line: {line_t}");
+                if (VERBOSE) Debug.LogWarning($"Skipping malformed line: {line_t}");
                 continue;
             }
 
             if (tokens[0] == "lineId")
             {
-                Debug.LogWarning($"Skipping header line");
+                if (VERBOSE) Debug.LogWarning($"Skipping header line");
                 continue;
             }
 
@@ -78,32 +79,37 @@ public class Deserializer : MonoBehaviour
             dialogManager.MasterBank.Lines.Add(dialogLine); // Add the dialog line to the master bank
             //Debug.Log(line);
         }
-
-        foreach (DialogManager.DialogLine line in dialogManager.MasterBank.Lines)
+#if UNITY_EDITOR
+        if (VERBOSE)
         {
-            Debug.Log($"ID: {line.ID}, Text: {line.Text}, ScoreDelta: {line.ScoreDelta}");
-            if (line.Options == null || line.Options.Count == 0)
+            // Verbose logging to check the deserialized data
+            foreach (DialogManager.DialogLine line in dialogManager.MasterBank.Lines)
             {
-                Debug.LogWarning($"No options for dialog line ID: {line.ID}");
-            }
-            else
-            {
-                foreach (var option in line.Options)
+                Debug.Log($"ID: {line.ID}, Text: {line.Text}, ScoreDelta: {line.ScoreDelta}");
+                if (line.Options == null || line.Options.Count == 0)
                 {
-                    Debug.Log($"Option: {option.OptionText}, NextDialogID: {option.NextDialogID}");
+                    Debug.LogWarning($"No options for dialog line ID: {line.ID}");
                 }
-            }
-
-            if(line.CharactersInvolved != null)
-            {
-                foreach (var character in line.CharactersInvolved)
+                else
                 {
-                    Debug.Log($"Name: {character.Name} {character.Pose} {character.Emotion}, {character.position}, Active: {character.isActive}");
+                    foreach (var option in line.Options)
+                    {
+                        Debug.Log($"Option: {option.OptionText}, NextDialogID: {option.NextDialogID}");
+                    }
+                }
+
+                if(line.CharactersInvolved != null)
+                {
+                    foreach (var character in line.CharactersInvolved)
+                    {
+                        Debug.Log($"Name: {character.Name} {character.Pose} {character.Emotion}, {character.position}, Active: {character.isActive}");
+                    }
                 }
             }
         }
 
         Debug.Log("TSV file read and deserialized successfully.");
+#endif
     }
 
     #region Parsers
@@ -111,7 +117,7 @@ public class Deserializer : MonoBehaviour
     {
         if (optionLine.Length == 0)
         {
-            Debug.LogWarning("No Options");
+            if (VERBOSE) Debug.LogWarning("No Options");
             return default; // Return default if there are no options
         }
 
@@ -123,7 +129,7 @@ public class Deserializer : MonoBehaviour
             string[] optionParts = option.Split(':'); // Assuming format "OptionText:NextDialogID"
             if (optionParts.Length != 2)
             {
-                Debug.LogWarning($"Invalid option format: {option}");
+                if (VERBOSE) Debug.LogWarning($"Invalid option format: {option}");
                 continue; // Skip invalid options
             }
 
@@ -146,7 +152,7 @@ public class Deserializer : MonoBehaviour
     {
         if (characters.Length == 0 || characters[0].Length == 0)
         {
-            Debug.LogWarning("No Characters");
+            if (VERBOSE) Debug.LogWarning("No Characters");
             return default; // Return default if there are no characters
         }
 
@@ -158,7 +164,7 @@ public class Deserializer : MonoBehaviour
 
             if (string.IsNullOrWhiteSpace(character))
             {
-                Debug.LogWarning("Empty character string found, skipping.");
+                if (VERBOSE) Debug.LogWarning("Empty character string found, skipping.");
                 CharacterManager.CharacterData dialogCharacter = new CharacterManager.CharacterData
                 {
                     Name = null,
@@ -176,7 +182,7 @@ public class Deserializer : MonoBehaviour
                 string[] characterParts = character.Split(':'); // Assuming format "CharID:isActive"
                 if (characterParts.Length != 2)
                 {
-                    Debug.LogWarning($"Invalid character format: {character}");
+                    if (VERBOSE) Debug.LogWarning($"Invalid character format: {character}");
                     continue; // Skip invalid characters
                 }
 
@@ -218,7 +224,7 @@ public class Deserializer : MonoBehaviour
     {
         if (string.IsNullOrEmpty(id) || id.Length < 3)
         {
-            Debug.LogWarning($"Invalid dialog ID format: {id}");
+            if (VERBOSE) Debug.LogWarning($"Invalid dialog ID format: {id}");
             return DayOfWeek.Day.Monday;
         }
 
@@ -229,7 +235,7 @@ public class Deserializer : MonoBehaviour
             return day;
         }
 
-        Debug.LogWarning($"Unrecognized day prefix: {prefix} in ID: {id}");
+        if (VERBOSE) Debug.LogWarning($"Unrecognized day prefix: {prefix} in ID: {id}");
         return DayOfWeek.Day.Monday;
     }
     #endregion
