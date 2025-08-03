@@ -276,6 +276,9 @@ public class DialogManager : MonoBehaviour
                 {
                     CurrentDialogID = END_GOOD; // Set to good ending dialog
                 }
+            }else if ( string.Equals(currentLine.GOTO, "RETURN"))
+            {
+                // TODO: Show Credits
             }
             else if (!string.IsNullOrEmpty(currentLine.GOTO))
             {
