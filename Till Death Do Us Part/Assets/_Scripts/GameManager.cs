@@ -4,6 +4,12 @@ public class GameManager : MonoBehaviour
 {
     public int Score { get; private set; } = 0;
     public DayOfWeek.Day CurrentDay { get; set; } = DayOfWeek.Day.Monday;
+    SaveLoad saveLoad;
+
+    public void AutoSave()
+    {
+        saveLoad.SaveGame();
+    }
 
     public void AddScore(int amount)
     {
@@ -24,8 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        SaveLoad saveLoad = GetComponent<SaveLoad>();
-        saveLoad.ResetGame();
+        saveLoad = GetComponent<SaveLoad>();
     }
 
     // TODO: Set Endings

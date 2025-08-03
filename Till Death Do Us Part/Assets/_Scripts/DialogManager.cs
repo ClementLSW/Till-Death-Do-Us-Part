@@ -279,6 +279,8 @@ public class DialogManager : MonoBehaviour
             PreviousDialogDay = currentLine.Day; // Store the previous dialog day
             DisplayOptions(currentLine.Options);
         }
+
+        gameManager.AutoSave(); // Save the current dialog ID and day
     }
 
     #region Typing Utils
