@@ -416,7 +416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 118.02}
+  m_AnchoredPosition: {x: 0, y: 118.01999}
   m_SizeDelta: {x: 0, y: -799.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &21989063
@@ -2608,8 +2608,8 @@ RectTransform:
   m_LocalScale: {x: 8.5, y: 8.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 756708752}
   - {fileID: 618475944}
+  - {fileID: 756708752}
   m_Father: {fileID: 761197930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5892,6 +5892,12 @@ MonoBehaviour:
   - groupName: Door_Creak
     audioClips:
     - {fileID: 8300000, guid: c36ec64c6ff512e448a011a007af0f19, type: 3}
+  - groupName: Female_Cough
+    audioClips:
+    - {fileID: 8300000, guid: 619652a9a84a09644a02a16437c6cf35, type: 3}
+  - groupName: Female_Sneeze
+    audioClips:
+    - {fileID: 8300000, guid: 7d890c35ae90bc741afc116d584028d6, type: 3}
   - groupName: Footsteps_Wood
     audioClips:
     - {fileID: 8300000, guid: 6ed2039ef87172d47bd4d4aba276f9f6, type: 3}
@@ -5901,6 +5907,12 @@ MonoBehaviour:
   - groupName: Heartbeat_fading
     audioClips:
     - {fileID: 8300000, guid: f4623e84a3f79b94fb813e9c2dce0f27, type: 3}
+  - groupName: Male_Cough
+    audioClips:
+    - {fileID: 8300000, guid: 90ceab89c6c2df8469b18ccf14d48c33, type: 3}
+  - groupName: Male_Sneeze
+    audioClips:
+    - {fileID: 8300000, guid: 689ce5c77ae99ab4883ef641b7524d00, type: 3}
   - groupName: Newspaper
     audioClips:
     - {fileID: 8300000, guid: fec38b1a935f99142a77a8bc5ed9ec02, type: 3}
@@ -5922,9 +5934,6 @@ MonoBehaviour:
   - groupName: Sigh
     audioClips:
     - {fileID: 8300000, guid: a31a00ce4c0edc74482eaa20e4a8b985, type: 3}
-  - groupName: Sneeze
-    audioClips:
-    - {fileID: 8300000, guid: 7d890c35ae90bc741afc116d584028d6, type: 3}
   - groupName: Writing
     audioClips:
     - {fileID: 8300000, guid: af16f02271cfb354498ddb6bff178737, type: 3}
@@ -5939,11 +5948,20 @@ MonoBehaviour:
   - groupName: BGM_2
     audioClips:
     - {fileID: 8300000, guid: bb1687b0405eeff4ca67d397c5171265, type: 3}
+  - groupName: BGM_Fragmentation
+    audioClips:
+    - {fileID: 8300000, guid: 0b42d4915ee638c458a56053f28b35d5, type: 3}
+  - groupName: BGM_OutOfTheCold
+    audioClips:
+    - {fileID: 8300000, guid: 8156f624aaf11714480cc20a315db585, type: 3}
+  - groupName: BGM_TheGatheringStorm
+    audioClips:
+    - {fileID: 8300000, guid: 27a514d34a6e80b42b683512b1881e2b, type: 3}
   sfxAudioSource: {fileID: 2005570928}
   dialogueAudioSource: {fileID: 2005570927}
   bgmAudioSource: {fileID: 2005570926}
   sfxAudioSourcePrefab: {fileID: 2602998269106761373, guid: d06e95ae5a1144e418d06c86b16cdbe6, type: 3}
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 7f708f7d5d0768f49bf9f528222bee59, type: 2}
   sfxMixerGroupName: SFX
   bgmMixerGroupName: BGM
 --- !u!82 &2005570926
@@ -6615,8 +6633,8 @@ RectTransform:
   m_LocalScale: {x: -8.5, y: 8.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1227090}
   - {fileID: 1450960574}
+  - {fileID: 1227090}
   m_Father: {fileID: 761197930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
