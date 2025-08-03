@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject pauseMenu;
     public enum GameState
     {
         MainMenu,
@@ -43,6 +46,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(false);
+        }
+
         LoadScore(PlayerPrefs.GetInt("Score", 0));
         if (System.Enum.TryParse(PlayerPrefs.GetString("CurrentDay", "Monday"), out DayOfWeek.Day day))
         {
@@ -73,17 +81,22 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (Keyboard.current.escapeKey.IsActuated())
+        {
+            TogglePause();
+        }
         //if (Input.GetKeyDown(KeyCode.Escape) && CurrentGameState != GameState.MainMenu)
         //{
         //    TogglePause();
         //}
     }
 
-    private void TogglePause()
+    public void TogglePause()
     {
         if (CurrentGameState == GameState.Playing)
         {
             CurrentGameState = GameState.Paused;
+            if (pauseMenu != null) pauseMenu.SetActive(true);
             Time.timeScale = 0f; // Pause the game
             Debug.Log("Game Paused");
         }
@@ -93,6 +106,11 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f; // Resume the game
             Debug.Log("Game Resumed");
         }
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 
 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fcbd8f82185ebb04cbd7bb70c5af49fd
+guid: f6171f33e8a7b5445a357b9b2e77bffa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -645268360379776324
-    second: Eliza_SickBody_HandUpThinking_0
+      213: 2562818336022803208
+    second: SickBodyHandUpThinking_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eliza_SickBody_HandUpThinking_0
+      name: SickBodyHandUpThinking_0
       rect:
         serializedVersion: 2
         x: 108
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb2c3c258db8b07f0800000000000000
-      internalID: -645268360379776324
+      spriteID: 8033f7eb2b5f09320800000000000000
+      internalID: 2562818336022803208
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Eliza_SickBody_HandUpThinking_0: -645268360379776324
+      SickBodyHandUpThinking_0: 2562818336022803208
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 99acacea0a19e2d4cb5042b72cff84fa
+guid: f7d691672d6ef8743bd1bf7ec9c76333
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2593061252094071711
-    second: Eliza_HealthyBody_HandUpThinking_0
+      213: 7784332251914639685
+    second: HealthyBodyHandUpThinking 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eliza_HealthyBody_HandUpThinking_0
+      name: HealthyBodyHandUpThinking 1_0
       rect:
         serializedVersion: 2
         x: 108
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16c6a14a788930cd0800000000000000
-      internalID: -2593061252094071711
+      spriteID: 5491df0a0f0870c60800000000000000
+      internalID: 7784332251914639685
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Eliza_HealthyBody_HandUpThinking_0: -2593061252094071711
+      HealthyBodyHandUpThinking 1_0: 7784332251914639685
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

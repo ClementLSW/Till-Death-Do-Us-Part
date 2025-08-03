@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static CharacterManager;
 
@@ -280,9 +281,15 @@ public class DialogManager : MonoBehaviour
             {
                 // TODO: Show Credits
             }
+            else if (string.Equals(currentLine.GOTO, "RETURN"))
+            {
+                FindFirstObjectByType<SaveLoad>().ResetGame();
+                SceneManager.LoadScene("Main Menu");
+                yield break;
+            }
             else if (!string.IsNullOrEmpty(currentLine.GOTO))
             {
-                CurrentDialogID = currentLine.GOTO;
+                currentDialogID = currentLine.GOTO;
             }
         }
         else
