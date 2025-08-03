@@ -41,6 +41,20 @@ public class GameManager : MonoBehaviour
         saveLoad = GetComponent<SaveLoad>();
     }
 
+    private void Start()
+    {
+        LoadScore(PlayerPrefs.GetInt("Score", 0));
+        GetComponentInChildren<DialogManager>().SetDialogue(PlayerPrefs.GetString("CurrentDialogID", "mon001"));
+        if (System.Enum.TryParse(PlayerPrefs.GetString("CurrentDay", "Monday"), out DayOfWeek.Day day))
+        {
+            CurrentDay = day;
+        }
+        else
+        {
+            CurrentDay = DayOfWeek.Day.Monday; // Default to Monday if parsing fails
+        }
+    }
+
     // TODO: Set Endings
     public int EvaluateEnding()
     {

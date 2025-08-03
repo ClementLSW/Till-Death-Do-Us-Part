@@ -15,6 +15,7 @@ public class DialogManager : MonoBehaviour
     GameManager gameManager;
     VFXManager vfxManager;
     BackgroundManager bgManager;
+    UIAudio uiAudioManager;
 
     [SerializeField]
     DayOfWeek dayManager;
@@ -67,6 +68,7 @@ public class DialogManager : MonoBehaviour
         gameManager = GetComponentInParent<GameManager>();
         vfxManager = transform.parent.GetComponentInChildren<VFXManager>();
         bgManager = GetComponent<BackgroundManager>();
+        uiAudioManager = FindFirstObjectByType<UIAudio>();
 
         deserializer = GetComponent<Deserializer>();
         deserializer.ReadTSV(this);
@@ -211,6 +213,7 @@ public class DialogManager : MonoBehaviour
                 break;
         }
 
+        uiAudioManager.MoveToNextDialog();
         yield return StartCoroutine(PopulateDialog(currentLine));
     }
 
@@ -289,6 +292,7 @@ public class DialogManager : MonoBehaviour
     IEnumerator TypeText(string text)
     {
         nextDialogAvailableIndicator.enabled = false;
+        uiAudioManager.PlayTypingSound(true);
         isTyping = true; // Mark typing as in progress
 
         DialogTextField.text = "";
@@ -300,6 +304,7 @@ public class DialogManager : MonoBehaviour
                 skipTyping = false;
                 isTyping = false;
                 nextDialogAvailableIndicator.enabled = true;
+                uiAudioManager.PlayTypingSound(false);
                 yield break;
             }
             DialogTextField.text += c;
@@ -309,6 +314,7 @@ public class DialogManager : MonoBehaviour
         skipTyping = false; // Reset skipTyping after finishing the text
         isTyping = false; // Mark typing as finished
         nextDialogAvailableIndicator.enabled = true;
+        uiAudioManager.PlayTypingSound(false);
     }
 
     /// <summary>
