@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] InputAction playerInput;
     public enum GameState
     {
         MainMenu,
@@ -48,8 +49,13 @@ public class GameManager : MonoBehaviour
     {
         if (pauseMenu != null)
         {
+            CurrentGameState = GameState.Playing;
             pauseMenu.SetActive(false);
+            playerInput.performed += (ctx) => { if (ctx.performed) TogglePause(); };
+            playerInput.Enable();
+            Debug.Log("Setup Pause Keybind");
         }
+        else CurrentGameState = GameState.MainMenu;
 
         LoadScore(PlayerPrefs.GetInt("Score", 0));
         if (System.Enum.TryParse(PlayerPrefs.GetString("CurrentDay", "Monday"), out DayOfWeek.Day day))
@@ -79,20 +85,17 @@ public class GameManager : MonoBehaviour
         return tempScore;
     }
 
-    private void Update()
+    /*private void Update()
     {
-        if (Keyboard.current.escapeKey.IsActuated())
-        {
-            TogglePause();
-        }
         //if (Input.GetKeyDown(KeyCode.Escape) && CurrentGameState != GameState.MainMenu)
         //{
         //    TogglePause();
         //}
-    }
+    }*/
 
     public void TogglePause()
     {
+        Debug.Log("Trying to toggle pause");
         if (CurrentGameState == GameState.Playing)
         {
             CurrentGameState = GameState.Paused;
