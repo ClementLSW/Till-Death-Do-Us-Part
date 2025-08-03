@@ -45,7 +45,7 @@ public class CharacterManager : MonoBehaviour
     {
         if (dialogManager == null)
         {
-            Debug.LogError("DialogManager is not assigned in CharacterManager.");
+            //Debug.LogError("DialogManager is not assigned in CharacterManager.");
             dialogManager = GetComponent<DialogManager>();
             return;
         }
@@ -76,13 +76,13 @@ public class CharacterManager : MonoBehaviour
                 dialogManager.CharacterNameField,
                 ref nameSet
             );
-            Debug.Log("Set Right Name");
+            //Debug.Log("Set Right Name");
         }
         #endregion
 
         if(!nameSet && dialogManager.CharacterNameField != null)
         {
-            Debug.LogWarning("No Name Set!");
+            //Debug.LogWarning("No Name Set!");
             dialogManager.CharacterNameField.text = string.Empty; // Set name to ??? if no character is active
         }
     }
@@ -113,6 +113,16 @@ public class CharacterManager : MonoBehaviour
         {
             poseSprite.color = new Color(0.8f, 0.8f, 0.8f, 1.0f);
             emotionSprite.color = new Color(0.8f, 0.8f, 0.8f, 1.0f);
+        }
+
+        if(poseSprite.sprite == null)
+        {
+            Debug.LogWarning($"Character visuals not found for {c.Name}. Pose: {c.Pose}");
+        }
+
+        if(emotionSprite.sprite == null)
+        {
+            Debug.LogWarning($"Character visuals not found for {c.Name}. Emotion: {c.Emotion}");
         }
     }
 
