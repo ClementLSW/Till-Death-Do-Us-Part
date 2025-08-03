@@ -986,7 +986,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: b20bec93f78135449ae8f9e01df2b88a, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: f29ad1d8f85fbac4b86dc0e7e8543000, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2732,7 +2732,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: b20bec93f78135449ae8f9e01df2b88a, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: f29ad1d8f85fbac4b86dc0e7e8543000, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3869,7 +3869,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: b20bec93f78135449ae8f9e01df2b88a, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: f29ad1d8f85fbac4b86dc0e7e8543000, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5516,7 +5516,7 @@ MonoBehaviour:
         m_MethodName: PlayOneShot
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: b20bec93f78135449ae8f9e01df2b88a, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: f29ad1d8f85fbac4b86dc0e7e8543000, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -6455,7 +6455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiAudioSource: {fileID: 1581559428}
   typingAudioSource: {fileID: 1581559427}
-  nextDialog: {fileID: 8300000, guid: 687915e0f7a80324295acec751752f5b, type: 3}
+  nextDialog: {fileID: 8300000, guid: 7dca2ddd7c28e0b47b069ad713c50714, type: 3}
 --- !u!82 &1581559427
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6466,8 +6466,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: faa520c56a8d43d46bf9e894d06729b9, type: 3}
-  m_Resource: {fileID: 8300000, guid: faa520c56a8d43d46bf9e894d06729b9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5356a56f16bc8544cbd011b94620ef0a, type: 3}
+  m_Resource: {fileID: 8300000, guid: 5356a56f16bc8544cbd011b94620ef0a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
