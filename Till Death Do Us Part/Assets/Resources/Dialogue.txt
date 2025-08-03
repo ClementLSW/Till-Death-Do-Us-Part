@@ -1,6 +1,6 @@
 lineId	lineText	lineOptions	charId1	charId2	scoreEnd	SFX	BGM	Dialogue	BG	GOTO	VFX
 Mon001	Hello, Despaired One…	Who are you?:Mon002;Where are we?:Mon003			0		BGM_2		Black_Screen	-1	null
-Mon002	Who are you?				0				Black_Screen	Mon004	flashred
+Mon002	Who are you?				0				Black_Screen	Mon004	null
 Mon003	Where are we?				0				Black_Screen	Mon004	null
 Mon004	You are curious, that's good...				0				Black_Screen	Mon005	null
 Mon005	Allow me three questions, and I shall reveal to you your name.				0				Black_Screen	Mon006	null
@@ -272,7 +272,7 @@ Fri010	I still feel tired, but I am feeling better. I think those herbs helped m
 Fri011	Good. I’m glad that you feel much better. Let me give you more herbs to help you over the weekend, let me know if there are any changes okay?		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerSmileOpenedMouth:true	Male Patient_HandDown_Neutral:false	0	Rustle2			Tent	Fri012	null
 Fri012	(<i>I don’t think this old man has the Blue Plague…</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerThinkingClosedMouth:true	Male Patient_HandDown_Neutral:false	0				Tent	Fri013	null
 Fri013	Thank you again, doctor!		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerThinkingClosedMouth:false	Male Patient_HandDown_Neutral:true	0				Tent	Fri014	null
-Fri014	(<i>I feel miserable just walking back home.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerDefeatedClosedMouth:false		0				Tent	Fri015	changeLoc
+Fri014	(<i>I feel miserable just walking back home.</i>)		Eliza_SicklyBodyHandUpThinking_SickHeadFlowerDefeatedClosedMouth:false		0				Tent	Fri028	changeLoc
 Fri015	How are you doing, Celia? Feeling better?		Eliza_SicklyBodyHandUpPalm_SickHeadFlowerWorriedOpenedMouth:true	Celia_SicklyBodyHandDown_SicklyHeadMaskEyesClosed:false	1				Celia_House	Fri016	null
 Fri016	I’m feeling much better now that you’re here, Liz.		Eliza_SicklyBodyHandDown_SickHeadFlowerWorriedClosedMouth:false	Celia_SicklyBodyHandDown_SicklyHeadMaskNeutral:true	0				Celia_House	Fri017	null
 Fri017	(<i>No matter how sick she gets, she’s always trying to lift up the mood.</i>)		Eliza_SicklyBodyHandDown_SickHeadFlowerSmileClosedMouth:true	Celia_SicklyBodyHandDown_SicklyHeadMaskEyesClosed:false	0				Celia_House	Fri018	null
