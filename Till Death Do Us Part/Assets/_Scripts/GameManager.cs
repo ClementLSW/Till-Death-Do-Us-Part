@@ -73,10 +73,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && CurrentGameState != GameState.MainMenu)
-        {
-            TogglePause();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape) && CurrentGameState != GameState.MainMenu)
+        //{
+        //    TogglePause();
+        //}
     }
 
     private void TogglePause()

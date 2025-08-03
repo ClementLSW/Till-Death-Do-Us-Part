@@ -185,32 +185,34 @@ public class DialogManager : MonoBehaviour
 
         PreviousDialogDay = currentLine.Day; // Store the previous dialog Day
 
-
-        switch (currentLine.VFX)
+        if (!isWaitingForOptions)
         {
-            case "flashred":
-                bgManager.PopulateBackGround(currentLine.BG);
-                vfxManager.TriggerFlashRed();
-                break;
-            case "changeLoc":
-                hasCrossfadeQueued = true;
-                bgManager.PopulateBackGround(currentLine.BG);
-                break;
-            default:
-                if (hasCrossfadeQueued)
-                {
-                    nextDialogButton.interactable = false;
-                    yield return bgManager.FadeBackground(0f);
+            switch (currentLine.VFX)
+            {
+                case "flashred":
                     bgManager.PopulateBackGround(currentLine.BG);
-                    yield return bgManager.FadeBackground(1f);
-                    nextDialogButton.interactable = true;
-                    hasCrossfadeQueued = false;
-                }
-                else
-                {
+                    vfxManager.TriggerFlashRed();
+                    break;
+                case "changeLoc":
+                    hasCrossfadeQueued = true;
                     bgManager.PopulateBackGround(currentLine.BG);
-                }
-                break;
+                    break;
+                default:
+                    if (hasCrossfadeQueued)
+                    {
+                        nextDialogButton.interactable = false;
+                        yield return bgManager.FadeBackground(0f);
+                        bgManager.PopulateBackGround(currentLine.BG);
+                        yield return bgManager.FadeBackground(1f);
+                        nextDialogButton.interactable = true;
+                        hasCrossfadeQueued = false;
+                    }
+                    else
+                    {
+                        bgManager.PopulateBackGround(currentLine.BG);
+                    }
+                    break;
+            }
         }
 
         uiAudioManager.MoveToNextDialog();
