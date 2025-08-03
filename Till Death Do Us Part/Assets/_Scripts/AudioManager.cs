@@ -70,8 +70,14 @@ public class AudioManager : MonoBehaviour
         Debug.Log($"Playing Dialogue: {dialogueId} - {selectedAudioClip.name}");
     }
 
+    public bool BGMIsPlaying()
+    {
+        return bgmAudioSource.isPlaying;
+    }
+
     public void PlayBGM(string BgmGroupId)
     {
+        PlayerPrefs.SetString("BGMGroupId", BgmGroupId);    // JANK MARKER
         //Find correct Audio Clip
         AudioGroup audioGroup = bgm.Find(x => x.groupName == BgmGroupId);
         if (audioGroup == null)

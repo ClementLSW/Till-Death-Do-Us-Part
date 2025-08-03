@@ -248,6 +248,7 @@ public class DialogManager : MonoBehaviour
         // Step 3: Handle Audio
         if (!string.IsNullOrEmpty(currentLine.AudioData.SFX)) audioManager.PlaySFXOneShot(currentLine.AudioData.SFX);
         if (!string.IsNullOrEmpty(currentLine.AudioData.BGM)) audioManager.PlayBGM(currentLine.AudioData.BGM);
+        else if (!audioManager.BGMIsPlaying()) audioManager.PlayBGM(PlayerPrefs.GetString("BGMGroupId")); // JANK MARKER
         if (!string.IsNullOrEmpty(currentLine.AudioData.DialogueVO)) audioManager.PlayDialogue(currentLine.AudioData.DialogueVO);
 
         // Step 4: Handle score change
