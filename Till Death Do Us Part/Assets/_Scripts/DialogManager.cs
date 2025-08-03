@@ -7,6 +7,8 @@ using static CharacterManager;
 
 public class DialogManager : MonoBehaviour
 {
+    [SerializeField] bool VERBOSE = true;
+
     Deserializer deserializer;
     CharacterManager characterManager;
     AudioManager audioManager;
@@ -146,7 +148,7 @@ public class DialogManager : MonoBehaviour
 
     public void NextDialog()
     {
-        Debug.Log($"NextDialog called with CurrentDialogID: {CurrentDialogID}");
+        if (VERBOSE) Debug.Log($"NextDialog called with CurrentDialogID: {CurrentDialogID}");
         StartCoroutine(ProceedWithDialog());
     }
 
@@ -154,7 +156,7 @@ public class DialogManager : MonoBehaviour
     {
         if (isTyping)
         {
-            Debug.Log("Skipping typing animation as it is currently in progress.");
+            if (VERBOSE) Debug.Log("Skipping typing animation as it is currently in progress.");
             SkipTypingAnimation(); // Skip typing if it's currently in progress
             yield break; // Exit if typing is still in progress
         }
@@ -225,7 +227,7 @@ public class DialogManager : MonoBehaviour
         // Step 2: Populate Characters
         if (currentLine.CharactersInvolved == null || currentLine.CharactersInvolved.Count == 0)
         {
-            Debug.LogWarning($"No characters involved in dialog ID {CurrentDialogID}. Skipping character population.");
+            if (VERBOSE) Debug.LogWarning($"No characters involved in dialog ID {CurrentDialogID}. Skipping character population.");
             characterManager.ClearCharacters(); // Clear characters if none are involved
             characterManager.SetUnknownName();
         }
@@ -326,8 +328,8 @@ public class DialogManager : MonoBehaviour
         BtnL.onClick.RemoveAllListeners();
         BtnR.onClick.RemoveAllListeners();
 
-        Debug.Log(options[0].OptionText);
-        Debug.Log(options[1].OptionText);
+        if (VERBOSE) Debug.Log(options[0].OptionText);
+        if (VERBOSE) Debug.Log(options[1].OptionText);
 
         BtnL.GetComponentInChildren<TMP_Text>().text = options[0].OptionText;
         BtnR.GetComponentInChildren<TMP_Text>().text = options[1].OptionText;
@@ -340,109 +342,12 @@ public class DialogManager : MonoBehaviour
     // #VibeCoded
     public void SelectOption(string nextDialogID)
     {
-        Debug.Log($"Selected option leading to dialog ID: {nextDialogID}");
+        if (VERBOSE) Debug.Log($"Selected option leading to dialog ID: {nextDialogID}");
         isWaitingForOptions = false; // Reset the flag when an option is selected
         CurrentDialogID = nextDialogID;
         OptionsPanel.SetActive(false);
         NextDialog(); // Proceed to the next dialog line
     }
 
-    #endregion
-
-    #region LEGACY CODE
-    //public void NextDialog()
-    //{
-    //    if(CurrentDialogID == "END")
-    //    {
-    //        gameManager.EvaluateEnding();
-    //    }
-
-    //    // If Currently text is being populated, skip animation and return
-    //    if (isTyping)
-    //    {
-    //        SkipTypingAnimation();
-    //        return; // Prevent proceeding if typing is still in progress
-    //    }
-
-    //    // Find the current dialog line based on CurrentDialogID
-    //    DialogLine currentLine = MasterBank.Lines.Find(line => line.ID == CurrentDialogID);
-
-    //    if (currentLine.Day != PreviousDialogDay)
-    //    {
-    //        gameManager.CurrentDay = currentLine.Day; // Update the current day in GameManager
-    //    }
-
-    //    switch (currentLine.VFX)
-    //    {
-    //        case "flashred":
-    //            vfxManager.TriggerFlashRed();
-    //            break;
-    //        default:
-    //            break;
-    //    }
-
-    //    // Populate Background
-    //    if (!string.IsNullOrEmpty(currentLine.BG))
-    //    {
-    //        if (bg != null)
-    //        {
-    //            Sprite loadedSprite = Resources.Load<Sprite>($"Sprites/BG/{currentLine.BG}");
-    //            if (loadedSprite != null)
-    //            {
-    //                bg.sprite = loadedSprite;
-    //            }
-    //            else
-    //            {
-    //                Debug.LogWarning($"Background sprite '{currentLine.BG}' could not be found in the Resources folder.");
-    //            }
-    //        }
-    //        else
-    //        {
-    //            Debug.LogWarning("Background GameObject not found in the scene.");
-    //        }
-    //    }
-
-    //    if (currentLine.CharactersInvolved == null)
-    //    {
-    //        Debug.LogWarning($"No characters involved in dialog ID {CurrentDialogID}. Skipping character population.");
-    //    }
-    //    {
-    //        // Populate the character information
-    //        foreach (CharacterData c in currentLine.CharactersInvolved)
-    //        {
-    //            characterManager.PopulateCharacter(c);
-    //        }
-    //    }
-
-    //    // Handle Audio
-    //    if (!string.IsNullOrEmpty(currentLine.AudioData.SFX)) audioManager.PlaySFXOneShot(currentLine.AudioData.SFX);
-    //    if (!string.IsNullOrEmpty(currentLine.AudioData.BGM)) audioManager.PlayBGM(currentLine.AudioData.BGM);
-    //    if (!string.IsNullOrEmpty(currentLine.AudioData.DialogueVO)) audioManager.PlayDialogue(currentLine.AudioData.DialogueVO);
-
-    //    // Display the dialog text with typing effect
-    //    StopAllCoroutines();
-    //    StartCoroutine(TypeText(currentLine.Text));
-    //    gameManager.AddScore(currentLine.ScoreDelta);
-
-    //    if(currentLine.Options == null)
-    //    {
-    //        Debug.LogWarning($"No options found for dialog ID {CurrentDialogID}. Proceeding to next dialog line.");
-    //        // If there are no options, Register next line in the dialog based on GOTO value
-    //        if (!string.IsNullOrEmpty(currentLine.GOTO))
-    //        {
-    //            PreviousDialogDay = currentLine.Day; // Store the previous dialog Day
-    //            CurrentDialogID = currentLine.GOTO;
-    //        }
-    //        else Debug.LogWarning($"GOTO value is not set for dialog ID {CurrentDialogID}. No next dialog line will be registered.");
-    //    }
-    //    else
-    //    {
-    //        PreviousDialogDay = currentLine.Day; // Store the previous dialog day
-    //        Debug.Log($"Displaying options for dialog ID {CurrentDialogID}.");
-    //        Debug.Log($"Option 1: {currentLine.Options[0].OptionText}, Option 2: {currentLine.Options[1].OptionText}");
-    //        DisplayOptions(currentLine.Options);
-    //    }
-
-    //}
     #endregion
 }

@@ -40,4 +40,13 @@ public class GameManager : MonoBehaviour
         ResetScore();
         return tempScore;
     }
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
 }
