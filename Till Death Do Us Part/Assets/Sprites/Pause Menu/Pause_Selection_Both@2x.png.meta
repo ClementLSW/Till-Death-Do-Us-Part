@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: f7d691672d6ef8743bd1bf7ec9c76333
+guid: 745948425571c8d4696c26c6a96484fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7784332251914639685
-    second: HealthyBodyHandUpThinking 1_0
+      213: 7720157500379318534
+    second: Pause_Selection_Both@2x_0
+  - first:
+      213: -1189788102755888043
+    second: Pause_Selection_Both@2x_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,8 +54,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 80, y: 0, z: 80, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,23 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthyBodyHandUpThinking 1_0
+      name: Pause_Selection_Both@2x_0
       rect:
         serializedVersion: 2
-        x: 108
+        x: 0
         y: 0
-        width: 462
-        height: 796
+        width: 76
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5491df0a0f0870c60800000000000000
-      internalID: 7784332251914639685
+      spriteID: 6094d2ce752832b60800000000000000
+      internalID: 7720157500379318534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pause_Selection_Both@2x_1
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 0
+        width: 76
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 554df3936060d7fe0800000000000000
+      internalID: -1189788102755888043
       vertices: []
       indices: 
       edges: []
@@ -139,7 +164,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HealthyBodyHandUpThinking 1_0: 7784332251914639685
+      Pause_Selection_Both@2x_0: 7720157500379318534
+      Pause_Selection_Both@2x_1: -1189788102755888043
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

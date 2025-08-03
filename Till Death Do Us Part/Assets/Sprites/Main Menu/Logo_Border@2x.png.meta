@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f7d691672d6ef8743bd1bf7ec9c76333
+guid: 002bbc939b7ad044ab6f7adb368ff674
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7784332251914639685
-    second: HealthyBodyHandUpThinking 1_0
+      213: -6811178475864670269
+    second: Logo_Border@2x_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthyBodyHandUpThinking 1_0
+      name: Logo_Border@2x_0
       rect:
         serializedVersion: 2
-        x: 108
+        x: 0
         y: 0
-        width: 462
-        height: 796
+        width: 1529
+        height: 148
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5491df0a0f0870c60800000000000000
-      internalID: 7784332251914639685
+      spriteID: 3cfbc4c6345d971a0800000000000000
+      internalID: -6811178475864670269
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HealthyBodyHandUpThinking 1_0: 7784332251914639685
+      Logo_Border@2x_0: -6811178475864670269
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

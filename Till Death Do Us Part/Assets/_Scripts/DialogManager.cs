@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static CharacterManager;
 
@@ -15,6 +16,7 @@ public class DialogManager : MonoBehaviour
     GameManager gameManager;
     VFXManager vfxManager;
     BackgroundManager bgManager;
+    UIAudio uiAudioManager;
 
     [SerializeField]
     DayOfWeek dayManager;
@@ -67,6 +69,7 @@ public class DialogManager : MonoBehaviour
         gameManager = GetComponentInParent<GameManager>();
         vfxManager = transform.parent.GetComponentInChildren<VFXManager>();
         bgManager = GetComponent<BackgroundManager>();
+        uiAudioManager = FindFirstObjectByType<UIAudio>();
 
         deserializer = GetComponent<Deserializer>();
         deserializer.ReadTSV(this);
@@ -76,7 +79,7 @@ public class DialogManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(ProceedWithDialog());
+        //StartCoroutine(ProceedWithDialog());
     }
 
     public void SanityCheck()
@@ -213,6 +216,7 @@ public class DialogManager : MonoBehaviour
             }
         }
 
+        uiAudioManager.MoveToNextDialog();
         yield return StartCoroutine(PopulateDialog(currentLine));
     }
 
@@ -245,6 +249,7 @@ public class DialogManager : MonoBehaviour
         // Step 3: Handle Audio
         if (!string.IsNullOrEmpty(currentLine.AudioData.SFX)) audioManager.PlaySFXOneShot(currentLine.AudioData.SFX);
         if (!string.IsNullOrEmpty(currentLine.AudioData.BGM)) audioManager.PlayBGM(currentLine.AudioData.BGM);
+        else if (!audioManager.BGMIsPlaying()) audioManager.PlayBGM(PlayerPrefs.GetString("BGMGroupId")); // JANK MARKER
         if (!string.IsNullOrEmpty(currentLine.AudioData.DialogueVO)) audioManager.PlayDialogue(currentLine.AudioData.DialogueVO);
 
         // Step 4: Handle score change
@@ -273,9 +278,15 @@ public class DialogManager : MonoBehaviour
                     CurrentDialogID = END_GOOD; // Set to good ending dialog
                 }
             }
+            else if (string.Equals(currentLine.GOTO, "RETURN"))
+            {
+                FindFirstObjectByType<SaveLoad>().ResetGame();
+                SceneManager.LoadScene("Main Menu");
+                yield break;
+            }
             else if (!string.IsNullOrEmpty(currentLine.GOTO))
             {
-                CurrentDialogID = currentLine.GOTO;
+                currentDialogID = currentLine.GOTO;
             }
         }
         else
@@ -291,6 +302,7 @@ public class DialogManager : MonoBehaviour
     IEnumerator TypeText(string text)
     {
         nextDialogAvailableIndicator.enabled = false;
+        uiAudioManager.PlayTypingSound(true);
         isTyping = true; // Mark typing as in progress
 
         DialogTextField.text = "";
@@ -302,6 +314,7 @@ public class DialogManager : MonoBehaviour
                 skipTyping = false;
                 isTyping = false;
                 nextDialogAvailableIndicator.enabled = true;
+                uiAudioManager.PlayTypingSound(false);
                 yield break;
             }
             DialogTextField.text += c;
@@ -311,6 +324,7 @@ public class DialogManager : MonoBehaviour
         skipTyping = false; // Reset skipTyping after finishing the text
         isTyping = false; // Mark typing as finished
         nextDialogAvailableIndicator.enabled = true;
+        uiAudioManager.PlayTypingSound(false);
     }
 
     /// <summary>

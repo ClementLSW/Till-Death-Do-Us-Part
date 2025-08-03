@@ -140,7 +140,7 @@ Tue065	This is their promise.				0				Crowded_Gate	Tue066	changeLoc
 Tue066	Gosh, what a day it’s been…		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerCalmOpenedMouth:true		0	Sigh	BGM_2		Black_Screen	Tue067	null
 Tue067	The number of patients… way too many….		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true		0				Black_Screen	Tue068	null
 Tue068	I have to rest now befo-		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Black_Screen	Tue069	null
-Tue069			Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Black_Screen	Tue070	flashred
+Tue069			Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerNeutralOpenedMouth:true		0				Black_Screen	Tue070	FLASHES RED
 Tue070	Argh! My head!		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerAngryOpenedMouth:true		0	Argh			Black_Screen	Tue071	null
 Tue071	(<i>Wait a moment.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerThinkingClosedMouth:true		0				Black_Screen	Tue072	null
 Tue072	It can’t be.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerThinkingOpenedMouth:true		0				Black_Screen	Tue073	null
@@ -148,7 +148,7 @@ Tue073	(<i>I place my hand upon my forehead.</i>)		Eliza_HealthyBodyHandUpThinki
 Tue074	(<i>I’ve treated more than enough patients to know what this is.</i>)		Eliza_HealthyBodyHandUpThinking_HealthyHeadNOFlowerThinkingClosedMouth:true		0				Black_Screen	Tue075	null
 Tue075	That’s not possible… I… have a fever?		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryOpenedMouth:true		0				Black_Screen	Tue076	null
 Tue076	(<i>Is it the Blue Plague? No, that’s impossible. I wore a mask the entire time and was sure to clean up properly.</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryClosedMouth:true		0				Black_Screen	Tue077	null
-Tue077			Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryClosedMouth:true		0				Black_Screen	Tue078	flashred
+Tue077			Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryClosedMouth:true		0				Black_Screen	Tue078	FLASHES RED
 Tue078	Argh!		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryClosedMouth:true		0	Argh			Black_Screen	Tue079	null
 Tue079	Stay calm and think, there’s still a chance this is just a regular fever.		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerCalmOpenedMouth:true		0				Black_Screen	Tue080	null
 Tue080	(<i>But my head is pulsing like crazy! Have I ever experienced a fever this severe?</i>)		Eliza_HealthyBodyHandDown_HealthyHeadNOFlowerAngryClosedMouth:true		0				Black_Screen	Tue081	null
@@ -405,14 +405,14 @@ Sun088	All because of your gift to me Celia. All because of your gift….. Thank
 Sun089	Thank you for all you’ve been, all you are, and all you are going to be.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthClosed:false	0				Celia_House	Sun090	null
 Sun090	*Celia grabs my face and pulls me to her, to her lips.*		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSurprisedOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthClosed:true	0	Clasp			Celia_House	Sun091	null
 Sun091	Was that a proposal, Liz? If so, then I accept.		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSurprisedClosedMouth:false	Celia_HealthyBodyHandDown_HealthyHeadSmileMouthOpen:true	0				Celia_House	Sun092	changeLoc
-Sun092	(<i>I couldn't help but blush, and my weary mind daydreams about what the future had in store for us. How could I have known that the key to the cure had been beside me, all my life. And now I know, no matter what happens, we have each other.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthClosed:false	0				Black_Screen	Sun093	null
-Sun093	Time does not pause for the weary, nor does it wait for certainty.				0				Black_Screen	Sun094	null
-Sun094	The days have passed like breath on glass.				0				Black_Screen	Sun095	null
-Sun095	Fleeting, fragile, and real.				0				Black_Screen	Sun096	null
-Sun096	Choices were made in silence, actions taken in faith, in fear, in love.				0				Black_Screen	Sun097	null
-Sun097	And now, as the final light seeps in, the story finds its close.				0				Black_Screen	Sun098	null
-Sun098	Not all answers are given.				0				Black_Screen	Sun099	null
-Sun099	Not all endings are clean.				0				Black_Screen	Sun100	null
-Sun100	But every thread, no matter how tangled, must find its knot.				0				Black_Screen	Sun101	null
-Sun101	<b>Thank you for playing Till Death Do Us Part! We hope you have enjoyed your time with us. There are multiple endings so do try to get them all!</b>				0				Black_Screen	Sun102	null
-Sun102					0				Black_Screen	RETURN	null
+Sun092	(<i>I couldn't help but blush, and my weary mind daydreams about what the future had in store for us. How could I have known that the key to the cure had been beside me, all my life. And now I know, no matter what happens, we have each other.</i>)		Eliza_SicklyBodyHandDown_SickHeadNOFlowerSmileOpenedMouth:true	Celia_HealthyBodyHandDown_HealthyHeadHappyMouthClosed:false	0				White_Screen	Sun093	null
+Sun093	Time does not pause for the weary, nor does it wait for certainty.				0				White_Screen	Sun094	null
+Sun094	The days have passed like breath on glass.				0				White_Screen	Sun095	null
+Sun095	Fleeting, fragile, and real.				0				White_Screen	Sun096	null
+Sun096	Choices were made in silence, actions taken in faith, in fear, in love.				0				White_Screen	Sun097	null
+Sun097	And now, as the final light seeps in, the story finds its close.				0				White_Screen	Sun098	null
+Sun098	Not all answers are given.				0				White_Screen	Sun099	null
+Sun099	Not all endings are clean.				0				White_Screen	Sun100	null
+Sun100	But every thread, no matter how tangled, must find its knot.				0				White_Screen	Sun101	null
+Sun101	<b>Thank you for playing Till Death Do Us Part! We hope you have enjoyed your time with us. There are multiple endings so do try to get them all!</b>				0				White_Screen	Sun102	null
+Sun 102					0				White_Screen	RETURN	null
